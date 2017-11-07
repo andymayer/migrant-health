@@ -15,48 +15,11 @@
   </head>
 
   <body>
+
      <div class="wrapper">
-    <%= yield %>
-
-
-
-   <footer class="site-footer footer strip">
-
-  <div class="wrapper">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <ul class="footer-nav">
-            <li><a class="footer-nav__link" href="/health-foundation/about/">About</a></li>
-            <li><a class="footer-nav__link" href="#">Accessibility</a></li>
-            <li><a class="footer-nav__link" href="#">Privacy policy</a></li>
-            <li><a class="footer-nav__link" href="#">Contact us</a></li>
-          </ul>
-          <p class="copyright">&copy; University of Sheffield</p>
-        </div>
-        <div class="col-sm-6 project-partners clearfix">
-          <h3>Project partners</h3>
-          <ul class="project-partners-list">
-            <li><a href="https://www.sheffield.ac.uk/" target="_blank">
-              <img src="/health-foundation/assets/img/logo-uos.png" alt="University of Sheffield">
-            </a></li>
-            <li><a href="https://www.doctorsoftheworld.org.uk/" target="_blank">
-              <img src="/health-foundation/assets/img/logo-dotw.png" alt="Doctors of the world">
-            </a></li>
-            <li><a href="https://www.yoomee.com" target="_blank">
-              <img src="/health-foundation/assets/img/logo-yoomee.png" alt="Yoomee">
-            </a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
-
-</footer>
- </div> <!-- / wrapper -->
+      <%= render 'layouts/header' %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div> <!-- / wrapper -->
   </body>
 </html>
-

@@ -1,0 +1,28 @@
+<header class="site-header" role="banner">
+  <nav class="navbar navbar-expand-md">
+    <div class="container">
+      <div class="row col-md-12">
+        <a class="navbar-brand" rel="home" href="/health-foundation/">
+          <%= image_tag 'logo.png', alt: 'logo', class: 'navbar-brand__logo' %>
+        </a>
+        <button id="main-menu-button" class="navbar-toggle btn btn-primary collapsed" data-target="#main-menu-wrap" data-toggle="collapse" type="button">
+          <i class="fa fa-bars"></i>
+          <span class="menu-button-text">
+            Menu
+          </span>
+        </button>
+        <a class="header-health-foundation-link" href="http://www.health.org.uk/" target="_blank">
+          <%= image_tag 'health-foundation.png', alt: 'Health Foundation', class: 'header-health-foundation-img' %>
+        </a>
+        <div class="collapse navbar-collapse" id="main-menu-wrap">
+          <ul id="main-menu" class="navbar-nav navbar-nav--header main-menu-wrap">
+            <li><a class="nav-link active" href="/health-foundation/">Home</a></li>
+            <li><a class="nav-link" href="/health-foundation/questions/">Questions</a></li>
+            <li><a class="nav-link" href="/health-foundation/resources/">Resources</a></li>
+            <li><a class="nav-link" href="/health-foundation/user/login.html">Login/register</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav><!-- .site-navigation -->
+</header>
