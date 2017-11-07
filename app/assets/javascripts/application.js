@@ -12,4 +12,9 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap.min
+//= require fitvids
+//= require set_up_fitvids
+

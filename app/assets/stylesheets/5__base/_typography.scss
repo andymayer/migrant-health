@@ -1,0 +1,47 @@
+body {
+  font-size:$font-size-small;
+  @include media-query (xs) {
+    font-size:$font-size-base;
+  }
+}
+.center {
+  text-align:center;
+}
+.title--uppercase {
+	text-transform:uppercase;
+	font-weight: normal;
+	font-size:$font-size-h4;
+	letter-spacing: 1px;
+}
+h1 {
+  font-family:$heading-font;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+h2, .h2 {
+  letter-spacing: -1px;
+}
+
+.content .intro {
+  line-height: 1.4;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size:$font-size-base;
+  border-bottom: 1px solid $gray-light;
+  padding-bottom: 40px;
+  @include media-query (md) {
+    font-size:$font-size-large;
+  }
+}
+
+// list styles for content pages
+.content {
+  ol,ul,p {
+    margin-bottom:25px;
+  }
+  h2, .h2, h3, .h3 {
+    margin-top:35px;
+    margin-bottom:25px;
+    clear:both;
+  }
+}

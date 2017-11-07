@@ -1,0 +1,45 @@
+.form-inline {
+  .form-control {
+    margin-right: 20px;
+  }
+  label {
+    margin-right: 5px;
+  }
+}
+
+.required:after {
+  content: "*";
+}
+
+h4 span {
+  font-size: 14px;
+}
+
+.multiselect-native-select {
+  display: block;
+}
+
+.note-editable.panel-body {
+  min-height: 400px;
+}
+.field_with_errors {
+  label {
+    color: $brand-danger;
+  }
+
+  input {
+    background-color: lighten($brand-danger, 35%);
+  }
+}
+
+.form-control {
+  @include box-shadow(0px 1px 0px $input-border);
+  @include form-control-focus-shadow;
+  &:focus {
+
+  }
+}
+label {
+  font-weight:600;
+  color:$gray-dark;
+}

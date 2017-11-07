@@ -1,0 +1,135 @@
+
+
+// colours
+
+
+
+$white: #FFF;
+$black: #000;
+$green-light: #BABF10;
+$green: #99b634;
+$green-dark: #559135;
+$yellow: #FFCE46;
+$yellow-dark: #ffbb04;
+$orange: #ff5e00;
+$orange-dark: #da5c23;
+$red: #cf3636;
+$blue-light: #40B4E5;
+$blue: #075aa8;
+$blue-dark: #054683;
+$purple: #95358C;
+$purple-dark: #842A7C;
+$pink: #d33a8d;
+$teal: #029CA6;
+$teal-dark: #0b8087;
+$turquoise: #00D4D7;
+$turquoise-dark: #4DB6A9;
+
+
+$border-radius-base:        3px;
+$border-radius-large:       3px;
+$border-radius-small:       3px;
+
+
+
+$white: #ffffff;
+$black: #000000;
+
+
+// Update bootstrap variables to be doxzoo colours
+
+$gray-base:              #000;
+
+$gray-lighter:           #e2e2e2;
+$gray-light:             lighten($gray-base, 70%);
+$gray:                   #777;
+$gray-dark:              #2c2c2c;
+$gray-darker:            lighten($gray-base, 13.5%);
+
+
+
+$text-color:     $gray-dark;
+$headings-color : $gray-dark;
+
+
+
+
+$brand-primary:         $blue;
+$brand-success:         $green;
+$brand-info:            $blue-light;
+$brand-warning:         $orange;
+$brand-danger:          $red;
+
+
+
+// Typography
+
+
+$body-font: 'Cantarell',  helvetica, arial, sans-serif;
+$font-family-sans-serif:  $body-font;
+$heading-font:  'Krona One', sans-serif;
+$headline-font: $heading-font;
+
+$code-font: monospace;
+
+$font-size-large: 22px;
+$font-size-base: 18px;
+$font-size-small: 14px;
+
+
+$font-size-jumbo:         36px;
+$font-size-h1:            30px;
+$font-size-h2:            26px;
+$font-size-h3:            20px;
+$font-size-h4:            18px;
+$font-size-h5:            18px;
+$font-size-h6:            14px;
+
+
+$screen-sm:                  768px !default;
+$screen-md:                  992px !default;
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm;
+
+
+// buttons
+$btn-default-border:             #999;
+
+// Forms
+
+$input-border:                   #999 !default;
+//** Border color for inputs on focus
+$input-border-focus:             $brand-primary !default;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                600 !default;
+
+$btn-default-color:              #333 !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             #ccc !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $orange !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $blue !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+
+$btn-link-disabled-color:        $gray-light !default;

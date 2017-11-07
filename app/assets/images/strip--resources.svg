@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1452px" height="396px" viewBox="0 0 1452 396" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>strip--resources</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0.228869474" width="1450.54655" height="395.493978"></rect>
+    </defs>
+    <g id="Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="strip--resources" transform="translate(0.710934, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+            <g id="Group-11" mask="url(#mask-2)">
+                <g transform="translate(-2.574173, -166.861260)">
+                    <rect id="Rectangle-15" fill="#9D1E73" x="0" y="117" width="1465.99159" height="335.929592"></rect>
+                    <polygon id="Path-8" fill="#2D55A2" points="328.644504 190.70437 1155.86912 420.379202 1155.86912 631.473367 0.325500382 631.473367 0.325500382 135.808602"></polygon>
+                    <circle id="Oval-3" fill="#028CD4" opacity="0.600000024" cx="394.840792" cy="205.565731" r="205.5"></circle>
+                    <polygon id="Path-9" fill="#B9A8CD" opacity="0.400000006" points="872.082475 343.3169 990.280088 225.119287 1100.89045 335.729646 1219.05436 217.565731 1323.83392 322.345289 1323.83392 648.328508 878.782058 648.328508"></polygon>
+                    <rect id="Rectangle-16" fill="#84AFD8" x="1290.94703" y="325.508023" width="297.316995" height="254.843139"></rect>
+                    <rect id="Rectangle-16-Copy" fill="#073D70" x="1155.86912" y="383.640985" width="335.929592" height="254.843139"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

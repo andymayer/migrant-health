@@ -1,0 +1,43 @@
+.related-box {
+  @extend .clearfix;
+  margin-bottom:$base-unit*3;
+}
+.contributed-by {
+  padding:$base-unit*2;
+  background:rgba(10, 54, 100, 0.67);
+  float:left;
+  width:100%;
+}
+.contributed-by__title, .contributed-by__name {
+  color:white;
+  margin:0;
+}
+.contributed-by__name {
+  font-weight: normal;
+}
+.contributed-by__title {
+  margin:0 0 10px;
+}
+.contributed-by__name {
+  font-size:$font-size-small;
+}
+ul.contributed-by__list {
+  margin:0;
+  padding:0;
+  li {
+    margin: $base-unit*1 0 $base-unit*1;
+    font-size:$font-size-small;
+    list-style-type:none;
+
+    p {
+      margin:0;
+      opacity: 0.8;
+    }
+  }
+
+}
+.content {
+  @include media-query (md) {
+    padding-right: 100px;
+  }
+}

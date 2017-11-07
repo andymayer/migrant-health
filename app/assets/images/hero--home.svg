@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1452px" height="397px" viewBox="0 0 1452 397" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
+    <title>hero--home</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0.228869474" width="1450.54655" height="395.493978"></rect>
+    </defs>
+    <g id="Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hero--home" transform="translate(0.710934, 0.629519)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+            <g id="Group-11" mask="url(#mask-2)">
+                <g transform="translate(-2.574173, -49.861260)">
+                    <rect id="Rectangle-15" fill="#068A92" x="0" y="0" width="1465.99159" height="335.929592"></rect>
+                    <polygon id="Path-8" fill="#117397" points="328.644504 73.7043695 1155.86912 303.379202 1155.86912 514.473367 0.325500382 514.473367 0.325500382 18.8086021"></polygon>
+                    <polygon id="Path-9" fill="#0B3564" points="872.082475 226.3169 990.280088 108.119287 1100.89045 218.729646 1219.05436 100.565731 1323.83392 205.345289 1323.83392 531.328508 878.782058 531.328508"></polygon>
+                    <rect id="Rectangle-16" fill="#117397" x="1216.47532" y="88.5657308" width="297.316995" height="254.843139"></rect>
+                    <rect id="Rectangle-16-Copy" fill="#029CA6" x="1155.86912" y="266.640985" width="335.929592" height="254.843139"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,15 @@
+.btn {
+  font-weight:600;
+  @include box-shadow(0px 1px 0px rgba(0,0,0,0.02));
+  -webkit-font-smoothing: antialiased;
+  border-radius:30px;
+  padding-left:20px;
+  padding-right:20px;
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size:15px;
+  border:none;
+}
+.btn-default {
+  border: 1px solid $gray;
+}

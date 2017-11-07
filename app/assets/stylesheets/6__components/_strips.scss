@@ -1,0 +1,45 @@
+.strip {
+	padding: 20px 0;
+	@include media-query (sm) {
+		padding: 30px 0;
+	}
+  @include media-query (lg) {
+    padding: 40px 0;
+  }
+}
+.strip--home {
+  @include media-query (md) {
+    padding-top: 40px;
+    padding-bottom:50px;
+
+  }
+}
+.strip__left {
+  @include media-query (md) {
+    padding-right: 50px;
+  }
+}
+.strip--no-padding {
+  padding-top: 0;
+  padding-bottom:0;
+}
+
+.list_item {
+  list-style: none;
+}
+.strip--brand-color {
+  background:$blue;
+  color:$white;
+  .title--strip {
+    color:$white;
+  }
+}
+.strip--resources {
+  background:$purple;
+}
+.strip--questions {
+    background:$teal;
+}
+.strip--topics {
+  background:$gray-lighter;
+}

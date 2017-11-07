@@ -1,0 +1,27 @@
+$base-unit: 10px;
+
+@for $i from 0 through 20 {
+  .mb--#{$i} {
+    margin-bottom: $base-unit * $i;
+  }
+
+  .mt--#{$i} {
+    margin-top: $base-unit * $i;
+  }
+
+  .mr--#{$i} {
+    margin-right: $base-unit * $i;
+  }
+
+  .ml--#{$i} {
+    margin-left: $base-unit * $i;
+  }
+
+  .p--#{$i} {
+    padding: $base-unit * $i;
+  }
+}
+
+.absolute {
+  position: absolute;
+}

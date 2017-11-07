@@ -1,0 +1,152 @@
+.sg-h2 {
+  border-bottom: 2px solid #000;
+  font-size:30px;
+  padding-bottom:20px;
+  margin:40px 0 10px;
+  text-transform: uppercase;
+  text-decoration:none;
+  a {
+    text-decoration:none;
+    color: $black;
+  }
+}
+#sg-grid {
+  .col-md-1,
+  .col-md-2,
+  .col-md-4,
+  .col-md-6,
+  .col-md-8
+   {
+     background:$gray-lighter;
+  }
+}
+.sg-color-swatch {
+    display: block;
+    height: 100%;
+    width: 100%;
+    border-radius:4px;
+}
+.sg-color {
+    background: #fff;
+    display: inline-block;
+    height: 100px;
+    margin: 0 .5em .5em 0;
+    position: relative;
+    width: 130px;
+    float:left;
+}
+.sg-variable {
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  color:white;
+  padding: 10px 0;
+  background:rgba(0,0,0,0.4);
+  display:block;
+  font-size:$font-size-small;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+  border-radius:0 0 5px 5px;
+}
+.sg-brand-primary .sg-color-swatch {
+    background: $brand-primary;
+}
+
+
+.sg-green-light .sg-color-swatch {
+    background: $green-light;
+}
+.sg-green .sg-color-swatch {
+    background: $green;
+}
+.sg-green-dark .sg-color-swatch {
+    background: $green-dark;
+}
+.sg-teal .sg-color-swatch {
+    background: $teal;
+}
+.sg-teal-dark .sg-color-swatch {
+    background: $teal-dark;
+}
+.sg-yellow .sg-color-swatch {
+    background: $yellow;
+}
+.sg-yellow-dark .sg-color-swatch {
+    background: $yellow-dark;
+}
+.sg-orange .sg-color-swatch {
+    background: $orange;
+}
+.sg-orange-dark .sg-color-swatch {
+    background: $orange-dark;
+}
+.sg-red .sg-color-swatch {
+    background: $red;
+}
+.sg-blue-light .sg-color-swatch {
+    background: $blue-light;
+}
+.sg-blue .sg-color-swatch {
+    background: $blue;
+}
+.sg-blue-dark .sg-color-swatch {
+    background: $blue-dark;
+}
+.sg-purple .sg-color-swatch {
+    background: $purple;
+}
+.sg-purple-dark .sg-color-swatch {
+    background: $purple-dark;
+}
+.sg-pink .sg-color-swatch {
+    background: $pink;
+}
+.sg-gray-lighter .sg-color-swatch {
+    background: $gray-lighter;
+}
+.sg-gray-light .sg-color-swatch {
+    background: $gray-light;
+}
+.sg-gray .sg-color-swatch {
+    background: $gray;
+}
+.sg-gray-dark .sg-color-swatch {
+    background: $gray-dark;
+}
+
+
+
+
+
+
+
+.sg-gray-lighter .sg-color-swatch {
+    background: $gray-lighter;
+}
+.sg-gray-light .sg-color-swatch {
+    background: $gray-light;
+}
+.sg-gray .sg-color-swatch {
+    background: $gray;
+}
+.sg-gray-dark .sg-color-swatch {
+    background: $gray-dark;
+}
+.sg-gray-darker .sg-color-swatch {
+    background: $gray-darker;
+}
+.sg-brand-success .sg-color-swatch {
+    background: $brand-success;
+}
+.sg-brand-info .sg-color-swatch {
+    background: $brand-info;
+}
+.sg-brand-warning .sg-color-swatch {
+    background: $brand-warning;
+}
+.sg-brand-danger .sg-color-swatch {
+    background: $brand-danger;
+}
