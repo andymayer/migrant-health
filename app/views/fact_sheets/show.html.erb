@@ -1,262 +1,69 @@
-  <section class="section" aria-label="Content">
-      <div class="strip strip--brand-color strip--home">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 strip__left">
-        <ol class="breadcrumb">
-  <li><a href="/health-foundation/"> Home</a></li>
-  <li><a href="/health-foundation/resources"> Breadcrumb example</a></li>
-  <li class="active">page</li>
-</ol>
-
-        <div class="jumbotron intro-with-icon">
-          <div class="page-icon">
-            <img src="/health-foundation/assets/img/icon-fact-sheet.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-fact-sheetpng'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-            <span class="page-icon__label">
-              Fact sheet
-            </span>
-          </div>
-
-          <h1 class="title--strip">FGM</h1>
-          <p class="intro">
-            FGM is illegal and mandatory reporting now exists for under 18s. Asking sensitively about the topic can be challenging. Developing a pathway for your practice may be helpful in encouraging practitioners to ask, and knowing what to do with the response.
-          </p>
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <%= render 'layouts/breadcrumb' %>
+            <div class="jumbotron intro-with-icon">
+              <div class="page-icon">
+                <%= render 'layouts/icon_image', file_name: 'icon-fact-sheet', alt_text: 'Fact Sheet ' %>
+                  <span class="page-icon__label">Fact sheet</span>
+              </div>
+              <h1 class="title--strip"><%= @fact_sheet.title %></h1>
+              <p class="intro"><%= @fact_sheet.intro %></p>
+            </div>
         </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="contributed-by">
-  <h4 class="contributed-by__title">Contributed by</h4>
-  <ul class="contributed-by__list">
-    <li><h5 class="contributed-by__name">Dr Brown long name</h5><p>Sheffield</p></li>
-    <li><h5 class="contributed-by__name">Dr Smith</h5><p>Manchester</p></li>
-    <li><h5 class="contributed-by__name">Dr Smith</h5><p>Manchester</p></li>
-  </ul>
-</div>
-
+        <%= render 'layouts/contributed_by', resource: @fact_sheet %>
       </div>
     </div>
   </div>
-</div>
-<div class="strip">
-  <div class="container">
-    <div class="row">
-      <div class="content col-sm-8">
-
-        <ol class="big-ol">
-          <li>FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf</li>
-          <li>Where appropriate, women should be asked if they have been a victim of FGM. Developing a pathway can be useful for this to help identify those who have been, and what to do if they have. All women from the countries of high prevalence should be asked.</li>
-          <li>Asking questions such as ‘have you been cut?’ and ‘is it impacting on your life at the moment’? Can be useful. See the ‘how to’ guide for more information.</li>
-
-        </ol>
-
-
-        <h2>Further information</h2>
-        <p>
-          The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
-        </p>
-
-        <ul class="listing resources-list">
-          <li>
-            <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="content col-sm-8">
+          <ol class="big-ol">
+            <li>FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf</li>
+            <li>Where appropriate, women should be asked if they have been a victim of FGM. Developing a pathway can be useful for this to help identify those who have been, and what to do if they have. All women from the countries of high prevalence should be asked.</li>
+            <li>Asking questions such as ‘have you been cut?’ and ‘is it impacting on your life at the moment’? Can be useful. See the ‘how to’ guide for more information.</li>
+          </ol>
+          <h2>Further information</h2>
+          <p>
+            The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
+          </p>
+          <ul class="listing resources-list">
+            <li>
+              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
               <img src="/health-foundation/assets/img/icon-document.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-document.png'" aria-hidden="true" credit="Created by arjuazka from the Noun Project" class="icon">
 
               <h3>Document title</h3>
               <p class="metadata">PDF, 477KB, 2 pages</p>
             </a>
-          </li>
-          <li>
-            <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
+            </li>
+            <li>
+              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
               <img src="/health-foundation/assets/img/icon-document.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-document.png'" aria-hidden="true" credit="Created by arjuazka from the Noun Project" class="icon">
 
               <h3>Another document title with a longer name</h3>
               <p class="metadata">PDF, 477KB, 2 pages</p>
             </a>
-          </li>
-          <li>
-            <a href="https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare">
+            </li>
+            <li>
+              <a href="https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare">
               <img src="/health-foundation/assets/img/icon-link.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-link.png'" aria-hidden="true" credit="Created by Brandy Bora from the Noun Project" class="icon icon--smaller">
 
               <h3>Mandatory reporting in healthcare</h3>
               <p class="metadata">Website link - gov.uk</p>
             </a>
-          </li>
-        </ul>
-
-
-        <div class="related-box related-fact-sheets">
-  <h3 class="related-box__title">Relevant topics</h3>
-  <ul class="listing listing--topics">
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>Infectious diseases</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>Safeguarding</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>FGM</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>First appointment</p>
-      </a>
-    </li>
-  </ul>
-</div>
-
-      </div>
-      <div class="col-sm-4">
-        <div class="fitvids">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/cRskjqpgSNs?rel=0" frameborder="0" allowfullscreen></iframe>
+            </li>
+          </ul>
+          <%= render 'layouts/relevant_topics' %>
         </div>
-        <div class="related-box related-resources">
-  <h3 class="related-box__title">Related resources</h3>
-  <ul class="listing related-nav">
-    <li>
-      <a class="list-icon list-icon--how-to" href="/health-foundation/resources/how-tos/recognising-and-responding-to-survivors-of-trauma-trafficking.html">
-        <img src="/health-foundation/assets/img/icon-how-to.svg" aria-hidden="true" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-how-to.png'" credit="Created by Nirav Faraswami from the Noun Project" class="icon">
-
-        <h3 class="listing__title">Recognising and responding to survivors of trauma, trafficking and exploitation</h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--tool" href="/health-foundation/resources/tools/hep-b-protocol-example.html">
-        <img src="/health-foundation/assets/img/icon-tool.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-tool.png'" aria-hidden="true" credit="Created by Delwar Hossain from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          Hep B protocol – example
-        </h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--practice-example" href="/health-foundation/resources/practice-examples/repeat-prescribing-pictures.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-practice-example.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-practice-example.png'" aria-hidden="true" credit="Created by il Capitano from the Noun Project" class="icon">
-
-          Repeat prescribing pictures
-        </h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--practice-example" href="/health-foundation/resources/practice-examples/in-house-interpreter.html">
-        <img src="/health-foundation/assets/img/icon-practice-example.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-practice-example.png'" aria-hidden="true" credit="Created by il Capitano from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          Interpreter presence as standard
-        </h3>
-      </a>
-    </li>
-  </ul>
-</div>
-
+        <div class="col-sm-4">
+          <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
+            <%= render 'layouts/related_resources', resource: @fact_sheet %>
+        </div>
       </div>
-    </div>
-    <div class="row">
-  <div class="ask-question-strip col-sm-12 clearfix">
-    <div class="col-sm-6">
-      <h2>What are people asking?</h2>
-  <ul class="listing listing--questions">
-    <li>
-      <a href="/health-foundation/questions/can-anyone-in-england-accesss-nhs-primary-care.html">
-        <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-Can anyone in England access NHS primary care?</h3>
-          <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
-        <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/how-do-I-know-what-immunisations–a-new-migrant-patient-needs.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          How do I know what immunisations a new migrant patient needs, and what they might have already had?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/how-do-i-ask-about-fgm.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          How do I ask about FGM? Who should I ask?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/what—are-the-signs-of-trafficking.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          What are the signs of trafficking?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/is-everyone-entitled-to-free-secondary-care.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          Is everyone entitled to free secondary care?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-
-  </ul>
-
-    </div>
-    <div class="col-sm-6">
-      <div class="ask-question">
-  <h2 class="ask-question__title">
-    Ask your own question
-  </h2>
-  <p class="ask-question__desc">
-    Post your question to the community of interest
-  </p>
-  <a href="/health-foundation/questions/ask.html" class="btn btn-primary ask-question__btn">Ask a question</a>
-</div>
-
+      <%= render 'layouts/what_are_people_asking' %>
     </div>
   </div>
-</div>
-
-  </div>
-</div>
-
-    </section>
+</section>
