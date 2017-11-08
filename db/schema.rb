@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171108095604) do
+ActiveRecord::Schema.define(version: 20171108213728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_chunks", force: :cascade do |t|
+    t.text "type"
+    t.text "title"
+    t.text "intro"
+    t.text "content"
+    t.text "after"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "resources", force: :cascade do |t|
     t.text "type", null: false
