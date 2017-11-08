@@ -1,393 +1,208 @@
-    <section class="section" aria-label="Content">
-      <div class="strip strip--brand-color strip--home">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-8 strip__left">
-        <ol class="breadcrumb">
-  <li><a href="/health-foundation/"> Home</a></li>
-  <li><a href="/health-foundation/resources"> Breadcrumb example</a></li>
-  <li class="active">page</li>
-</ol>
-
-        <div class="jumbotron intro-with-icon">
-          <div class="page-icon">
-            <img src="/health-foundation/assets/img/icon-how-to.svg" aria-hidden="true" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-how-to.png'" credit="Created by Nirav Faraswami from the Noun Project" class="icon">
-
-            <span class="page-icon__label">
-              How-to
-            </span>
-          </div>
-          <h1 class="title--strip">Recognising and responding to survivors of trauma, trafficking and exploitation</h1>
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <%= render 'layouts/breadcrumb' %>
+            <div class="jumbotron intro-with-icon">
+              <div class="page-icon">
+                <%= render 'layouts/icon_image', file_name: 'icon-how-to', alt_text: 'How To' %>
+                  <span class="page-icon__label">
+                How-to
+              </span>
+              </div>
+              <h1 class="title--strip">Recognising and responding to survivors of trauma, trafficking and exploitation</h1>
+              <p class="intro">
+                Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.
+              </p>
+            </div>
+        </div>
+        <%= render 'layouts/contributed_by', resource: @how_to %>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="content col-sm-8">
           <p class="intro">
             Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.
           </p>
+          <h2>
+            Indicators may include
+          </h2>
+          <p>
+            Detecting victims of trafficking can be difficult. Indicators may include:
+          </p>
+          <ul class="bullets">
+            <li>
+              Very poor sleep/nightmares
+            </li>
+            <li>
+              Looks dejected
+            </li>
+            <li>
+              May appear at first to be someone who is difficult to help – nothing seems to help much
+            </li>
+            <li>
+              Wary of authority (or perceived authority)
+            </li>
+            <li>
+              Hesitant or uncomfortable with surroundings
+            </li>
+            <li>
+              Shows anger; dejection; fragility or unassertiveness
+            </li>
+            <li>
+              Inconsistencies in their account of events
+            </li>
+            <li>
+              Headache, back and neck pain and gastric problems
+            </li>
+            <li>
+              'Friend' speaks for them
+            </li>
+          </ul>
+          <h2>
+            What to do
+          </h2>
+          <p>
+            Once you have identified someone may be a victim of trafficking, ensure they have a safe space to talk, away from friends and family. Listen and build up trust, without pushing them to reveal more than they are ready to. Some further tips:
+          </p>
+          <ul class="bullets">
+            <li>
+              Treat the person with dignity and respect
+            </li>
+            <li>
+              Provide a safe space for someone to talk – help to put someone at ease. Bear in mind your verbal and body language.
+            </li>
+            <li>
+              Respect and reassure of confidentiality
+            </li>
+            <li>
+              Explain why you are asking the questions that you are and what will be done with the information. Reassure that you do not share the information with any authorities
+            </li>
+            <li>
+              If you are concerned that someone is still in an exploitative or dangerous situation, do not write down contact numbers for the police or other sensitive services for service users to take away with them, unless you can ensure they can keep the information you provide somewhere safe - so as not to further compromise their safety.
+            </li>
+          </ul>
+          <p>
+            Having a local database of organisations to refer on to for support can help both identify these patients, and provide support following on from this.
+          </p>
+          <h2>
+            Resources
+          </h2>
+          <ul class="listing resources-list">
+            <li>
+              <a href="https://www.modernslaveryhelpline.org/">
+                <img src="/health-foundation/assets/img/icon-link.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-link.png'" aria-hidden="true" credit="Created by Brandy Bora from the Noun Project" class="icon icon--smaller">
+
+                <h3>Modern Slavery helpline</h3>
+                <p class="metadata">modernslaveryhelpline.org</p>
+              </a>
+            </li>
+          </ul>
+          <h2>
+            Consider whether the following questions are relevant/appropriate
+          </h2>
+          <ul class="bullets">
+            <li>
+              Did you have to pay anyone in order to come here today?
+            </li>
+            <li>
+              Do you feel safe where you are living at the moment? If not why not?
+            </li>
+            <li>
+              Do you know how to contact the UK authorities like the police for help if needed? If not, offer reassurance that they can speak to the police in confidence, with an interpreter and to a female officer if need be.
+            </li>
+            <li>
+              Has anyone made you do anything you didn't want to do? (that you didn’t consent to or didn’t want to do)
+            </li>
+            <li>
+              Do you have any access to your documents at the moment? If not, why not? Does someone else have your documents?
+            </li>
+            <li>
+              Did you use an agent to travel to the UK or elsewhere? If so, do you owe anyone any money at the moment?
+            </li>
+            <li>
+              Would you like any information about how to access free, confidential sexual health services, including free HIV tests?
+            </li>
+            <li>
+              Do you have a solicitor? If yes, are you comfortable with them? Do you have to pay them or anyone else any money to access them? Have you felt able to talk to them about all of your experiences?
+            </li>
+            <li>
+              Would you like any further assistance or advice about services available to support you?
+            </li>
+          </ul>
+          <h2>
+            Symptoms Commonly Reported Following Torture, taken from the Istanbul Protocol
+          </h2>
+          <ul class="bullets">
+            <li>
+              Confusion/disorientation
+            </li>
+            <li>
+              Memory disturbance
+            </li>
+            <li>
+              Impaired reading
+            </li>
+            <li>
+              Poor concentration
+            </li>
+            <li>
+              Re-experiencing the trauma
+            </li>
+            <li>
+              Avoidance and emotional numbing
+            </li>
+            <li>
+              Hyperarousal
+            </li>
+            <li>
+              Symptoms of depression
+            </li>
+            <li>
+              Damaged self-concept and foreshortened future
+            </li>
+            <li>
+              Somatic complaints
+            </li>
+            <li>
+              Sexual dysfunction
+            </li>
+            <li>
+              Psychosis
+            </li>
+            <li>
+              Substance abuse
+            </li>
+            <li>
+              Neuropsychological impairment
+            </li>
+            <li>
+              Depressive disorders
+            </li>
+            <li>
+              Post-traumatic stress disorder
+            </li>
+            <li>
+              Enduring personality change
+            </li>
+          </ul>
+          <h2>
+            Optional links to contributing author profiles
+          </h2>
+          <%= render 'layouts/relevant_topics' %>
+        </div>
+        <div class="col-sm-4">
+          <%= render 'layouts/embedded_video', resource: @how_to if @how_to.video_url %>
+            <%= render 'layouts/related_resources', resource: @how_to %>
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="contributed-by">
-  <h4 class="contributed-by__title">Contributed by</h4>
-  <ul class="contributed-by__list">
-    <li><h5 class="contributed-by__name">Dr Brown long name</h5><p>Sheffield</p></li>
-    <li><h5 class="contributed-by__name">Dr Smith</h5><p>Manchester</p></li>
-    <li><h5 class="contributed-by__name">Dr Smith</h5><p>Manchester</p></li>
-  </ul>
-</div>
-
-      </div>
+    </div>
+    <div class="container">
+      <%= render 'layouts/what_are_people_asking' %>
     </div>
   </div>
-</div>
-<div class="strip">
-  <div class="container">
-    <div class="row">
-      <div class="content col-sm-8">
-        <p class="intro">
-          Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.
-        </p>
-
-        <h2>
-          Indicators may include
-        </h2>
-        <p>
-          Detecting victims of trafficking can be difficult. Indicators may include:
-        </p>
-        <ul class="bullets">
-          <li>
-            Very poor sleep/nightmares
-          </li>
-          <li>
-            Looks dejected
-          </li>
-          <li>
-            May appear at first to be someone who is difficult to help – nothing seems to help much
-          </li>
-          <li>
-            Wary of authority (or perceived authority)
-          </li>
-          <li>
-            Hesitant or uncomfortable with surroundings
-          </li>
-          <li>
-            Shows anger; dejection; fragility or unassertiveness
-          </li>
-          <li>
-            Inconsistencies in their account of events
-          </li>
-          <li>
-            Headache, back and neck pain and gastric problems
-          </li>
-          <li>
-            'Friend' speaks for them
-          </li>
-        </ul>
-
-        <h2>
-          What to do
-        </h2>
-        <p>
-          Once you have identified someone may be a victim of trafficking, ensure they have a safe space to talk, away from friends and family. Listen and build up trust, without pushing them to reveal more than they are ready to. Some further tips:
-        </p>
-        <ul class="bullets">
-          <li>
-            Treat the person with dignity and respect
-          </li>
-          <li>
-            Provide a safe space for someone to talk – help to put someone at ease. Bear in mind your verbal and body language.
-          </li>
-          <li>
-            Respect and reassure of confidentiality
-          </li>
-          <li>
-            Explain why you are asking the questions that you are and what will be done with the information. Reassure that you do not share the information with any authorities
-          </li>
-          <li>
-            If you are concerned that someone is still in an exploitative or dangerous situation, do not write down contact numbers for the police or other sensitive services for service users to take away with them, unless you can ensure they can keep the information you provide somewhere safe - so as not to further compromise their safety.
-          </li>
-        </ul>
-        <p>
-          Having a local database of organisations to refer on to for support can help both identify these patients, and provide support following on from this.
-        </p>
-        <h2>
-          Resources
-        </h2>
-
-        <ul class="listing resources-list">
-          <li>
-            <a href="https://www.modernslaveryhelpline.org/">
-              <img src="/health-foundation/assets/img/icon-link.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-link.png'" aria-hidden="true" credit="Created by Brandy Bora from the Noun Project" class="icon icon--smaller">
-
-              <h3>Modern Slavery helpline</h3>
-              <p class="metadata">modernslaveryhelpline.org</p>
-            </a>
-          </li>
-        </ul>
-
-        <h2>
-          Consider whether the following questions are relevant/appropriate
-        </h2>
-        <ul class="bullets">
-          <li>
-            Did you have to pay anyone in order to come here today?
-          </li>
-          <li>
-            Do you feel safe where you are living at the moment? If not why not?
-          </li>
-          <li>
-            Do you know how to contact the UK authorities like the police for help if needed? If not, offer reassurance that they can speak to the police in confidence, with an interpreter and to a female officer if need be.
-          </li>
-          <li>
-            Has anyone made you do anything you didn't want to do? (that you didn’t consent to or didn’t want to do)
-          </li>
-          <li>
-            Do you have any access to your documents at the moment? If not, why not? Does someone else have your documents?
-          </li>
-          <li>
-            Did you use an agent to travel to the UK or elsewhere? If so, do you owe anyone any money at the moment?
-          </li>
-          <li>
-            Would you like any information about how to access free, confidential sexual health services, including free HIV tests?
-          </li>
-          <li>
-            Do you have a solicitor? If yes, are you comfortable with them? Do you have to pay them or anyone else any money to access them? Have you felt able to talk to them about all of your experiences?
-          </li>
-          <li>
-            Would you like any further assistance or advice about services available to support you?
-          </li>
-        </ul>
-        <h2>
-          Symptoms Commonly Reported Following Torture, taken from the Istanbul Protocol
-        </h2>
-        <ul class="bullets">
-          <li>
-            Confusion/disorientation
-          </li>
-          <li>
-            Memory disturbance
-          </li>
-          <li>
-            Impaired reading
-          </li>
-          <li>
-            Poor concentration
-          </li>
-          <li>
-            Re-experiencing the trauma
-          </li>
-          <li>
-            Avoidance and emotional numbing
-          </li>
-          <li>
-            Hyperarousal
-          </li>
-          <li>
-            Symptoms of depression
-          </li>
-          <li>
-            Damaged self-concept and foreshortened future
-          </li>
-          <li>
-            Somatic complaints
-          </li>
-          <li>
-            Sexual dysfunction
-          </li>
-          <li>
-            Psychosis
-          </li>
-          <li>
-            Substance abuse
-          </li>
-          <li>
-            Neuropsychological impairment
-          </li>
-          <li>
-            Depressive disorders
-          </li>
-          <li>
-            Post-traumatic stress disorder
-          </li>
-          <li>
-            Enduring personality change
-          </li>
-        </ul>
-        <h2>
-          Optional links to contributing author profiles
-        </h2>
-
-
-        <div class="related-box related-fact-sheets">
-  <h3 class="related-box__title">Relevant topics</h3>
-  <ul class="listing listing--topics">
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>Infectious diseases</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>Safeguarding</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>FGM</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/topics/fgm.html">
-        <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-        <p>First appointment</p>
-      </a>
-    </li>
-  </ul>
-</div>
-
-      </div>
-      <div class="col-sm-4">
-        <div class="fitvids">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/cRskjqpgSNs?rel=0" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="related-box related-resources">
-  <h3 class="related-box__title">Related resources</h3>
-  <ul class="listing related-nav">
-    <li>
-      <a class="list-icon list-icon--how-to" href="/health-foundation/resources/how-tos/recognising-and-responding-to-survivors-of-trauma-trafficking.html">
-        <img src="/health-foundation/assets/img/icon-how-to.svg" aria-hidden="true" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-how-to.png'" credit="Created by Nirav Faraswami from the Noun Project" class="icon">
-
-        <h3 class="listing__title">Recognising and responding to survivors of trauma, trafficking and exploitation</h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--tool" href="/health-foundation/resources/tools/hep-b-protocol-example.html">
-        <img src="/health-foundation/assets/img/icon-tool.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-tool.png'" aria-hidden="true" credit="Created by Delwar Hossain from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          Hep B protocol – example
-        </h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--practice-example" href="/health-foundation/resources/practice-examples/repeat-prescribing-pictures.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-practice-example.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-practice-example.png'" aria-hidden="true" credit="Created by il Capitano from the Noun Project" class="icon">
-
-          Repeat prescribing pictures
-        </h3>
-      </a>
-    </li>
-    <li>
-      <a class="list-icon list-icon--practice-example" href="/health-foundation/resources/practice-examples/in-house-interpreter.html">
-        <img src="/health-foundation/assets/img/icon-practice-example.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-practice-example.png'" aria-hidden="true" credit="Created by il Capitano from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          Interpreter presence as standard
-        </h3>
-      </a>
-    </li>
-  </ul>
-</div>
-
-      </div>
-    </div>
-    <div class="row">
-  <div class="ask-question-strip col-sm-12 clearfix">
-    <div class="col-sm-6">
-      <h2>What are people asking?</h2>
-  <ul class="listing listing--questions">
-    <li>
-      <a href="/health-foundation/questions/can-anyone-in-england-accesss-nhs-primary-care.html">
-        <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-Can anyone in England access NHS primary care?</h3>
-          <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-    <li>
-      <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
-        <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/how-do-I-know-what-immunisations–a-new-migrant-patient-needs.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          How do I know what immunisations a new migrant patient needs, and what they might have already had?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/how-do-i-ask-about-fgm.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          How do I ask about FGM? Who should I ask?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/what—are-the-signs-of-trafficking.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          What are the signs of trafficking?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-    <li>
-      <a href="/health-foundation/questions/is-everyone-entitled-to-free-secondary-care.html">
-        <h3 class="listing__title">
-          <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
-
-          Is everyone entitled to free secondary care?
-        </h3>
-        <p class="metadata">6 votes, 1 answer, 54 views</p>
-      </a>
-    </li>
-
-
-  </ul>
-
-    </div>
-    <div class="col-sm-6">
-      <div class="ask-question">
-  <h2 class="ask-question__title">
-    Ask your own question
-  </h2>
-  <p class="ask-question__desc">
-    Post your question to the community of interest
-  </p>
-  <a href="/health-foundation/questions/ask.html" class="btn btn-primary ask-question__btn">Ask a question</a>
-</div>
-
-    </div>
-  </div>
-</div>
-
-  </div>
-</div>
-
-    </section>
+</section>
