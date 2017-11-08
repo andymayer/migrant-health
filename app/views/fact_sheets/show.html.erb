@@ -35,7 +35,7 @@
           <ul class="listing resources-list">
             <li>
               <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
-              <img src="/health-foundation/assets/img/icon-document.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-document.png'" aria-hidden="true" credit="Created by arjuazka from the Noun Project" class="icon">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
 
               <h3>Document title</h3>
               <p class="metadata">PDF, 477KB, 2 pages</p>
@@ -43,7 +43,7 @@
             </li>
             <li>
               <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
-              <img src="/health-foundation/assets/img/icon-document.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-document.png'" aria-hidden="true" credit="Created by arjuazka from the Noun Project" class="icon">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
 
               <h3>Another document title with a longer name</h3>
               <p class="metadata">PDF, 477KB, 2 pages</p>
@@ -51,7 +51,7 @@
             </li>
             <li>
               <a href="https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare">
-              <img src="/health-foundation/assets/img/icon-link.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-link.png'" aria-hidden="true" credit="Created by Brandy Bora from the Noun Project" class="icon icon--smaller">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
 
               <h3>Mandatory reporting in healthcare</h3>
               <p class="metadata">Website link - gov.uk</p>
@@ -62,7 +62,7 @@
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
-            <%= render 'layouts/related_resources', resource: @fact_sheet %>
+          <%= render 'layouts/related_resources', resource: @fact_sheet %>
         </div>
       </div>
       <%= render 'layouts/what_are_people_asking' %>

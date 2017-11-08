@@ -95,8 +95,7 @@
           <ul class="listing resources-list">
             <li>
               <a href="https://www.modernslaveryhelpline.org/">
-                <img src="/health-foundation/assets/img/icon-link.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-link.png'" aria-hidden="true" credit="Created by Brandy Bora from the Noun Project" class="icon icon--smaller">
-
+                <%= render 'layouts/icon_image', file_name: 'icon-link', alt_text: 'Link', smaller: true %>
                 <h3>Modern Slavery helpline</h3>
                 <p class="metadata">modernslaveryhelpline.org</p>
               </a>
@@ -197,7 +196,7 @@
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @how_to if @how_to.video_url %>
-            <%= render 'layouts/related_resources', resource: @how_to %>
+          <%= render 'layouts/related_resources', resource: @how_to %>
         </div>
       </div>
     </div>
