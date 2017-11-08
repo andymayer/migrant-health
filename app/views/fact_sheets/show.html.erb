@@ -1,0 +1,70 @@
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <%= render 'layouts/breadcrumb' %>
+            <div class="jumbotron intro-with-icon">
+              <div class="page-icon">
+                <%= render 'layouts/icon_image', file_name: 'icon-fact-sheet', alt_text: 'Fact Sheet ' %>
+                  <span class="page-icon__label">Fact sheet</span>
+              </div>
+              <h1 class="title--strip"><%= @fact_sheet.title %></h1>
+              <p class="intro"><%= @fact_sheet.intro %></p>
+            </div>
+        </div>
+        <%= render 'layouts/contributed_by', resource: @fact_sheet %>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="content col-sm-8">
+          <ol class="big-ol">
+            <li>FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf</li>
+            <li>Where appropriate, women should be asked if they have been a victim of FGM. Developing a pathway can be useful for this to help identify those who have been, and what to do if they have. All women from the countries of high prevalence should be asked.</li>
+            <li>Asking questions such as ‘have you been cut?’ and ‘is it impacting on your life at the moment’? Can be useful. See the ‘how to’ guide for more information.</li>
+          </ol>
+          <h2>Further information</h2>
+          <p>
+            The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
+          </p>
+          <ul class="listing resources-list">
+            <li>
+              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
+
+              <h3>Document title</h3>
+              <p class="metadata">PDF, 477KB, 2 pages</p>
+            </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
+
+              <h3>Another document title with a longer name</h3>
+              <p class="metadata">PDF, 477KB, 2 pages</p>
+            </a>
+            </li>
+            <li>
+              <a href="https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare">
+              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
+
+              <h3>Mandatory reporting in healthcare</h3>
+              <p class="metadata">Website link - gov.uk</p>
+            </a>
+            </li>
+          </ul>
+          <%= render 'layouts/relevant_topics' %>
+        </div>
+        <div class="col-sm-4">
+          <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
+          <%= render 'layouts/related_resources', resource: @fact_sheet %>
+          <%= link_to 'Edit', edit_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
+        </div>
+      </div>
+      <%= render 'layouts/what_are_people_asking' %>
+    </div>
+  </div>
+</section>
