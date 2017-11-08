@@ -28,7 +28,7 @@
           <ul class="listing listing--large">
             <% @resources.each do |resource| %>
               <li>
-                <%= link_to resource_path(resource) do %>
+                <%= link_to polymorphic_path(resource) do %>
                   <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
                   <h3 class="listing__title"><%= resource.title %></h3>
                   <p class="listing__desc"><%= resource.intro %></p>
@@ -36,6 +36,16 @@
               </li>
             <% end %>
           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+         <%= link_to 'Create Fact Sheet', new_fact_sheet_path, class: 'btn-info btn' %>
+         <%= link_to 'Create How To', new_how_to_path, class: 'btn-info btn' %>
         </div>
       </div>
     </div>
