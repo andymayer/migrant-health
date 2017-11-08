@@ -12,4 +12,11 @@
 #
 
 class HowTo < Resource
+  def icon_file_name
+    'icon-how-to.svg'
+  end
+
+  def icon_alt_text
+    'How To'
+  end
 end
