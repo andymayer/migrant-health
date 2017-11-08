@@ -18,13 +18,29 @@ HowTo.create(
   video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0'
 )
 
+np1 = NumberedParagraphChunk.create(
+  content: "FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf\n" +
+  "Where appropriate, women should be asked if they have been a victim of FGM. Developing a pathway can be useful for this to help identify those who have been, and what to do if they have. All women from the countries of high prevalence should be asked.\n" +
+  "Asking questions such as ‘have you been cut?’ and ‘is it impacting on your life at the moment’? Can be useful. See the ‘how to’ guide for more information.\n"
+  )
+
 FactSheet.create(
   title: 'FGM',
   intro: 'FGM is illegal and mandatory reporting now exists for under 18s. Asking sensitively about the topic can be challenging. Developing a pathway for your practice may be helpful in encouraging practitioners to ask, and knowing what to do with the response.',
-  video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0'
+  video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0',
+  content_chunk_1_id: np1.id
 )
 
 FactSheet.create(
   title: 'Infectious Diseases',
   intro: 'Most migrants have do not have communicable diseases, and in fact carry a low burden. However, some are at greater risk due to unstable living conditions, the journey with exposure to high risk situations, lack of vaccinations, and lack of screening. Identifying those at risk for assessment and screening is vital.',
 )
+
+
+
+
+
+
+
+
+

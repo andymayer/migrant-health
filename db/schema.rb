@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20171108213728) do
     t.text "title", null: false
     t.text "intro", null: false
     t.text "video_url"
+    t.integer "content_chunk_1_id"
+    t.integer "content_chunk_2_id"
+    t.integer "content_chunk_3_id"
+    t.integer "content_chunk_4_id"
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -13,4 +13,5 @@
 #
 
 class NumberedParagraphChunk < ContentChunk
+  has_one :resource
 end
