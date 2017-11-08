@@ -53,6 +53,6 @@ class FactSheetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def fact_sheet_params
-      params.fetch(:fact_sheet, {})
+      params.require(:fact_sheet).permit(:title, :intro)
     end
 end

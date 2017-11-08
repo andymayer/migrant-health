@@ -10,9 +10,7 @@
                   <span class="page-icon__label">Fact sheet</span>
               </div>
               <h1 class="title--strip"><%= @fact_sheet.title %></h1>
-              <p class="intro">
-                <%= @fact_sheet.intro %>
-              </p>
+              <p class="intro"><%= @fact_sheet.intro %></p>
             </div>
         </div>
         <%= render 'layouts/contributed_by', resource: @fact_sheet %>

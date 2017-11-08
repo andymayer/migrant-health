@@ -53,6 +53,6 @@ class HowTosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def how_to_params
-      params.fetch(:how_to, {})
+      params.require(:how_to).permit(:title, :intro)
     end
 end
