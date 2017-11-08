@@ -195,6 +195,7 @@
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @how_to if @how_to.video_url %>
           <%= render 'layouts/related_resources', resource: @how_to %>
+          <%= link_to 'Edit', edit_how_to_path(@how_to), class: 'btn btn-default' %>
         </div>
       </div>
     </div>
