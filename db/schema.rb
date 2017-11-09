@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20171108213728) do
     t.integer "content_chunk_2_id"
     t.integer "content_chunk_3_id"
     t.integer "content_chunk_4_id"
+    t.integer "content_chunk_5_id"
+    t.integer "content_chunk_6_id"
+    t.integer "content_chunk_7_id"
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

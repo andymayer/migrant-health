@@ -11,6 +11,9 @@
 #  content_chunk_2_id :integer
 #  content_chunk_3_id :integer
 #  content_chunk_4_id :integer
+#  content_chunk_5_id :integer
+#  content_chunk_6_id :integer
+#  content_chunk_7_id :integer
 #  url                :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -19,6 +22,7 @@
 class FactSheet < Resource
 
   belongs_to :numbered_paragraph_chunk, optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_1_id'
+  belongs_to :paragraph_chunk,          optional: true, class_name: 'ParagraphChunk',         foreign_key: 'content_chunk_2_id'
 
   def icon_file_name
     'icon-fact-sheet.svg'
