@@ -1,1 +1,12 @@
-<%= render 'layouts/common_resource_form', resource: resource %>
+<div class="sg-body sg-container container">
+  <%= form_with(model: resource, local: true) do |f| %>
+    <%= render 'layouts/form_error_messages', resource: resource %>
+    <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+    <fieldset>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', polymorphic_path(resource), class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
