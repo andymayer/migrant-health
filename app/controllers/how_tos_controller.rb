@@ -53,6 +53,10 @@ class HowTosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def how_to_params
-      params.require(:how_to).permit(:title, :intro)
+      params.require(:how_to)
+            .permit(:title, :intro,
+              indicators_chunk_attributes: [:title, :intro, :content, :after],
+              what_to_do_chunk_attributes: [:title, :intro, :content, :after]
+          )
     end
 end

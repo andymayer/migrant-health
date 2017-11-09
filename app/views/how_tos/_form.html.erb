@@ -2,22 +2,50 @@
   <%= form_with(model: resource, local: true) do |f| %>
     <%= render 'layouts/form_error_messages', resource: resource %>
     <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
-    <fieldset>
-      <legend>Indicator Chunk</legend>
-      <div class="form-group">
-        <%= f.label :title %>
-        <%= f.text_field :title, class: 'form-control', placeholder: "Indicators may include" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :intro %>
-        <%= f.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Paragraph" %>
-      </div>
-     <p class="help-block">Enter bullet points, each point on a new line.</p>
-      <div class="form-group">
-        <%= f.label :content %>
-        <%= f.text_area :content, class: 'form-control', size: "60x24", placeholder: "Bullet Points" %>
-      </div>
-    </fieldset>
+    <%= f.fields_for :indicators_chunk do |indicator_form| %>
+      <fieldset>
+        <legend>Indicator Chunk</legend>
+        <div class="form-group">
+          <%= indicator_form.label :title %>
+          <%= indicator_form.text_field :title, class: 'form-control', placeholder: "Indicators may include" %>
+        </div>
+        <div class="form-group">
+          <%= indicator_form.label :intro %>
+          <%= indicator_form.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Paragraph" %>
+        </div>
+       <p class="help-block">Enter bullet points, each point on a new line.</p>
+        <div class="form-group">
+          <%= indicator_form.label 'Bullet Points' %>
+          <%= indicator_form.text_area :content, class: 'form-control', size: "60x24", placeholder: "Bullet Points" %>
+        </div>
+        <div class="form-group">
+          <%= indicator_form.label :after %>
+          <%= indicator_form.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
+        </div>
+      </fieldset>
+    <% end %>
+    <%= f.fields_for :what_to_do_chunk do |what_to_do_form| %>
+      <fieldset>
+        <legend>What To Do Chunk</legend>
+        <div class="form-group">
+          <%= what_to_do_form.label :title %>
+          <%= what_to_do_form.text_field :title, class: 'form-control', placeholder: "What to do" %>
+        </div>
+        <div class="form-group">
+          <%= what_to_do_form.label :intro %>
+          <%= what_to_do_form.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Paragraph" %>
+        </div>
+       <p class="help-block">Enter bullet points, each point on a new line.</p>
+        <div class="form-group">
+          <%= what_to_do_form.label 'Bullet Points' %>
+          <%= what_to_do_form.text_area :content, class: 'form-control', size: "60x24", placeholder: "Bullet Points" %>
+        </div>
+        <div class="form-group">
+          <%= what_to_do_form.label :after %>
+          <%= what_to_do_form.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
+        </div>
+      </fieldset>
+    <% end %>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>
       <%= link_to 'Cancel', polymorphic_path(resource), class: 'btn btn-default' %>
