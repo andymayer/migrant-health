@@ -1,0 +1,16 @@
+<% if chunk.title %>
+  <h2><%= chunk.title %></h2>
+<% end %>
+
+<% if chunk.intro %>
+  <p><%= chunk.intro %></p>
+<% end %>
+
+<ol class="big-ol">
+  <% chunk.content.split("\n").each do |point| %>
+    <li><%= point %></li>
+  <% end %>
+</ol>
+<% if chunk.after %>
+  <p><%= chunk.after %></p>
+<% end %>

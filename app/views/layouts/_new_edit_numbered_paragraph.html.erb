@@ -1,0 +1,22 @@
+<%= f.fields_for numbered_paragraph_chunk do |ff| %>
+  <fieldset>
+    <legend><%= legend_content %></legend>
+    <div class="form-group">
+      <%= ff.label 'Section title (optional)' %>
+      <%= ff.text_field :title, class: 'form-control', placeholder: "Optional section title" %>
+    </div>
+    <div class="form-group">
+      <%= ff.label 'Intro paragraph (optional)' %>
+      <%= ff.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Section Paragraph" %>
+    </div>
+   <p class="help-block">Enter the numbered paragraphs, each paragraph on a new line. You don't need to include the number.</p>
+    <div class="form-group">
+      <%= ff.label 'Numbered Paragraphs' %>
+      <%= ff.text_area :content, class: 'form-control', size: "60x24", placeholder: "Numbered Paragaphs" %>
+    </div>
+    <div class="form-group">
+      <%= ff.label 'After paragraph (optional)' %>
+      <%= ff.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
+    </div>
+  </fieldset>
+<% end %>
