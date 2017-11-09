@@ -3,6 +3,10 @@
     <%= render 'layouts/form_error_messages', resource: resource %>
     <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
     <fieldset>
+      <%= render 'layouts/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk,
+        legend_content: 'Numbered paragraph section', f: f %>
+      <%= render 'layouts/new_edit_paragraph', paragraph_chunk: :further_information_chunk,
+        legend_content: 'Further Information section', f: f %>
     </fieldset>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>
@@ -10,3 +14,4 @@
     </div>
   <% end %>
 </div>
+

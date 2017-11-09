@@ -22,7 +22,10 @@
 class FactSheet < Resource
 
   belongs_to :numbered_paragraph_chunk, optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_1_id'
-  belongs_to :paragraph_chunk,          optional: true, class_name: 'ParagraphChunk',         foreign_key: 'content_chunk_2_id'
+  belongs_to :further_information_chunk,       optional: true, class_name: 'ParagraphChunk',  foreign_key: 'content_chunk_2_id'
+
+  accepts_nested_attributes_for :numbered_paragraph_chunk
+  accepts_nested_attributes_for :further_information_chunk
 
   def icon_file_name
     'icon-fact-sheet.svg'
