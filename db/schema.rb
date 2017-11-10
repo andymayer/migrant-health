@@ -25,6 +25,26 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "further_informations", force: :cascade do |t|
+    t.text "title"
+    t.text "intro"
+    t.text "info_1_url"
+    t.text "info_1_title"
+    t.text "info_2_url"
+    t.text "info_2_title"
+    t.text "info_3_url"
+    t.text "info_3_title"
+    t.text "info_4_url"
+    t.text "info_4_title"
+    t.text "info_5_url"
+    t.text "info_5_title"
+    t.text "info_6_url"
+    t.text "info_6_title"
+    t.text "after"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -46,6 +66,7 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.integer "content_chunk_5_id"
     t.integer "content_chunk_6_id"
     t.integer "content_chunk_7_id"
+    t.integer "further_information_id"
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
