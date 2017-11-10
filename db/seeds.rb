@@ -16,6 +16,9 @@
 ContentChunk.delete_all
 Resource.delete_all
 
+PgSearch::Document.delete_all
+
+
 bp1 = BulletPointChunk.create(
   content: "Family Friend\n" +
 "On some occasions a family or friend may be used in a non-clinical setting\n" +
