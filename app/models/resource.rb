@@ -20,7 +20,12 @@
 #
 
 class Resource < ApplicationRecord
+  include PgSearch
+
   acts_as_url :title
+
+  multisearchable against: :title
+  multisearchable against: :intro
 
 
   # Enables pretty urls

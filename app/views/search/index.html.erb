@@ -21,8 +21,8 @@
         <div class="col-md-9">
           <ul class="listing">
             <% @results.each do |result| %>
-              <li><%= link_to result.searchable.name, root_path do %>
-                <h3 class="listing__title">FGM</h3>
+              <li><%= link_to polymorphic_path(result.searchable) do %>
+                <h3 class="listing__title"><%= result.searchable.title %></h3>
                 <p class="listing__desc">Latest guidance on FGM</p>
 
                 <% end %>
