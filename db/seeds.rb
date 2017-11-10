@@ -1,13 +1,48 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Fact Sheet
+# numbered_paragraph_chunk
+# further_information_chunk
+# indicators_chunk
+# what_to_do_chunk
+
+# How To
+# before_in_preparation_chunk
+# during_consultation_chunk
+# after_aftercare_chunk
+# indicators_chunk
+# what_to_do_chunk
+# consider_relevant_chunk
+# symptoms_reported_chunk
 
 ContentChunk.delete_all
 Resource.delete_all
+
+bp1 = BulletPointChunk.create(
+  content: "Family Friend\n" +
+"On some occasions a family or friend may be used in a non-clinical setting\n" +
+"In a clinical setting, they should not be used to ensure privacy for the service user\n" +
+"May miss a history of violence or trafficking\n" +
+"Telephone interpreting\n" +
+"In person interpreting \n",
+  title: 'Indicators may include',
+  intro: 'Forms of interpreting:',
+  )
+
+bp2 = BulletPointChunk.create(
+  content: "Brief the interpreter: ask them to explain in short sentences and to only translate what you say\n" +
+"Ask them to try not to explain situations themselves\n" +
+"If you are not happy with a telephone interpreter, hang up and start a new request\n" +
+"Speak to the patient, not the interpreter: i.e. maintain eye contact, don’t use the third person\n",
+  title: 'What to do',
+  intro: 'Interpreting services are a useful, but expensive, resource. Following these tips can help the consultation be successful:',
+  )
+
+HowTo.create(
+  title: 'How to use interpreters effectively',
+  intro: 'Interpreters are an invaluable resource, but can vary in availability, and accessibility. When an in-person interpreter is not available, language line can be used. Many struggle to build a rapport on the telephone and via interpreters. This section provides a few useful tips for using interpreting services effectively.',
+  video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0',
+  content_chunk_4_id: bp1.id,
+  content_chunk_5_id: bp2.id,
+)
 
 pc1 = ParagraphChunk.create(
   content: "Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable."
@@ -84,11 +119,6 @@ HowTo.create(
 
 
 
-HowTo.create(
-  title: 'How to use interpreters effectively',
-  intro: 'Interpreters are an invaluable resource, but can vary in availability, and accessibility. When an in-person interpreter is not available, language line can be used. Many struggle to build a rapport on the telephone and via interpreters. This section provides a few useful tips for using interpreting services effectively.',
-  video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0'
-)
 
 np1 = NumberedParagraphChunk.create(
   content: "FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf\n" +
