@@ -21,7 +21,7 @@
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <%= render 'layouts/numbered_paragraph_renderer', chunk: @fact_sheet.numbered_paragraph_chunk %>
+          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @fact_sheet.numbered_paragraph_chunk if @fact_sheet.numbered_paragraph_chunk %>
           <h2>Further information</h2>
           <p>
             The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
@@ -56,7 +56,7 @@
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
-          <%= render 'layouts/related_resources', resource: @fact_sheet %>
+          <%= render 'layouts/related_resources', resource: @fact_sheet  %>
           <%= link_to 'Edit', edit_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
         </div>
       </div>

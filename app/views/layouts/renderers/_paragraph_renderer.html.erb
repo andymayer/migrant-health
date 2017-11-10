@@ -1,0 +1,10 @@
+<h2><%= chunk.title %></h2>
+<p><%= chunk.intro %></p>
+<% if chunk.content.include?("\n") %>
+  <% chunk.content.split("\n").each do |para| %>
+      <p><%= para %></p>
+  <% end %>
+<% else %>
+  <p><%= chunk.content %></p>
+<% end %>
+<p><%= chunk.after %></p>
