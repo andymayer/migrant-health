@@ -23,13 +23,12 @@
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <p class="intro"><%= @how_to.before_in_preparation_chunk.content %></p>
-          <%= render 'layouts/bullet_point_renderer', chunk: @how_to.indicators_chunk if @how_to.indicators_chunk %>
+          <%= render 'layouts/paragraph_renderer', chunk: @how_to.before_in_preparation_chunk if @how_to.before_in_preparation_chunk %>
+          <%= render 'layouts/paragraph_renderer', chunk: @how_to.during_consultation_chunk if @how_to.during_consultation_chunk %>
+          <%= render 'layouts/paragraph_renderer', chunk: @how_to.after_aftercare_chunk if @how_to.after_aftercare_chunk %>
           <%= render 'layouts/bullet_point_renderer', chunk: @how_to.what_to_do_chunk if @how_to.what_to_do_chunk %>
 
-          <h2>
-            Resources
-          </h2>
+          <h2>Resources</h2>
           <ul class="listing resources-list">
             <li>
               <a href="https://www.modernslaveryhelpline.org/">
