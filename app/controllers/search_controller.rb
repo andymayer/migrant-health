@@ -3,5 +3,6 @@ class SearchController < ApplicationController
     if params[:search]
       @search_term = params[:search]
       @results = PgSearch.multisearch(@search_term)
+    end
   end
 end

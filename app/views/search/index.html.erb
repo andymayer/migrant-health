@@ -1,0 +1,60 @@
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 strip__left">
+          <div class="jumbotron">
+            <h1 class="title--strip">Search Results (<%= @results.count %>)</h1>
+            <p class="intro">
+              We’re here as a reference point and resource to help you with your questions about new migrants.
+            </p>
+          </div>
+        </div>
+      </div>
+      <%= render 'layouts/search_widget', search_path: search_path %>
+    </div>
+  </div>
+
+  <div class="strip strip--topics">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <ul class="listing">
+            <% @results.each do |result| %>
+              <li><%= link_to result.searchable.name, root_path do %>
+                <h3 class="listing__title">FGM</h3>
+                <p class="listing__desc">Latest guidance on FGM</p>
+
+                <% end %>
+              </li>
+            <% end %>
+
+
+            <li>
+              <a href="/health-foundation/resources/fact-sheets/infectious-diseases.html">
+                <h3 class="listing__title">FGM</h3>
+                <p class="listing__desc">Latest guidance on FGM</p>
+              </a>
+            </li>
+            <li>
+              <a href="/health-foundation/resources/fact-sheets/infectious-diseases.html">
+                <h3 class="listing__title">Immigration status</h3>
+                <p class="listing__desc">Understanding the difference between an asylum seeker, failing asylum seeker, refugee, and undocumented migrant.</p>
+              </a>
+            </li>
+            <li>
+              <a href="/health-foundation/resources/fact-sheets/infectious-diseases.html">
+                <h3 class="listing__title">Entitlements to Primary Care</h3>
+                <p class="listing__desc">Explanation of entitlements of primary care in England.</p>
+              </a>
+            </li>
+          </ul>
+
+      </div><!-- /col-md-9 -->
+      <div class="col-md-3">
+        <a href="/health-foundation/topics/">View all topics</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
