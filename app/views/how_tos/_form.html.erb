@@ -1,1 +1,24 @@
-<%= render 'layouts/common_resource_form', resource: resource %>
+<div class="sg-body sg-container container">
+  <%= form_with(model: resource, local: true) do |f| %>
+    <%= render 'layouts/form_error_messages', resource: resource %>
+    <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+    <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :before_in_preparation_chunk,
+        legend_content: 'Before/In Preparation Section', f: f %>
+    <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :during_consultation_chunk,
+        legend_content: 'During Consultation', f: f %>
+    <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :after_aftercare_chunk,
+        legend_content: 'After/Aftercare', f: f %>
+    <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk,
+        legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
+    <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk,
+        legend_content: 'What To Do', title_placeholder_content: 'What to do', f: f %>
+    <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :consider_relevant_chunk,
+        legend_content: 'Consider whether the following questions are relevant/appropriate', title_placeholder_content: 'Consider the following', f: f %>
+    <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :symptoms_reported_chunk,
+        legend_content: 'Symptoms Reported', title_placeholder_content: 'Symptoms reported', f: f %>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', polymorphic_path(resource), class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

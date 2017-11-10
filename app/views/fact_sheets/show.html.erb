@@ -21,11 +21,10 @@
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <ol class="big-ol">
-            <li>FGM is most prevalent in 29 countries affecting more than 125 million girls and women. The attached map shows the areas with the highest prevalence: https://eliademy.com/app/pluginfile.php/302772/mod_resource/content/0/FGM%20prevalence%20map.pdf</li>
-            <li>Where appropriate, women should be asked if they have been a victim of FGM. Developing a pathway can be useful for this to help identify those who have been, and what to do if they have. All women from the countries of high prevalence should be asked.</li>
-            <li>Asking questions such as ‘have you been cut?’ and ‘is it impacting on your life at the moment’? Can be useful. See the ‘how to’ guide for more information.</li>
-          </ol>
+          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @fact_sheet.numbered_paragraph_chunk if @fact_sheet.numbered_paragraph_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.indicators_chunk if @fact_sheet.indicators_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.what_to_do_chunk if @fact_sheet.what_to_do_chunk %>
+
           <h2>Further information</h2>
           <p>
             The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
@@ -60,7 +59,7 @@
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
-          <%= render 'layouts/related_resources', resource: @fact_sheet %>
+          <%= render 'layouts/related_resources', resource: @fact_sheet  %>
           <%= link_to 'Edit', edit_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
         </div>
       </div>

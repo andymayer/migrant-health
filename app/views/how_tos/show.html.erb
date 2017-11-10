@@ -23,73 +23,12 @@
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <p class="intro">
-            Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.
-          </p>
-          <h2>
-            Indicators may include
-          </h2>
-          <p>
-            Detecting victims of trafficking can be difficult. Indicators may include:
-          </p>
-          <ul class="bullets">
-            <li>
-              Very poor sleep/nightmares
-            </li>
-            <li>
-              Looks dejected
-            </li>
-            <li>
-              May appear at first to be someone who is difficult to help – nothing seems to help much
-            </li>
-            <li>
-              Wary of authority (or perceived authority)
-            </li>
-            <li>
-              Hesitant or uncomfortable with surroundings
-            </li>
-            <li>
-              Shows anger; dejection; fragility or unassertiveness
-            </li>
-            <li>
-              Inconsistencies in their account of events
-            </li>
-            <li>
-              Headache, back and neck pain and gastric problems
-            </li>
-            <li>
-              'Friend' speaks for them
-            </li>
-          </ul>
-          <h2>
-            What to do
-          </h2>
-          <p>
-            Once you have identified someone may be a victim of trafficking, ensure they have a safe space to talk, away from friends and family. Listen and build up trust, without pushing them to reveal more than they are ready to. Some further tips:
-          </p>
-          <ul class="bullets">
-            <li>
-              Treat the person with dignity and respect
-            </li>
-            <li>
-              Provide a safe space for someone to talk – help to put someone at ease. Bear in mind your verbal and body language.
-            </li>
-            <li>
-              Respect and reassure of confidentiality
-            </li>
-            <li>
-              Explain why you are asking the questions that you are and what will be done with the information. Reassure that you do not share the information with any authorities
-            </li>
-            <li>
-              If you are concerned that someone is still in an exploitative or dangerous situation, do not write down contact numbers for the police or other sensitive services for service users to take away with them, unless you can ensure they can keep the information you provide somewhere safe - so as not to further compromise their safety.
-            </li>
-          </ul>
-          <p>
-            Having a local database of organisations to refer on to for support can help both identify these patients, and provide support following on from this.
-          </p>
-          <h2>
-            Resources
-          </h2>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.before_in_preparation_chunk if @how_to.before_in_preparation_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.during_consultation_chunk if @how_to.during_consultation_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.after_aftercare_chunk if @how_to.after_aftercare_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.what_to_do_chunk if @how_to.what_to_do_chunk %>
+
+          <h2>Resources</h2>
           <ul class="listing resources-list">
             <li>
               <a href="https://www.modernslaveryhelpline.org/">
@@ -99,94 +38,8 @@
               </a>
             </li>
           </ul>
-          <h2>
-            Consider whether the following questions are relevant/appropriate
-          </h2>
-          <ul class="bullets">
-            <li>
-              Did you have to pay anyone in order to come here today?
-            </li>
-            <li>
-              Do you feel safe where you are living at the moment? If not why not?
-            </li>
-            <li>
-              Do you know how to contact the UK authorities like the police for help if needed? If not, offer reassurance that they can speak to the police in confidence, with an interpreter and to a female officer if need be.
-            </li>
-            <li>
-              Has anyone made you do anything you didn't want to do? (that you didn’t consent to or didn’t want to do)
-            </li>
-            <li>
-              Do you have any access to your documents at the moment? If not, why not? Does someone else have your documents?
-            </li>
-            <li>
-              Did you use an agent to travel to the UK or elsewhere? If so, do you owe anyone any money at the moment?
-            </li>
-            <li>
-              Would you like any information about how to access free, confidential sexual health services, including free HIV tests?
-            </li>
-            <li>
-              Do you have a solicitor? If yes, are you comfortable with them? Do you have to pay them or anyone else any money to access them? Have you felt able to talk to them about all of your experiences?
-            </li>
-            <li>
-              Would you like any further assistance or advice about services available to support you?
-            </li>
-          </ul>
-          <h2>
-            Symptoms Commonly Reported Following Torture, taken from the Istanbul Protocol
-          </h2>
-          <ul class="bullets">
-            <li>
-              Confusion/disorientation
-            </li>
-            <li>
-              Memory disturbance
-            </li>
-            <li>
-              Impaired reading
-            </li>
-            <li>
-              Poor concentration
-            </li>
-            <li>
-              Re-experiencing the trauma
-            </li>
-            <li>
-              Avoidance and emotional numbing
-            </li>
-            <li>
-              Hyperarousal
-            </li>
-            <li>
-              Symptoms of depression
-            </li>
-            <li>
-              Damaged self-concept and foreshortened future
-            </li>
-            <li>
-              Somatic complaints
-            </li>
-            <li>
-              Sexual dysfunction
-            </li>
-            <li>
-              Psychosis
-            </li>
-            <li>
-              Substance abuse
-            </li>
-            <li>
-              Neuropsychological impairment
-            </li>
-            <li>
-              Depressive disorders
-            </li>
-            <li>
-              Post-traumatic stress disorder
-            </li>
-            <li>
-              Enduring personality change
-            </li>
-          </ul>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.consider_relevant_chunk if @how_to.consider_relevant_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.symptoms_reported_chunk if @how_to.symptoms_reported_chunk %>
           <h2>
             Optional links to contributing author profiles
           </h2>
