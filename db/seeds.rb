@@ -136,9 +136,17 @@ FactSheet.create(
   content_chunk_1_id: np1.id
 )
 
+p1 = NumberedParagraphChunk.create(
+  content: "Treatment for infectious diseases remains free of charge for all (see more on this in the entitlement section).\n" +
+"Infectious diseases screening should include routine checks for HIV, hepatitis B, and full sexual health screening. If these cannot be done at the practice, ensure clear signposting or referral to the local sexual health clinic.\n" +
+"TB should be considered in any patient with weight loss, cough, loss of appetite, and night sweats. Using the Migrant Health Guide (link below) to consider both relevant diseases and considerations for the country of origin can be helpful to guide the process\n"
+)
+
 FactSheet.create(
   title: 'Infectious Diseases',
   intro: 'Most migrants have do not have communicable diseases, and in fact carry a low burden. However, some are at greater risk due to unstable living conditions, the journey with exposure to high risk situations, lack of vaccinations, and lack of screening. Identifying those at risk for assessment and screening is vital.',
+  video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0',
+  content_chunk_1_id: p1.id
 )
 
 
