@@ -22,6 +22,9 @@
       <div class="row">
         <div class="content col-sm-8">
           <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @fact_sheet.numbered_paragraph_chunk if @fact_sheet.numbered_paragraph_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.indicators_chunk if @fact_sheet.indicators_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.what_to_do_chunk if @fact_sheet.what_to_do_chunk %>
+
           <h2>Further information</h2>
           <p>
             The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:

@@ -21,11 +21,15 @@
 
 class FactSheet < Resource
 
-  belongs_to :numbered_paragraph_chunk, optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_1_id'
-  belongs_to :further_information_chunk,       optional: true, class_name: 'ParagraphChunk',  foreign_key: 'content_chunk_2_id'
+  belongs_to :numbered_paragraph_chunk,   optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_1_id'
+  belongs_to :further_information_chunk,  optional: true, class_name: 'ParagraphChunk',         foreign_key: 'content_chunk_2_id'
+  belongs_to :indicators_chunk,           optional: true, class_name: 'BulletPointChunk',       foreign_key: 'content_chunk_3_id'
+  belongs_to :what_to_do_chunk,           optional: true, class_name: 'BulletPointChunk',       foreign_key: 'content_chunk_4_id'
 
-  accepts_nested_attributes_for :numbered_paragraph_chunk
-  accepts_nested_attributes_for :further_information_chunk
+  accepts_nested_attributes_for :numbered_paragraph_chunk,  reject_if: :all_blank
+  accepts_nested_attributes_for :further_information_chunk, reject_if: :all_blank
+  accepts_nested_attributes_for :indicators_chunk,          reject_if: :all_blank
+  accepts_nested_attributes_for :what_to_do_chunk,          reject_if: :all_blank
 
   def icon_file_name
     'icon-fact-sheet.svg'

@@ -13,12 +13,12 @@ class HowTosController < ApplicationController
   # GET /how_tos/new
   def new
     @how_to = HowTo.new
-    create_or_edit_how_to
+    populate_how_to_chunks
   end
 
   # GET /how_tos/1/edit
   def edit
-    create_or_edit_how_to
+    populate_how_to_chunks
   end
 
   # POST /how_tos
@@ -66,7 +66,7 @@ class HowTosController < ApplicationController
         )
     end
 
-    def create_or_edit_how_to
+    def populate_how_to_chunks
       @how_to.build_before_in_preparation_chunk if @how_to.before_in_preparation_chunk.nil?
       @how_to.build_during_consultation_chunk   if @how_to.during_consultation_chunk.nil?
       @how_to.build_after_aftercare_chunk       if @how_to.after_aftercare_chunk.nil?

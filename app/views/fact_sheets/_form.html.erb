@@ -7,6 +7,10 @@
         legend_content: 'Numbered paragraph section', f: f %>
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :further_information_chunk,
         legend_content: 'Further Information section', f: f %>
+      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk,
+        legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
+      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk,
+        legend_content: 'What To Do', title_placeholder_content: 'What to do', f: f %>
     </fieldset>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>
@@ -14,4 +18,5 @@
     </div>
   <% end %>
 </div>
+
 

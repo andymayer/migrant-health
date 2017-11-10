@@ -9,8 +9,6 @@
 ContentChunk.delete_all
 Resource.delete_all
 
-
-
 pc1 = ParagraphChunk.create(
   content: "Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable."
   )
@@ -81,6 +79,10 @@ HowTo.create(
   content_chunk_6_id: bp3.id,
   content_chunk_7_id: bp4.id
 )
+
+
+
+
 
 HowTo.create(
   title: 'How to use interpreters effectively',

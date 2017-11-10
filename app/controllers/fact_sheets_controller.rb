@@ -13,10 +13,12 @@ class FactSheetsController < ApplicationController
   # GET /fact_sheets/new
   def new
     @fact_sheet = FactSheet.new
+    populate_fact_sheet_chunks
   end
 
   # GET /fact_sheets/1/edit
   def edit
+    populate_fact_sheet_chunks
   end
 
   # POST /fact_sheets
@@ -53,6 +55,20 @@ class FactSheetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def fact_sheet_params
-      params.require(:fact_sheet).permit(:title, :intro)
+      params.require(:fact_sheet)
+        .permit(:title, :intro,
+          numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
+          further_information_chunk_attributes: [:title, :intro, :content, :after],
+          indicators_chunk_attributes: [:title, :intro, :content, :after],
+          what_to_do_chunk_attributes: [:title, :intro, :content, :after],
+        )
+    end
+
+    def populate_fact_sheet_chunks
+      @fact_sheet.build_numbered_paragraph_chunk  if @fact_sheet.numbered_paragraph_chunk.nil?
+      @fact_sheet.build_further_information_chunk if @fact_sheet.further_information_chunk.nil?
+      @fact_sheet.build_indicators_chunk          if @fact_sheet.indicators_chunk.nil?
+      @fact_sheet.build_what_to_do_chunk          if @fact_sheet.what_to_do_chunk.nil?
     end
 end
+
