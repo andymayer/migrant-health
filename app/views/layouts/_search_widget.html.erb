@@ -1,0 +1,8 @@
+<%= form_tag(search_path, method: :get, id: "search-form", class: 'search-wrap', role: 'search' ) do %>
+  <div class="input-group">
+    <%= text_field_tag :search, params[:search], placeholder: "Search", type: 'search', class: 'form-control search-box', placeholder: 'What are you looking for?' %>
+    <div class="input-group-btn">
+      <button class="btn btn-search"><i class="fa fa-search"></i><span>Search</span></button>
+    </div>
+  </div>
+<% end %>

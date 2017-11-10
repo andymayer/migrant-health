@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :how_tos
   resources :fact_sheets
 
+  get '/search/', to: 'search#index', as: 'search'
 end

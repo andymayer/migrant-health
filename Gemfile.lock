@@ -128,6 +128,10 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.21.0)
+    pg_search (2.1.1)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      arel (>= 6)
     powerpack (0.1.1)
     pry (0.11.2)
       coderay (~> 1.1.0)
@@ -276,6 +280,7 @@ DEPENDENCIES
   listen
   lograge
   pg
+  pg_search
   pry-rails
   pry-rescue
   puma (~> 3.7)
