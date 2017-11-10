@@ -8,6 +8,7 @@ gem 'rails', '~> 5.1.4'
 gem 'bootsnap', require: false
 # Postgres
 gem 'pg'
+gem 'pg_search'
 
 # Use SCSS for stylesheets and add bootstrap
 gem 'sass-rails', '~> 5.0'
