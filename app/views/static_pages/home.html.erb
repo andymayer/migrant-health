@@ -8,15 +8,8 @@
             <p class="intro">
               Factsheets, how-tos, tools, inspiring examples of good practice and an opportunity to ask questions and share answers in our growing community
             </p>
-            <form class="search-wrap" role="search">
-              <div class="input-group">
-                <input class="form-control search-box" placeholder="What are you looking for?" name="srch-term" type="text">
-                <div class="input-group-btn">
-                  <a href="/health-foundation/search/results.html" class="btn btn-search" ><i class="fa fa-search"></i><span>Search</span></a>
-                </div>
-              </div>
-            </form>
           </div>
+           <%= render 'layouts/search_widget', search_path: search_path %>
         </div>
         <div class="col-sm-4 strip__about-this-site">
           <h3 class="title">
