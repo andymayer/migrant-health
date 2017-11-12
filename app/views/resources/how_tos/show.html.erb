@@ -26,7 +26,7 @@
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.before_in_preparation_chunk if @how_to.before_in_preparation_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.during_consultation_chunk if @how_to.during_consultation_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.after_aftercare_chunk if @how_to.after_aftercare_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.indicators_chunk if @how_to.indicators_chunk %>       
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.indicators_chunk if @how_to.indicators_chunk %>
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.what_to_do_chunk if @how_to.what_to_do_chunk %>
 
           <h2>Resources</h2>
@@ -49,7 +49,7 @@
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @how_to if @how_to.video_url %>
           <%= render 'layouts/related_resources', resource: @how_to %>
-          <%= link_to 'Edit', edit_how_to_path(@how_to), class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_resources_how_to_path(@how_to), class: 'btn btn-default' %>
         </div>
       </div>
     </div>

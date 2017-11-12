@@ -1,4 +1,4 @@
-class HowTosController < ApplicationController
+class Resources::HowTosController < ApplicationController
   before_action :set_how_to, only: [:show, :edit, :update, :destroy]
 
   # GET /how_tos
@@ -25,7 +25,7 @@ class HowTosController < ApplicationController
   def create
     @how_to = HowTo.new(how_to_params)
     if @how_to.save
-      redirect_to @how_to, notice: 'How to was successfully created.'
+      redirect_to [:resources, @how_to], notice: 'How to was successfully created.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class HowTosController < ApplicationController
   # PATCH/PUT /how_tos/1
   def update
     if @how_to.update(how_to_params)
-      redirect_to @how_to, notice: 'How to was successfully updated.'
+      redirect_to [:resources, @how_to], notice: 'How to was successfully updated.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class HowTosController < ApplicationController
   # DELETE /how_tos/1
   def destroy
     @how_to.destroy
-    redirect_to how_tos_url, notice: 'How to was successfully destroyed.'
+    redirect_to resources_path, notice: 'How to was successfully destroyed.'
   end
 
   private
