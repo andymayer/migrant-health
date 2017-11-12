@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "further_informations", force: :cascade do |t|
+  create_table "further_information_chunks", force: :cascade do |t|
     t.text "title"
     t.text "intro"
     t.text "info_1_url"
@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.integer "content_chunk_5_id"
     t.integer "content_chunk_6_id"
     t.integer "content_chunk_7_id"
-    t.integer "further_information_id"
+    t.integer "further_information_chunk_id"
     t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

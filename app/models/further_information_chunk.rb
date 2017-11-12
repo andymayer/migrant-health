@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: further_informations
+# Table name: further_information_chunks
 #
 #  id           :integer          not null, primary key
 #  title        :text
@@ -22,6 +22,6 @@
 #  updated_at   :datetime         not null
 #
 
-class FurtherInformation < ApplicationRecord
+class FurtherInformationChunk < ApplicationRecord
   has_one :resource
 end

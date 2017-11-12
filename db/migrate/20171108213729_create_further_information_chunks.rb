@@ -1,6 +1,6 @@
-class CreateFurtherInformations < ActiveRecord::Migration[5.1]
+class CreateFurtherInformationChunks < ActiveRecord::Migration[5.1]
   def change
-    create_table :further_informations do |t|
+    create_table :further_information_chunks do |t|
       t.text        :title
       t.text        :intro
       t.text        :info_1_url

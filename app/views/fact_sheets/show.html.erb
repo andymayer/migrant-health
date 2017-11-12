@@ -25,36 +25,8 @@
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.indicators_chunk if @fact_sheet.indicators_chunk %>
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.what_to_do_chunk if @fact_sheet.what_to_do_chunk %>
 
-          <h2>Further information</h2>
-          <p>
-            The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:
-          </p>
-          <ul class="listing resources-list">
-            <li>
-              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
-              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
+          <%= render 'layouts/renderers/further_information_renderer', chunk: @fact_sheet.further_information_chunk if @fact_sheet.further_information_chunk %>
 
-              <h3>Document title</h3>
-              <p class="metadata">PDF, 477KB, 2 pages</p>
-            </a>
-            </li>
-            <li>
-              <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf">
-              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
-
-              <h3>Another document title with a longer name</h3>
-              <p class="metadata">PDF, 477KB, 2 pages</p>
-            </a>
-            </li>
-            <li>
-              <a href="https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare">
-              <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
-
-              <h3>Mandatory reporting in healthcare</h3>
-              <p class="metadata">Website link - gov.uk</p>
-            </a>
-            </li>
-          </ul>
           <%= render 'layouts/relevant_topics' %>
         </div>
         <div class="col-sm-4">

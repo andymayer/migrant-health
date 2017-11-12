@@ -1,0 +1,14 @@
+<li>
+  <%= link_to url do %>
+    <% if url.rpartition('.').last.downcase == 'pdf' %>
+      <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
+      <h3><%= title %></h3>
+      <p class="metadata">PDF, 477KB, 2 pages</p>
+
+    <% else %>
+      <%= render 'layouts/icon_image', file_name: 'icon-link.svg', alt_text: 'Document' %>
+      <h3><%= title %></h3>
+      <p class="metadata">Website link - gov.uk</p>
+    <% end %>
+  <% end %>
+</li>

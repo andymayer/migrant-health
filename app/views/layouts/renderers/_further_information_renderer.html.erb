@@ -1,0 +1,27 @@
+<% if chunk.title %>
+  <h2><%= chunk.title %></h2>
+<% end %>
+
+<% if chunk.intro %>
+  <p><%= chunk.intro %></p>
+<% end %>
+
+<ul class="listing resources-list">
+  <% if chunk.info_1_url %>
+    <%= render 'layouts/renderers/further_information_link', title: chunk.info_1_title, url: chunk.info_1_url %>
+  <% end %>
+
+  <% if chunk.info_2_url %>
+    <%= render 'layouts/renderers/further_information_link', title: chunk.info_2_title, url: chunk.info_2_url %>
+  <% end %>
+
+  <% if chunk.info_3_url %>
+    <%= render 'layouts/renderers/further_information_link', title: chunk.info_3_title, url: chunk.info_3_url %>
+  <% end %>
+</ul>
+
+<% if chunk.after %>
+  <p><%= chunk.after %></p>
+<% end %>
+
+

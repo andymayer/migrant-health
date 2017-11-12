@@ -14,7 +14,9 @@
 # symptoms_reported_chunk
 
 ContentChunk.delete_all
+FurtherInformationChunk.delete_all
 Resource.delete_all
+
 
 PgSearch::Document.delete_all
 
@@ -120,12 +122,14 @@ HowTo.create(
 
 
 
-fi = FurtherInformation.create(
+fi1 = FurtherInformationChunk.create(
   intro: 'The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:',
   info_1_url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
   info_1_title: 'Mandatory Reporting Map',
-  info_2_url: 'https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare',
-  info_2_title: 'Mandatory Reporting in Healthcare',
+  info_2_url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
+  info_2_title: 'Another document title with a longer namep',
+  info_3_url: 'https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare',
+  info_3_title: 'Mandatory Reporting in Healthcare',
 )
 
 
@@ -140,7 +144,7 @@ FactSheet.create(
   intro: 'FGM is illegal and mandatory reporting now exists for under 18s. Asking sensitively about the topic can be challenging. Developing a pathway for your practice may be helpful in encouraging practitioners to ask, and knowing what to do with the response.',
   video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0',
   content_chunk_1_id: np1.id,
-  further_information_id: fi.id
+  further_information_chunk_id: fi1.id
 )
 
 p1 = NumberedParagraphChunk.create(
@@ -149,7 +153,8 @@ p1 = NumberedParagraphChunk.create(
 "TB should be considered in any patient with weight loss, cough, loss of appetite, and night sweats. Using the Migrant Health Guide (link below) to consider both relevant diseases and considerations for the country of origin can be helpful to guide the process\n"
 )
 
-fi = FurtherInformation.create(
+fi2 = FurtherInformationChunk.create(
+  title: 'Further Information',
   intro: 'The Migrant Health Guide provides good information related to country of origin:',
   info_1_url: 'https://www.gov.uk/government/collections/migrant-health-guide-countries-a-to-z',
   info_1_title: 'Migrant Health Guide countries A-Z',
@@ -158,12 +163,12 @@ fi = FurtherInformation.create(
   after: 'See also section on immunisations. Local screening policies and clinics can be useful to compile'
 )
 
-FactSheet.create(
+FactSheet.create!(
   title: 'Infectious Diseases',
   intro: 'Most migrants have do not have communicable diseases, and in fact carry a low burden. However, some are at greater risk due to unstable living conditions, the journey with exposure to high risk situations, lack of vaccinations, and lack of screening. Identifying those at risk for assessment and screening is vital.',
   video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0',
   content_chunk_1_id: p1.id,
-  further_information_id: fi
+  further_information_chunk_id: fi2.id
 )
 
 
