@@ -1,25 +1,46 @@
-<p id="notice"><%= notice %></p>
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <%= render 'layouts/breadcrumb' %>
 
-<h1>Fact Sheets</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fact_sheets.each do |fact_sheet| %>
-      <tr>
-        <td><%= link_to 'Show', fact_sheet %></td>
-        <td><%= link_to 'Edit', edit_fact_sheet_path(fact_sheet) %></td>
-        <td><%= link_to 'Destroy', fact_sheet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fact Sheet', new_fact_sheet_path %>
+          <div class="jumbotron">
+            <h1 class="title--strip">Fact Sheets</h1>
+            <p class="intro">
+              Practical guidance about how to deal with specific problems
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <ul class="listing listing--large">
+            <% @fact_sheets.each do |resource| %>
+              <li>
+                <%= link_to new_resources_fact_sheet_path(@fact_sheet) do %>
+                  <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
+                  <h3 class="listing__title"><%= resource.title %></h3>
+                  <p class="listing__desc"><%= resource.intro %></p>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+         <%= link_to 'Create Fact Sheet', new_resources_fact_sheet_path, class: 'btn-info btn' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,10 @@
 <ol class="breadcrumb">
-  <li><a href="/health-foundation/"> Home</a></li>
-  <li><a href="/health-foundation/resources"> Breadcrumb example</a></li>
-  <li class="active">page</li>
+  <% breadcrumbs(request).each do |crumb| %>
+    <% unless crumb == breadcrumbs(request).last %>
+      <li><%= link_to crumb[:title], crumb[:url] %></li>
+    <% else %>
+      <li class="active"><%= crumb[:title] %></li>
+    <% end %>
+
+  <% end %>
 </ol>
