@@ -32,7 +32,7 @@
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', resource: @fact_sheet if @fact_sheet.video_url %>
           <%= render 'layouts/related_resources', resource: @fact_sheet  %>
-          <%= link_to 'Edit', edit_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_resources_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
         </div>
       </div>
       <%= render 'layouts/what_are_people_asking' %>

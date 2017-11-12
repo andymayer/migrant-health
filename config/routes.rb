@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   resources :resources
-  resources :how_tos
-  resources :fact_sheets
+  namespace :resources do
+    resources :how_tos
+    resources :fact_sheets
+  end
 
   get '/search/', to: 'search#index', as: 'search'
 end

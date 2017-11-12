@@ -1,4 +1,4 @@
-class FactSheetsController < ApplicationController
+class Resources::FactSheetsController < ApplicationController
   before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
 
   # GET /fact_sheets
@@ -26,7 +26,7 @@ class FactSheetsController < ApplicationController
     @fact_sheet = FactSheet.new(fact_sheet_params)
 
     if @fact_sheet.save
-      redirect_to @fact_sheet, notice: 'Fact sheet was successfully created.'
+      redirect_to [:resources, @fact_sheet], notice: 'Fact sheet was successfully created.'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class FactSheetsController < ApplicationController
   # PATCH/PUT /fact_sheets/1
   def update
     if @fact_sheet.update(fact_sheet_params)
-      redirect_to @fact_sheet, notice: 'Fact sheet was successfully updated.'
+      redirect_to [:resources, @fact_sheet], notice: 'Fact sheet was successfully updated.'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class FactSheetsController < ApplicationController
   # DELETE /fact_sheets/1
   def destroy
     @fact_sheet.destroy
-    redirect_to fact_sheets_url, notice: 'Fact sheet was successfully destroyed.'
+    redirect_to resources_path, notice: 'Fact sheet was successfully destroyed.'
   end
 
   private
