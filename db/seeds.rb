@@ -14,6 +14,7 @@
 # symptoms_reported_chunk
 
 ContentChunk.delete_all
+ExternalResource.delete_all
 FurtherInformationChunk.delete_all
 Resource.delete_all
 
@@ -124,13 +125,30 @@ HowTo.create(
 
 fi1 = FurtherInformationChunk.create(
   intro: 'The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:',
-  info_1_url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
-  info_1_title: 'Mandatory Reporting Map',
-  info_2_url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
-  info_2_title: 'Another document title with a longer namep',
-  info_3_url: 'https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare',
-  info_3_title: 'Mandatory Reporting in Healthcare',
 )
+
+
+ex1 = ExternalResource.create(
+  url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
+  title: 'Mandatory Reporting Map',
+  resource_type: 'PDF'
+)
+
+ex2 = ExternalResource.create(
+  url: 'https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf',
+  title: 'Another document title with a longer name',
+  resource_type: 'PDF'
+)
+
+ex3 = ExternalResource.create(
+  url: 'https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare',
+  title: 'Mandatory Reporting in Healthcare',
+  resource_type: 'html'
+)
+
+fi1.external_resources << ex1
+fi1.external_resources << ex2
+fi1.external_resources << ex3
 
 
 np1 = NumberedParagraphChunk.create(
@@ -156,12 +174,24 @@ p1 = NumberedParagraphChunk.create(
 fi2 = FurtherInformationChunk.create(
   title: 'Further Information',
   intro: 'The Migrant Health Guide provides good information related to country of origin:',
-  info_1_url: 'https://www.gov.uk/government/collections/migrant-health-guide-countries-a-to-z',
-  info_1_title: 'Migrant Health Guide countries A-Z',
-  info_2_url: 'https://www.gov.uk/government/collections/communicable-diseases-migrant-health-guide',
-  info_2_title: 'Communicable diseases migrant health guide',
   after: 'See also section on immunisations. Local screening policies and clinics can be useful to compile'
 )
+
+
+ex1 = ExternalResource.create(
+  url: 'https://www.gov.uk/government/collections/migrant-health-guide-countries-a-to-z',
+  title: 'Migrant Health Guide countries A-Z',
+  resource_type: 'Web link'
+)
+
+ex2 = ExternalResource.create(
+  url: 'https://www.gov.uk/government/collections/communicable-diseases-migrant-health-guide',
+  title: 'Communicable diseases migrant health guide',
+  resource_type: 'Web link'
+)
+
+fi2.external_resources << ex1
+fi2.external_resources << ex2
 
 FactSheet.create!(
   title: 'Infectious Diseases',

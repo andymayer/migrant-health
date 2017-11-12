@@ -26,13 +26,15 @@ ActiveRecord::Schema.define(version: 20171110132136) do
   end
 
   create_table "external_resources", force: :cascade do |t|
+    t.integer "further_information_chunk_id", null: false
     t.text "title", null: false
-    t.text "url"
+    t.text "url", null: false
     t.text "size"
-    t.text "type"
+    t.text "resource_type"
     t.text "metadata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["further_information_chunk_id"], name: "index_external_resources_on_further_information_chunk_id"
   end
 
   create_table "further_information_chunks", force: :cascade do |t|
@@ -77,9 +79,17 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.integer "content_chunk_6_id"
     t.integer "content_chunk_7_id"
     t.integer "further_information_chunk_id"
-    t.text "slug"
+    t.text "slug", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["content_chunk_1_id"], name: "index_resources_on_content_chunk_1_id"
+    t.index ["content_chunk_2_id"], name: "index_resources_on_content_chunk_2_id"
+    t.index ["content_chunk_3_id"], name: "index_resources_on_content_chunk_3_id"
+    t.index ["content_chunk_4_id"], name: "index_resources_on_content_chunk_4_id"
+    t.index ["content_chunk_5_id"], name: "index_resources_on_content_chunk_5_id"
+    t.index ["content_chunk_6_id"], name: "index_resources_on_content_chunk_6_id"
+    t.index ["content_chunk_7_id"], name: "index_resources_on_content_chunk_7_id"
+    t.index ["further_information_chunk_id"], name: "index_resources_on_further_information_chunk_id"
   end
 
   create_table "users", force: :cascade do |t|

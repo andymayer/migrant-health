@@ -15,7 +15,7 @@
 #  content_chunk_6_id           :integer
 #  content_chunk_7_id           :integer
 #  further_information_chunk_id :integer
-#  slug                         :text
+#  slug                         :text             not null
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
 #

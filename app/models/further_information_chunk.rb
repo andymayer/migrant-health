@@ -23,5 +23,6 @@
 #
 
 class FurtherInformationChunk < ApplicationRecord
-  has_one :resource
+  has_one   :resource
+  has_many  :external_resources
 end
