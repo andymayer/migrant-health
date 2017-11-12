@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "external_resources", force: :cascade do |t|
+    t.text "title", null: false
+    t.text "url"
+    t.text "size"
+    t.text "type"
+    t.text "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "further_information_chunks", force: :cascade do |t|
     t.text "title"
     t.text "intro"
@@ -67,7 +77,7 @@ ActiveRecord::Schema.define(version: 20171110132136) do
     t.integer "content_chunk_6_id"
     t.integer "content_chunk_7_id"
     t.integer "further_information_chunk_id"
-    t.text "url"
+    t.text "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

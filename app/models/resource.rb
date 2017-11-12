@@ -15,7 +15,7 @@
 #  content_chunk_6_id           :integer
 #  content_chunk_7_id           :integer
 #  further_information_chunk_id :integer
-#  url                          :text
+#  slug                         :text
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
 #
@@ -23,7 +23,7 @@
 class Resource < ApplicationRecord
   include PgSearch
 
-  acts_as_url :title
+  acts_as_url :title, url_attribute: :slug
 
   multisearchable against: :title
   multisearchable against: :intro
@@ -31,6 +31,6 @@ class Resource < ApplicationRecord
 
   # Enables pretty urls
   def to_param
-    url
+    slug
   end
 end
