@@ -1,5 +1,10 @@
 <ol class="breadcrumb">
   <% breadcrumbs(request).each do |crumb| %>
-  <li class="<%= 'active' if crumb == breadcrumbs(request).last %>"><%= link_to crumb[:title], crumb[:url] %></li>
+    <% unless crumb == breadcrumbs(request).last %>
+      <li><%= link_to crumb[:title], crumb[:url] %></li>
+    <% else %>
+      <li class="active"><%= crumb[:title] %></li>
+    <% end %>
+
   <% end %>
 </ol>
