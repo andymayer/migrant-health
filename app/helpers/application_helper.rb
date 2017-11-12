@@ -8,4 +8,33 @@ module ApplicationHelper
       end
     end
   end
+
+  def breadcrumbs(request)
+    path = request.path
+    components = path.split('/')
+    url_build_up = request.base_url
+
+    breadcrumb_array = components.map do |component|
+      url_build_up = get_new_url_build_up(url_build_up, component)
+      { title: get_breadcrumb_title(component), url: url_build_up }
+    end
+  end
+
+  private
+
+  def get_new_url_build_up(url_build_up, component)
+    if url_build_up.end_with? ('/')
+      "#{url_build_up}#{component}"
+    else
+      "#{url_build_up}/#{component}"
+    end
+  end
+
+  def get_breadcrumb_title(component)
+    if component.empty?
+      'Home'
+    else
+      truncate(component.titleize, length: 25, omission: '... ')
+    end
+  end
 end
