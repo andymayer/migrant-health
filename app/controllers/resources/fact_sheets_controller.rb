@@ -58,7 +58,8 @@ class Resources::FactSheetsController < ApplicationController
       params.require(:fact_sheet)
         .permit(:title, :intro,
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
-          further_information_chunk_attributes: [:title, :intro, :content, :after],
+          further_information_chunk_attributes: [:title, :intro, :after,
+          external_resources_attributes: [:title, :url]],
           indicators_chunk_attributes: [:title, :intro, :content, :after],
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
         )
