@@ -1,17 +1,19 @@
-<fieldset>
-  <legend>All fields are mandatory unless otherwise specified as optional.</legend>
-   <div class="form-group">
-     <%= f.label :title %>
-     <%= f.text_field :title, class: 'form-control', placeholder: "Enter #{resource.type.titleize} Title" %>
-   </div>
-  <div class="form-group">
-    <%= f.label :intro, 'Introductory Paragraph' %>
-    <p class="help-block">Example block-level help text here.</p>
-    <%= f.text_area :intro, size: "60x12", class: 'form-control', placeholder: 'Enter an introductory paragraph' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :video_url, 'Embedded Video (optional)' %>
-    <p class="help-block">Enter the URL for the video you wish to embed.</p>
-    <%= f.text_field :video_url, class: 'form-control', placeholder: 'URL for video, for example: https://youtube.com/my-video' %>
-  </div>
-</fieldset>
+<div role="tabpanel" class="tab-pane active" id="common">
+  <fieldset>
+    <legend>Common fields for all resources</legend>
+     <div class="form-group">
+       <%= f.label :title %>
+       <%= f.text_field :title, class: 'form-control', placeholder: "Enter #{resource.type.titleize} Title" %>
+     </div>
+    <div class="form-group">
+      <%= f.label :intro, 'Introductory Paragraph' %>
+      <p class="help-block">Example block-level help text here.</p>
+      <%= f.text_area :intro, size: "60x12", class: 'form-control', placeholder: 'Enter an introductory paragraph' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :video_url, 'Embedded Video (optional)' %>
+      <p class="help-block">Enter the URL for the video you wish to embed.</p>
+      <%= f.text_field :video_url, class: 'form-control', placeholder: 'URL for video, for example: https://youtube.com/my-video' %>
+    </div>
+  </fieldset>
+</div>

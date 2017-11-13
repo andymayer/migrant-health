@@ -1,30 +1,32 @@
-<%= f.fields_for further_information_chunk do |ff| %>
-  <fieldset>
-    <legend><%= legend_content %></legend>
-    <div class="form-group">
-      <%= ff.label :title %>
-      <%= ff.text_field :title, class: 'form-control', placeholder: "#{title_placeholder_content}" %>
-    </div>
-    <div class="form-group">
-      <%= ff.label :intro %>
-      <%= ff.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Section Paragraph" %>
-    </div>
-   <p class="help-block">Enter external references.</p>
+<div role="tabpanel" class="tab-pane" id="<%= tab_id %>">
+  <%= f.fields_for further_information_chunk do |ff| %>
+    <fieldset>
+      <legend><%= legend_content %></legend>
+      <div class="form-group">
+        <%= ff.label :title %>
+        <%= ff.text_field :title, class: 'form-control', placeholder: "#{title_placeholder_content}" %>
+      </div>
+      <div class="form-group">
+        <%= ff.label :intro %>
+        <%= ff.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Section Paragraph" %>
+      </div>
+     <p class="help-block">Enter external references.</p>
 
-      <% ff.object.external_resources.each do |er| %>
-        <%= ff.fields_for :external_resources, er do |fff|  %>
-          <div class="form-group">
-            <%= ff.label :title %>
-            <%= fff.text_field :title, class: 'form-control' %>
-            <%= ff.label :url %>
-            <%= fff.text_field :url, class: 'form-control' %>
-          </div>
+        <% ff.object.external_resources.each do |er| %>
+          <%= ff.fields_for :external_resources, er do |fff|  %>
+            <div class="form-group">
+              <%= ff.label :title %>
+              <%= fff.text_field :title, class: 'form-control' %>
+              <%= ff.label :url %>
+              <%= fff.text_field :url, class: 'form-control' %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
 
-    <div class="form-group">
-      <%= ff.label :after %>
-      <%= ff.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
-    </div>
-  </fieldset>
-<% end %>
+      <div class="form-group">
+        <%= ff.label :after %>
+        <%= ff.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
