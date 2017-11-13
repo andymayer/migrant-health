@@ -1,26 +1,7 @@
 <%= content_for :title, @how_to.title %>
 
 <section class="section" aria-label="Content">
-  <div class="strip strip--brand-color strip--home">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 strip__left">
-          <%= render 'layouts/breadcrumb' %>
-            <div class="jumbotron intro-with-icon">
-              <div class="page-icon">
-                <%= render 'layouts/icon_image', file_name: 'icon-how-to.svg', alt_text: 'How To' %>
-                  <span class="page-icon__label">
-                How-to
-              </span>
-              </div>
-              <h1 class="title--strip"><%= @how_to.title %></h1>
-              <p class="intro"><%= @how_to.intro %></p>
-            </div>
-        </div>
-        <%= render 'layouts/contributed_by', resource: @how_to %>
-      </div>
-    </div>
-  </div>
+  <%= render 'resources/show_strip', resource: @how_to %>
   <div class="strip">
     <div class="container">
       <div class="row">

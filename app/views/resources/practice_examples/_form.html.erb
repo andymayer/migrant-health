@@ -1,0 +1,39 @@
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#common" aria-controls="basic" role="tab" data-toggle="tab">Basic</a></li>
+    <li role="presentation"><a href="#what-was-the-problem" aria-controls="what-was-the-problem" role="tab" data-toggle="tab">Problem?</a></li>
+    <li role="presentation"><a href="#how-did-we-approach-it" aria-controls="how-did-we-approach-it" role="tab" data-toggle="tab">Approach</a></li>
+    <li role="presentation"><a href="#what-did-we-do" aria-controls="what-did-we-do" role="tab" data-toggle="tab">What Did We Do?</a></li>
+    <li role="presentation"><a href="#did-it-work" aria-controls="did-it-work" role="tab" data-toggle="tab">Did It Work?</a></li>
+    <li role="presentation"><a href="#recommendations" aria-controls="recommendations" role="tab" data-toggle="tab">Recommendations</a></li>
+  </ul>
+</div>
+
+<div class="sg-body sg-container container">
+  <%= form_with(model: [:resources, resource], local: true) do |f| %>
+
+    <%= render 'layouts/form_error_messages', resource: resource %>
+    <div class="tab-content">
+      <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :what_was_the_problem_chunk, tab_id: 'what-was-the-problem',
+          legend_content: 'What was the problem?', f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :how_did_we_approach_it_chunk, tab_id: 'how-did-we-approach-it',
+          legend_content: 'How Did We Approach It?', f: f %>
+
+      <%= render 'layouts/forms/new_edit_numbered_paragraph', paragraph_chunk: :what_did_we_do_chunk, tab_id: 'what-did-we-do',
+          legend_content: 'What Did We Do?', f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :did_it_work_chunk, tab_id: 'did-it-work',
+          legend_content: 'Did It Work?', f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :recommendations_chunk, tab_id: 'recommendations',
+          legend_content: 'Recommendations', f: f %>
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', polymorphic_path([:resources, resource]), class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
