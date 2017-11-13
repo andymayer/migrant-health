@@ -3,10 +3,12 @@
     <%= render 'layouts/form_error_messages', resource: resource %>
     <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
     <fieldset>
+      <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :further_information_chunk,
+        legend_content: 'Further Information', title_placeholder_content: 'Further information', f: f, resource: resource %>
+
       <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk,
         legend_content: 'Numbered paragraph section', f: f %>
-      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :further_information_chunk,
-        legend_content: 'Further Information section', f: f %>
+
       <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk,
         legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
       <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk,

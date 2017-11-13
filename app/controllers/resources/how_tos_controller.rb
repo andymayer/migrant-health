@@ -49,7 +49,7 @@ class Resources::HowTosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_how_to
-      @how_to = HowTo.find_by_url(params[:id])
+      @how_to = HowTo.find_by_slug(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
@@ -66,6 +66,7 @@ class Resources::HowTosController < ApplicationController
         )
     end
 
+    # YUCK
     def populate_how_to_chunks
       @how_to.build_before_in_preparation_chunk if @how_to.before_in_preparation_chunk.nil?
       @how_to.build_during_consultation_chunk   if @how_to.during_consultation_chunk.nil?

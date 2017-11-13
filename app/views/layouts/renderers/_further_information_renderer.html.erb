@@ -1,0 +1,19 @@
+<% if chunk.title %>
+  <h2><%= chunk.title %></h2>
+<% end %>
+
+<% if chunk.intro %>
+  <p><%= chunk.intro %></p>
+<% end %>
+
+<ul class="listing resources-list">
+  <% chunk.external_resources.each do |external_resource| %>
+    <%= render 'layouts/renderers/further_information_link', external_resource: external_resource %>
+  <% end %>
+</ul>
+
+<% if chunk.after %>
+  <p><%= chunk.after %></p>
+<% end %>
+
+
