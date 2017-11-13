@@ -22,7 +22,7 @@
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :where_it_is_from_chunk, tab_id: 'where-it-s-from',
           legend_content: "Where It's From", f: f %>
 
-      <%= render 'layouts/forms/new_edit_numbered_paragraph', paragraph_chunk: :numbered_paragraph_chunk, tab_id: 'numbered-paragraph',
+      <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk, tab_id: 'numbered-paragraph',
           legend_content: 'Numbered Paragraph', f: f %>
 
       <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :attachments_chunk, tab_id: 'attachments',
@@ -36,8 +36,3 @@
   <% end %>
 </div>
 
-
-  Paragraph of explanation
-Where it’s from
-Half a dozen numbered paragraphs (optional)
-Attachments
