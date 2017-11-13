@@ -67,7 +67,23 @@ class Resources::FactSheetsController < ApplicationController
 
     def populate_fact_sheet_chunks
       @fact_sheet.build_numbered_paragraph_chunk  if @fact_sheet.numbered_paragraph_chunk.nil?
-      @fact_sheet.build_further_information_chunk if @fact_sheet.further_information_chunk.nil?
+
+      if @fact_sheet.further_information_chunk.nil?
+        @fact_sheet.build_further_information_chunk
+        6.times do
+          @fact_sheet.further_information_chunk.external_resources.build
+       #   @fact_sheet.further_information_chunk.external_resources << ExternalResource.new
+        end
+      else
+        number_of_external_resources = @fact_sheet.further_information_chunk.external_resources.count
+        if number_of_external_resources < 6
+          (6 - number_of_external_resources).times do
+             @fact_sheet.further_information_chunk.external_resources.build
+     #        @fact_sheet.further_information_chunk.build_external_resources
+     #       @fact_sheet.further_information_chunk.external_resources << ExternalResource.new
+          end
+        end
+      end
       @fact_sheet.build_indicators_chunk          if @fact_sheet.indicators_chunk.nil?
       @fact_sheet.build_what_to_do_chunk          if @fact_sheet.what_to_do_chunk.nil?
     end

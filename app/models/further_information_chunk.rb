@@ -14,5 +14,5 @@ class FurtherInformationChunk < ApplicationRecord
   has_one   :resource
   has_many  :external_resources
 
-  accepts_nested_attributes_for :external_resources#,         reject_if: :all_blank
+  accepts_nested_attributes_for :external_resources,         reject_if: :all_blank
 end
