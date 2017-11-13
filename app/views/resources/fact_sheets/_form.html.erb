@@ -1,19 +1,34 @@
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#common" aria-controls="basic" role="tab" data-toggle="tab">Basic</a></li>
+    <li role="presentation"><a href="#numbered-paragraph" aria-controls="numbered-paragraph" role="tab" data-toggle="tab">Numbered Paragraph</a></li>
+    <li role="presentation"><a href="#indicators" aria-controls="indicators" role="tab" data-toggle="tab">Indicators</a></li>
+    <li role="presentation"><a href="#what-to-do" aria-controls="what-to-do" role="tab" data-toggle="tab">What To Do</a></li>
+    <li role="presentation"><a href="#further-information" aria-controls="further-information" role="tab" data-toggle="tab">Further Information</a></li>
+  </ul>
+</div>
+
 <div class="sg-body sg-container container">
   <%= form_with(model: [:resources, resource], local: true) do |f| %>
     <%= render 'layouts/form_error_messages', resource: resource %>
-    <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
-    <fieldset>
-      <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :further_information_chunk,
-        legend_content: 'Further Information', title_placeholder_content: 'Further information', f: f, resource: resource %>
+    <h2>All fields are mandatory unless specified optional</h2>
+     <div class="tab-content">
+        <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
 
-      <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk,
-        legend_content: 'Numbered paragraph section', f: f %>
+        <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk, tab_id: 'numbered-paragraph',
+          legend_content: 'Numbered paragraph section', f: f %>
 
-      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk,
-        legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
-      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk,
-        legend_content: 'What To Do', title_placeholder_content: 'What to do', f: f %>
-    </fieldset>
+        <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk, tab_id: 'indicators',
+          legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
+
+        <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk, tab_id: 'what-to-do',
+          legend_content: 'What To Do', title_placeholder_content: 'What to do', f: f %>
+
+        <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :further_information_chunk, tab_id: 'further-information',
+          legend_content: 'Further Information', title_placeholder_content: 'Further information', f: f, resource: resource %>
+
+      </div><!-- tab content -->
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>
       <%= link_to 'Cancel', polymorphic_path([:resources, resource]), class: 'btn btn-default' %>
