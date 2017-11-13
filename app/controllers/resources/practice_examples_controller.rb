@@ -68,7 +68,7 @@ class Resources::PracticeExamplesController < ApplicationController
 
     def populate_practice_example_chunks
       @practice_example.build_what_was_the_problem_chunk    if @practice_example.what_was_the_problem_chunk.nil?
-      @practice_example.builf_how_did_we_approach_it_chunk  if @practice_example.how_did_we_approach_it_chunk.nil?
+      @practice_example.build_how_did_we_approach_it_chunk  if @practice_example.how_did_we_approach_it_chunk.nil?
       @practice_example.build_what_did_we_do_chunk          if @practice_example.what_did_we_do_chunk.nil?
       @practice_example.build_did_it_work_chunk             if @practice_example.did_it_work_chunk.nil?
       @practice_example.build_recommendations_chunk         if @practice_example.recommendations_chunk.nil?

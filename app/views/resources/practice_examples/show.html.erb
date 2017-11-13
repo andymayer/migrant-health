@@ -6,7 +6,7 @@
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.what_was_the_problem_chunk if @practice_example.what_was_the_problem_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.what_was_the_problem_chunk, intro_class: true if @practice_example.what_was_the_problem_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.how_did_we_approach_it_chunk if @practice_example.how_did_we_approach_it_chunk %>
           <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @practice_example.what_did_we_do_chunk if @practice_example.what_did_we_do_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.did_it_work_chunk if @practice_example.did_it_work_chunk %>
