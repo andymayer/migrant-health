@@ -66,6 +66,7 @@ class Resources::HowTosController < ApplicationController
         )
     end
 
+    # YUCK
     def populate_how_to_chunks
       @how_to.build_before_in_preparation_chunk if @how_to.before_in_preparation_chunk.nil?
       @how_to.build_during_consultation_chunk   if @how_to.during_consultation_chunk.nil?

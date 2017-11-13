@@ -1,6 +1,8 @@
 class Resources::FactSheetsController < ApplicationController
   before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
 
+  MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 6
+
   # GET /fact_sheets
   def index
     @fact_sheets = FactSheet.all
@@ -65,22 +67,20 @@ class Resources::FactSheetsController < ApplicationController
         )
     end
 
+    # YUCK
     def populate_fact_sheet_chunks
       @fact_sheet.build_numbered_paragraph_chunk  if @fact_sheet.numbered_paragraph_chunk.nil?
 
       if @fact_sheet.further_information_chunk.nil?
         @fact_sheet.build_further_information_chunk
-        6.times do
+        MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
           @fact_sheet.further_information_chunk.external_resources.build
-       #   @fact_sheet.further_information_chunk.external_resources << ExternalResource.new
         end
       else
         number_of_external_resources = @fact_sheet.further_information_chunk.external_resources.count
-        if number_of_external_resources < 6
-          (6 - number_of_external_resources).times do
+        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
+          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
              @fact_sheet.further_information_chunk.external_resources.build
-     #        @fact_sheet.further_information_chunk.build_external_resources
-     #       @fact_sheet.further_information_chunk.external_resources << ExternalResource.new
           end
         end
       end

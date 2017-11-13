@@ -22,6 +22,7 @@ module ApplicationHelper
 
   private
 
+  # YUCK
   def get_new_url_build_up(url_build_up, component)
     if url_build_up.end_with? ('/')
       "#{url_build_up}#{component}"
