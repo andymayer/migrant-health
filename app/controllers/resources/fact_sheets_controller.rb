@@ -5,6 +5,7 @@ class Resources::FactSheetsController < ApplicationController
 
   # GET /fact_sheets
   def index
+    @resource_type = 'Fact Sheet'
     @fact_sheets = FactSheet.all
   end
 

@@ -1,8 +1,9 @@
-class PracticeExamplesController < ApplicationController
+class Resources::PracticeExamplesController < ApplicationController
   before_action :set_practice_example, only: [:show, :edit, :update, :destroy]
 
   # GET /practice_examples
   def index
+    @resource_type = 'Practice Example'
     @practice_examples = PracticeExample.all
   end
 

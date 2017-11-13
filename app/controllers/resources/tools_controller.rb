@@ -1,8 +1,11 @@
-class ToolsController < ApplicationController
+class Resources::ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
+
+  MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 6
 
   # GET /tools
   def index
+    @resource_type = 'Tool'
     @tools = Tool.all
   end
 
