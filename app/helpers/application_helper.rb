@@ -1,7 +1,7 @@
 module ApplicationHelper
   def nav_link(link_text, link_path)
     content_tag(:li) do
-      if current_page?(link_path)
+      if is_current_page_or_includes_path_but_not_home(link_path, request)
         link_to link_text, link_path, :class => 'active nav-link'
       else
         link_to link_text, link_path, :class => 'nav-link'
@@ -21,6 +21,11 @@ module ApplicationHelper
   end
 
   private
+
+  # YUCK
+  def is_current_page_or_includes_path_but_not_home(link_path, request)
+    current_page?(link_path) || (link_path != '/') && (request.path.include?(link_path))
+  end
 
   # YUCK
   def get_new_url_build_up(url_build_up, component)
