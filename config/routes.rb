@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   end
 
   get '/search/', to: 'search#index', as: :search
+  get '/topics', to:  "topics#index", as: :topics
+
   # Static pages
   get '/about/',          to: 'static_pages#about',           as: :about
   get '/accessibility/',  to: 'static_pages#accessibility',   as: :accessibility
