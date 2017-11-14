@@ -23,7 +23,7 @@
             <ul class="listing listing--large">
               <% @results.each do |result| %>
                   <li>
-                    <%= link_to polymorphic_path(result.searchable) do %>
+                    <%= link_to polymorphic_path([:resources, result.searchable]) do %>
                     <%= render 'layouts/icon_image', file_name: result.searchable.icon_file_name, alt_text: result.searchable.icon_alt_text %>
                       <h3 class="listing__title"><%= result.searchable.title %></h3>
                       <p class="listing__desc"><%= result.searchable.intro %></p>
