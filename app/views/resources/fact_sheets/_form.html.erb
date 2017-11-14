@@ -14,7 +14,7 @@
     <%= render 'layouts/form_error_messages', resource: resource %>
     <h2>All fields are mandatory unless specified optional</h2>
      <div class="tab-content">
-        <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+        <%= render 'layouts/forms/common_resource_form_fields', resource: resource, f: f %>
 
         <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk, tab_id: 'numbered-paragraph',
           legend_content: 'Numbered paragraph section', f: f %>

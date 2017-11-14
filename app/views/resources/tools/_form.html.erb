@@ -14,7 +14,7 @@
 
     <%= render 'layouts/form_error_messages', resource: resource %>
     <div class="tab-content">
-      <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+      <%= render 'layouts/forms/common_resource_form_fields', resource: resource, f: f %>
 
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :explanation_chunk, tab_id: 'explanation',
           legend_content: 'Explanation', f: f %>
