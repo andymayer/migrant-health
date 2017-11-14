@@ -10,7 +10,8 @@
         <%= ff.label :intro %>
         <%= ff.text_area :intro, class: 'form-control', size: "60x6", placeholder: "Introductory Section Paragraph" %>
       </div>
-     <p class="help-block">Enter external references.</p>
+      <legend>External Resources</legend>
+      <p class="help-block">Enter external resources.</p>
 
         <% ff.object.external_resources.each do |er| %>
           <%= ff.fields_for :external_resources, er do |fff|  %>

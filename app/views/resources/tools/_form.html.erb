@@ -12,9 +12,11 @@
 <div class="sg-body sg-container container">
   <%= form_with(model: [:resources, resource], local: true) do |f| %>
 
+    <h2>All fields are mandatory unless specified optional</h2>
     <%= render 'layouts/form_error_messages', resource: resource %>
+
     <div class="tab-content">
-      <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+      <%= render 'layouts/forms/common_resource_form_fields', resource: resource, f: f %>
 
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :explanation_chunk, tab_id: 'explanation',
           legend_content: 'Explanation', f: f %>

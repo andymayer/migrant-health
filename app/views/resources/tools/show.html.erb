@@ -17,7 +17,7 @@
           <%= render 'layouts/relevant_topics' %>
         </div>
         <div class="col-sm-4">
-          <%= render 'layouts/embedded_video', resource: @tool if @tool.video_url %>
+          <%= render 'layouts/embedded_video', video_url: @tool.video_url if @tool.video_url %>
           <%= render 'layouts/related_resources', resource: @tool %>
           <%= link_to 'Edit', edit_resources_tool_path(@tool), class: 'btn btn-default' %>
         </div>
