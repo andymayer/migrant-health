@@ -26,6 +26,9 @@ gem 'awesome_print'
 # For pretty urls
 gem 'stringex'
 
+# For topics
+gem 'acts-as-taggable-on', '~> 5.0'
+
 # Tidy logs
 gem 'lograge'
 

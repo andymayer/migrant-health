@@ -24,6 +24,8 @@ class Resource < ApplicationRecord
   include PgSearch
 
   acts_as_url :title, url_attribute: :slug
+  acts_as_taggable
+  acts_as_taggable_on :topics
 
   multisearchable against: :title
   multisearchable against: :intro
