@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get '/accessibility/',  to: 'static_pages#accessibility',   as: :accessibility
   get '/privacy-policy/', to: 'static_pages#privacy_policy',  as: :privacy_policy
   get '/contact-us/',     to: 'static_pages#contact_us',      as: :contact_us
+
+  # Catch all for 404
+  get "*any", via: :all, to: "errors#not_found"
 end
