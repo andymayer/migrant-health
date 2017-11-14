@@ -6,8 +6,13 @@
   <p><%= chunk.intro %></p>
 <% end %>
 
-<% chunk.content.split("\n").each do |para| %>
+<%# YUCK %>
+<% chunk.content.split("\n").each_with_index do |para, index| %>
+  <% if ! (defined?(intro_class)).nil? && index == 0 %>
+    <p class="intro"><%= para %></p>
+  <% else %>
     <p><%= para %></p>
+  <% end %>
 <% end %>
 
 <% if chunk.after %>

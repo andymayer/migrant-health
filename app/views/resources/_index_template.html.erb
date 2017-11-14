@@ -4,14 +4,9 @@
       <div class="row">
         <div class="col-sm-8 strip__left">
           <%= render 'layouts/breadcrumb' %>
-
           <div class="jumbotron">
-            <h1 class="title--strip">
-              Resources landing page example
-            </h1>
-            <p class="intro">
-              Practical guidance about how to deal with specific problems
-            </p>
+            <h1 class="title--strip"><%= @resource_type.pluralize %></h1>
+            <p class="intro">Practical guidance about how to deal with specific problems</p>
           </div>
         </div>
       </div>
@@ -22,7 +17,7 @@
       <div class="row">
         <div class="col-sm-8">
           <ul class="listing listing--large">
-            <% @resources.each do |resource| %>
+            <% resources.each do |resource| %>
               <li>
                 <%= link_to polymorphic_path([:resources, resource]) do %>
                   <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
@@ -39,12 +34,8 @@
   <div class="strip">
     <div class="container">
       <div class="row">
-        <h2>Create new resource</h2>
         <div class="col-sm-8">
-         <%= link_to 'Fact Sheet', new_resources_fact_sheet_path, class: 'btn-info btn' %>
-         <%= link_to 'How To', new_resources_how_to_path, class: 'btn-info btn' %>
-         <%= link_to 'Practice Example', new_resources_practice_example_path, class: 'btn-info btn' %>
-         <%= link_to 'Tool', new_resources_tool_path, class: 'btn-info btn' %>
+         <%= link_to "Create #{@resource_type}", new_path, class: 'btn-info btn' %>
         </div>
       </div>
     </div>

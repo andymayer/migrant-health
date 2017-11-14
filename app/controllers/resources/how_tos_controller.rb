@@ -3,6 +3,7 @@ class Resources::HowTosController < ApplicationController
 
   # GET /how_tos
   def index
+    @resource_type = 'How To'
     @how_tos = HowTo.all
   end
 

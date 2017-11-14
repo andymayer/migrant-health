@@ -1,0 +1,38 @@
+<div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#common" aria-controls="basic" role="tab" data-toggle="tab">Basic</a></li>
+    <li role="presentation"><a href="#explanation" aria-controls="explanation" role="tab" data-toggle="tab">Explanation</a></li>
+    <li role="presentation"><a href="#where-it-s-from" aria-controls="where-it-s-from" role="tab" data-toggle="tab">Where it's from</a></li>
+    <li role="presentation"><a href="numbered-paragraph" aria-controls="numbered-paragraph" role="tab" data-toggle="tab">Numbered Paragraph</a></li>
+    <li role="presentation"><a href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab">Attachments</a></li>
+  </ul>
+</div>
+
+<div class="sg-body sg-container container">
+  <%= form_with(model: [:resources, resource], local: true) do |f| %>
+
+    <%= render 'layouts/form_error_messages', resource: resource %>
+    <div class="tab-content">
+      <%= render 'layouts/common_resource_form_fields', resource: resource, f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :explanation_chunk, tab_id: 'explanation',
+          legend_content: 'Explanation', f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :where_it_is_from_chunk, tab_id: 'where-it-s-from',
+          legend_content: "Where It's From", f: f %>
+
+      <%= render 'layouts/forms/new_edit_numbered_paragraph', numbered_paragraph_chunk: :numbered_paragraph_chunk, tab_id: 'numbered-paragraph',
+          legend_content: 'Numbered Paragraph', f: f %>
+
+      <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :attachments_chunk, tab_id: 'attachments',
+          legend_content: 'Attachment', title_placeholder_content: 'Attachment', f: f, resource: resource %>
+
+    </div>
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', polymorphic_path([:resources, resource]), class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>
+
