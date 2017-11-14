@@ -1,10 +1,18 @@
+
 <% if resource.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this <%= resource.type.to_s %> from being saved:</h2>
+<div class="">
+
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      <h3><%= pluralize(resource.errors.count, "error") %> stopped this <%= resource.type.to_s %> from being saved:</h3>
+    </div>
+    <div class="panel-body">
       <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
+  </div>
+</div>
 <% end %>

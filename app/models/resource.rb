@@ -28,6 +28,7 @@ class Resource < ApplicationRecord
   multisearchable against: :title
   multisearchable against: :intro
 
+  validates_presence_of :title, :intro
 
   # Enables pretty urls
   def to_param
