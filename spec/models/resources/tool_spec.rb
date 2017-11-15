@@ -22,6 +22,6 @@
 
 require 'rails_helper'
 
-RSpec.describe FactSheet, type: :model do
+RSpec.describe Resources::Tool, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
 end
