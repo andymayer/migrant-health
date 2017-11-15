@@ -11,7 +11,7 @@
 </div>
 
 <div class="sg-body sg-container container">
-  <%= form_with(model: [:resources, resource], local: true) do |f| %>
+  <%= form_with(model: resource, local: true) do |f| %>
 
     <h2>All fields are mandatory unless specified optional</h2>
     <%= render 'layouts/form_error_messages', resource: resource %>
@@ -35,7 +35,7 @@
     </div>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>
-      <%= link_to 'Cancel', polymorphic_path([:resources, resource]), class: 'btn btn-default' %>
+      <%= link_to 'Cancel', polymorphic_path(resource), class: 'btn btn-default' %>
     </div>
   <% end %>
 </div>
