@@ -64,6 +64,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'rubocop'
   gem 'annotate'
+  gem 'seed_dump'
 end
 
 group :test do
