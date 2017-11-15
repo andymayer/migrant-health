@@ -1,8 +1,6 @@
 module Resources
-  class FactSheetsController < ApplicationController
+  class FactSheetsController < ResourcesController
     before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
-
-    MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 6
 
     # GET /fact_sheets
     def index

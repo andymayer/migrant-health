@@ -31,7 +31,7 @@ module Resources
     belongs_to :what_to_do_chunk,            optional: true, class_name: 'BulletPointChunk', foreign_key: 'content_chunk_5_id'
     belongs_to :consider_relevant_chunk,     optional: true, class_name: 'BulletPointChunk', foreign_key: 'content_chunk_6_id'
     belongs_to :symptoms_reported_chunk,     optional: true, class_name: 'BulletPointChunk', foreign_key: 'content_chunk_7_id'
-    belongs_to :further_information_chunk,   optional: true
+    belongs_to :resources_chunk,             optional: true, class_name: 'FurtherInformationChunk', foreign_key: 'further_information_chunk_id'
 
     accepts_nested_attributes_for :before_in_preparation_chunk, reject_if: :all_blank
     accepts_nested_attributes_for :during_consultation_chunk,   reject_if: :all_blank
@@ -40,7 +40,7 @@ module Resources
     accepts_nested_attributes_for :what_to_do_chunk,            reject_if: :all_blank
     accepts_nested_attributes_for :consider_relevant_chunk,     reject_if: :all_blank
     accepts_nested_attributes_for :symptoms_reported_chunk,     reject_if: :all_blank
-    accepts_nested_attributes_for :further_information_chunk,   reject_if: :all_blank
+    accepts_nested_attributes_for :resources_chunk,              reject_if: :all_blank
 
     def icon_file_name
       'icon-how-to.svg'

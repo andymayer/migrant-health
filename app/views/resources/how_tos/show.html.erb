@@ -12,7 +12,7 @@
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.indicators_chunk if @how_to.indicators_chunk %>
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.what_to_do_chunk if @how_to.what_to_do_chunk %>
 
-          <%= render 'layouts/renderers/further_information_renderer', chunk: @how_to.further_information_chunk if @how_to.further_information_chunk %>
+          <%= render 'layouts/renderers/further_information_renderer', chunk: @how_to.resources_chunk if @how_to.resources_chunk %>
 
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.consider_relevant_chunk if @how_to.consider_relevant_chunk %>
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.symptoms_reported_chunk if @how_to.symptoms_reported_chunk %>

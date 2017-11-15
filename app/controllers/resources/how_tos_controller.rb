@@ -1,5 +1,5 @@
 module Resources
-  class HowTosController < ApplicationController
+  class HowTosController < ResourcesController
     before_action :set_how_to, only: [:show, :edit, :update, :destroy]
 
     # GET /how_tos
@@ -65,6 +65,7 @@ module Resources
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
           consider_relevant_chunk_attributes: [:title, :intro, :content, :after],
           symptoms_reported_chunk_attributes: [:title, :intro, :content, :after],
+          resources_chunk_attributes: [:title, :intro, :after, external_resources_attributes: [:title, :url]],
         )
     end
 
@@ -77,6 +78,19 @@ module Resources
       @how_to.build_what_to_do_chunk            if @how_to.what_to_do_chunk.nil?
       @how_to.build_consider_relevant_chunk     if @how_to.consider_relevant_chunk.nil?
       @how_to.build_symptoms_reported_chunk     if @how_to.symptoms_reported_chunk.nil?
+      if @how_to.resources_chunk.nil?
+        @how_to.build_resources_chunk
+        MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
+          @how_to.resources_chunk.external_resources.build
+        end
+      else
+        number_of_external_resources = @how_to.resources_chunk.external_resources.count
+        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
+          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
+             @how_to.resources_chunk.external_resources.build
+          end
+        end
+      end
     end
   end
 end

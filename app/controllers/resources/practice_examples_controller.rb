@@ -1,5 +1,5 @@
 module Resources
-  class PracticeExamplesController < ApplicationController
+  class PracticeExamplesController < ResourcesController
     before_action :set_practice_example, only: [:show, :edit, :update, :destroy]
 
     # GET /practice_examples

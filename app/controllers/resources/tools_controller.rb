@@ -1,8 +1,6 @@
 module Resources
-  class ToolsController < ApplicationController
+  class ToolsController < ResourcesController
     before_action :set_tool, only: [:show, :edit, :update, :destroy]
-
-    MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 6
 
     # GET /tools
     def index
