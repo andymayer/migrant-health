@@ -61,7 +61,7 @@ module Resources
     # Only allow a trusted parameter "white list" through.
     def fact_sheet_params
       params.require(:resources_fact_sheet)
-        .permit(:title, :intro,
+        .permit(:title, :intro, :video_url, :contributed_by,
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
           further_information_chunk_attributes: [:title, :intro, :after,
           external_resources_attributes: [:title, :url]],

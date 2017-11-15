@@ -58,7 +58,7 @@ module Resources
     # Only allow a trusted parameter "white list" through.
     def practice_example_params
       params.require(:resources_practice_example)
-        .permit(:title, :intro,
+        .permit(:title, :intro, :video_url, :contributed_by,
           what_was_the_problem_chunk_attributes: [:title, :intro, :content, :after],
           how_did_we_approach_it_chunk_attributes: [:title, :intro, :content, :after],
           what_did_we_do_chunk_attributes: [:title, :intro, :content, :after],

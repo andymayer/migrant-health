@@ -6,6 +6,7 @@
 #  type                         :text             not null
 #  title                        :text             not null
 #  intro                        :text             not null
+#  contributed_by               :text
 #  video_url                    :text
 #  content_chunk_1_id           :integer
 #  content_chunk_2_id           :integer
@@ -19,6 +20,7 @@
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
 #
+
 module Resources
   class Tool < Resource
 

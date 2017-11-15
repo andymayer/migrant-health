@@ -61,7 +61,7 @@ module Resources
     # Only allow a trusted parameter "white list" through.
     def tool_params
       params.require(:resources_tool)
-        .permit(:title, :intro,
+        .permit(:title, :intro, :video_url, :contributed_by,
           explanation_chunk_attributes: [:title, :intro, :content, :after],
           where_it_s_from_chunk_attributes: [:title, :intro, :content, :after],
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],

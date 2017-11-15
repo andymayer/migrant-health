@@ -11,6 +11,11 @@
       <%= f.text_area :intro, size: "60x12", class: 'form-control', placeholder: 'Enter an introductory paragraph' %>
     </div>
     <div class="form-group">
+      <%= f.label :intro, 'Contributed By' %>
+      <p class="help-block">Who has contributed this content?</p>
+      <%= f.text_area :contributed_by, size: "60x12", class: 'form-control', placeholder: 'Who has contributed this content?' %>
+    </div>
+    <div class="form-group">
       <%= f.label :video_url, 'Embedded Video (optional)' %>
       <p class="help-block">Enter the URL for the video you wish to embed.</p>
       <%= f.text_field :video_url, class: 'form-control', placeholder: 'URL for video, for example: https://youtube.com/my-video' %>
