@@ -14,7 +14,7 @@
           <h2>
             Optional links to contributing author profiles
           </h2>
-          <%= render 'layouts/relevant_topics' %>
+           <%= render 'layouts/relevant_topics', resource: @practice_example %>
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', video_url: @practice_example.video_url if @practice_example.video_url %>

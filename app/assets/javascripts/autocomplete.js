@@ -1,5 +1,8 @@
 $(document).ready(function() {
-  if ($('#tag-placeholder').length > 0) {
-    $('#tag-placeholder').select2();
+
+  $.fn.select2.defaults.set( "theme", "bootstrap" );
+
+  if ($('#topic-placeholder').length > 0) {
+    $('#topic-placeholder').select2();
   }
 });

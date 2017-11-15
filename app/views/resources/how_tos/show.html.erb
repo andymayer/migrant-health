@@ -19,7 +19,7 @@
           <h2>
             Optional links to contributing author profiles
           </h2>
-          <%= render 'layouts/relevant_topics' %>
+          <%= render 'layouts/relevant_topics', resource: @how_to %>
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', video_url: @how_to.video_url if @how_to.video_url %>

@@ -65,6 +65,7 @@ module Resources
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
           attachments_chunk_attributes: [:title, :intro, :after,
           external_resources_attributes: [:title, :url]],
+          topic_list: []
         )
     end
 

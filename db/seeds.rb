@@ -120,7 +120,7 @@ ActsAsTaggableOn::Tag.create(name: "Immigration status", description: "Understan
 ActsAsTaggableOn::Tag.create(name: "Entitlements to Primary Care", description: "Explanation of entitlements of primary care in England.")
 ActsAsTaggableOn::Tag.create(name: "Entitlements to Secondary Care", description: "Explanation of entitlements of primary care in England.")
 ActsAsTaggableOn::Tag.create(name: "Screening", description: "Screening considerations for new migrant patients")
-ActsAsTaggableOn::Tag.create(name: "Trauma, trafficking, and victims of exploitation", description: "When and how to ask about difficult topics, and what to do with the answer")
+ActsAsTaggableOn::Tag.create(name: "Trauma trafficking and victims of exploitation", description: "When and how to ask about difficult topics, and what to do with the answer")
 ActsAsTaggableOn::Tag.create(name: "FGM", description: "Latest guidance on FGM")
 ActsAsTaggableOn::Tag.create(name: "Safeguarding", description: "Safeguarding issues particularly relevant to migrant patients")
 ActsAsTaggableOn::Tag.create(name: "Infectious diseases", description: "Consideration of infectious diseases testing")

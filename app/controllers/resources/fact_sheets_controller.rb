@@ -36,6 +36,7 @@ module Resources
 
     # PATCH/PUT /fact_sheets/1
     def update
+
       if @fact_sheet.update(fact_sheet_params)
         redirect_to @fact_sheet, notice: 'Fact sheet was successfully updated.'
       else
@@ -65,6 +66,7 @@ module Resources
           external_resources_attributes: [:title, :url]],
           indicators_chunk_attributes: [:title, :intro, :content, :after],
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
+          topic_list: []
         )
     end
 
