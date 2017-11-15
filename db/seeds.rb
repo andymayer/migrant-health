@@ -51,6 +51,8 @@ ExternalResource.create!([
   {further_information_chunk_id: 3, title: "Doctors of the World Bethnal Green Clinic", url: "https://www.modernslaveryhelpline.org/", size: nil, resource_type: nil, metadata: nil}
 ])
 
+
+
 BulletPointChunk.create!([
   {type: "BulletPointChunk", title: "Indicators may include", intro: "Forms of interpreting:", content: "Family Friend\nOn some occasions a family or friend may be used in a non-clinical setting\nIn a clinical setting, they should not be used to ensure privacy for the service user\nMay miss a history of violence or trafficking\nTelephone interpreting\nIn person interpreting \n", after: nil},
   {type: "BulletPointChunk", title: "What to do", intro: "Interpreting services are a useful, but expensive, resource. Following these tips can help the consultation be successful:", content: "Brief the interpreter: ask them to explain in short sentences and to only translate what you say\nAsk them to try not to explain situations themselves\nIf you are not happy with a telephone interpreter, hang up and start a new request\nSpeak to the patient, not the interpreter: i.e. maintain eye contact, don’t use the third person\n", after: nil},

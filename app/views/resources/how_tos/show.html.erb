@@ -9,8 +9,6 @@
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.before_in_preparation_chunk, intro_class: true if @how_to.before_in_preparation_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.during_consultation_chunk if @how_to.during_consultation_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @how_to.after_aftercare_chunk if @how_to.after_aftercare_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.indicators_chunk if @how_to.indicators_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.what_to_do_chunk if @how_to.what_to_do_chunk %>
 
           <h2>Resources</h2>
           <ul class="listing resources-list">
@@ -22,8 +20,7 @@
               </a>
             </li>
           </ul>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.consider_relevant_chunk if @how_to.consider_relevant_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @how_to.symptoms_reported_chunk if @how_to.symptoms_reported_chunk %>
+
           <h2>
             Optional links to contributing author profiles
           </h2>
