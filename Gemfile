@@ -16,7 +16,7 @@ gem 'bootstrap-sass'
 
 # Jquery and turbolinks and jquery-ui for topics
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
+# gem 'jquery-ui-rails'
 gem 'turbolinks'
 
 # Multiple environment files
