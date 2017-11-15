@@ -19,7 +19,7 @@
           <ul class="listing listing--large">
             <% resources.each do |resource| %>
               <li>
-                <%= link_to polymorphic_path([:resources, resource]) do %>
+                <%= link_to polymorphic_path(resource) do %>
                   <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
                   <h3 class="listing__title"><%= resource.title %></h3>
                   <p class="listing__desc"><%= resource.intro %></p>
