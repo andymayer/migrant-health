@@ -14,10 +14,8 @@ gem 'pg_search'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 
-# Jquery and turbolinks and jquery-ui for topics
+# Jquery
 gem 'jquery-rails'
-# gem 'jquery-ui-rails'
-gem 'turbolinks'
 
 # Multiple environment files
 gem 'dotenv-rails'
