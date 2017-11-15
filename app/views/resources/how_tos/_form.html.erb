@@ -9,6 +9,7 @@
     <li role="presentation"><a href="#what-to-do" aria-controls="what-to-do" role="tab" data-toggle="tab">What To Do</a></li>
     <li role="presentation"><a href="#consider-relevant" aria-controls="consider-relevant" role="tab" data-toggle="tab">Consider relevant</a></li>
     <li role="presentation"><a href="#symptoms-reported" aria-controls="symptoms-reported" role="tab" data-toggle="tab">Symptoms Reported</a></li>
+    <li role="presentation"><a href="#resources" aria-controls="resources" role="tab" data-toggle="tab">Resources</a></li>
   </ul>
 </div>
 <div class="sg-body sg-container container">
@@ -18,16 +19,23 @@
     <%= render 'layouts/form_error_messages', resource: resource %>
     <div class="tab-content">
       <%= render 'layouts/forms/common_resource_form_fields', resource: resource, f: f %>
-      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :before_in_preparation_chunk, tab_id: 'before-in-prep',
-            legend_content: 'Before/In Preparation Section', f: f %>
+
+      <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :before_in_preparation_chunk, tab_id: 'before-in-prep', legend_content: 'Before/In Preparation Section', f: f %>
+
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :during_consultation_chunk, tab_id: 'during-consultation', legend_content: 'During Consultation', f: f %>
+
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :after_aftercare_chunk, tab_id: 'after-care', legend_content: 'After/Aftercare', f: f %>
+
       <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :indicators_chunk, tab_id: 'indicators', legend_content: 'Indicators', title_placeholder_content: 'Indicators may include', f: f %>
+
       <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :what_to_do_chunk, tab_id: 'what-to-do', legend_content: 'What To Do', title_placeholder_content: 'What to do', f: f %>
-      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :consider_relevant_chunk,
-      tab_id: 'consider-relevant', legend_content: 'Consider whether the following questions are relevant/appropriate', title_placeholder_content: 'Consider the following', f: f %>
-      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :symptoms_reported_chunk, tab_id: 'symptoms-reported',
-            legend_content: 'Symptoms Reported', title_placeholder_content: 'Symptoms reported', f: f %>
+
+      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :consider_relevant_chunk, tab_id: 'consider-relevant', legend_content: 'Consider whether the following questions are relevant/appropriate', title_placeholder_content: 'Consider the following', f: f %>
+
+      <%= render 'layouts/forms/new_edit_bullet_point', bullet_point_chunk: :symptoms_reported_chunk, tab_id: 'symptoms-reported', legend_content: 'Symptoms Reported', title_placeholder_content: 'Symptoms reported', f: f %>
+
+      <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :resources_chunk, tab_id: 'resources', legend_content: 'Resources', title_placeholder_content: 'Resources', f: f, resource: resource %>
+
     </div>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>

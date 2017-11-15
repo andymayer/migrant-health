@@ -40,7 +40,8 @@ PgSearch::Document.create!([
 FurtherInformationChunk.create!([
   {title: nil, intro: "The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:", after: nil},
   {title: "Further Information", intro: "The Migrant Health Guide provides good information related to country of origin:", after: "See also section on immunisations. Local screening policies and clinics can be useful to compile"},
-  {title: "", intro: "", after: ""}
+  {title: "", intro: "", after: ""},
+  {title: "Resources", intro: "", after: ""}
 ])
 ExternalResource.create!([
   {further_information_chunk_id: 1, title: "Mandatory Reporting Map", url: "https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/525405/FGM_mandatory_reporting_map_A.pdf", size: nil, resource_type: "PDF", metadata: nil},
@@ -48,7 +49,8 @@ ExternalResource.create!([
   {further_information_chunk_id: 1, title: "Mandatory Reporting in Healthcare", url: "https://www.gov.uk/government/publications/fgm-mandatory-reporting-in-healthcare", size: nil, resource_type: "html", metadata: nil},
   {further_information_chunk_id: 2, title: "Migrant Health Guide countries A-Z", url: "https://www.gov.uk/government/collections/migrant-health-guide-countries-a-to-z", size: nil, resource_type: "Web link", metadata: nil},
   {further_information_chunk_id: 2, title: "Communicable diseases migrant health guide", url: "https://www.gov.uk/government/collections/communicable-diseases-migrant-health-guide", size: nil, resource_type: "Web link", metadata: nil},
-  {further_information_chunk_id: 3, title: "Doctors of the World Bethnal Green Clinic", url: "https://www.modernslaveryhelpline.org/", size: nil, resource_type: nil, metadata: nil}
+  {further_information_chunk_id: 3, title: "Doctors of the World Bethnal Green Clinic", url: "https://www.modernslaveryhelpline.org/", size: nil, resource_type: nil, metadata: nil},
+  {further_information_chunk_id: 4, title: "Doctors of the World Bethnal Green Clinic", url: "https://www.modernslaveryhelpline.org/", size: nil, resource_type: nil, metadata: nil}
 ])
 
 BulletPointChunk.create!([
@@ -104,7 +106,7 @@ Resources::FactSheet.create!([
 ])
 Resources::HowTo.create!([
   {title: "How to use interpreters effectively", contributed_by: "Dr Brown long name\nDr Smith\nDr Green",  intro: "Interpreters are an invaluable resource, but can vary in availability, and accessibility. When an in-person interpreter is not available, language line can be used. Many struggle to build a rapport on the telephone and via interpreters. This section provides a few useful tips for using interpreting services effectively.", video_url: "https://www.youtube.com/embed/cRskjqpgSNs?rel=0", content_chunk_1_id: nil, content_chunk_2_id: nil, content_chunk_3_id: nil, content_chunk_4_id: 1, content_chunk_5_id: 2, content_chunk_6_id: nil, content_chunk_7_id: nil, further_information_chunk_id: nil, slug: "how-to-use-interpreters-effectively"},
-  {title: "Recognising and responding to survivors of trauma, trafficking and exploitation", contributed_by: "Dr Brown long name\nDr Smith\nDr Green", intro: "Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.", video_url: "https://www.youtube.com/embed/cRskjqpgSNs?rel=0", content_chunk_1_id: 3, content_chunk_2_id: nil, content_chunk_3_id: nil, content_chunk_4_id: 4, content_chunk_5_id: 5, content_chunk_6_id: 6, content_chunk_7_id: 7, further_information_chunk_id: nil, slug: "recognising-and-responding-to-survivors-of-trauma-trafficking-and-exploitation"}
+  {title: "Recognising and responding to survivors of trauma, trafficking and exploitation", contributed_by: "Dr Brown long name\nDr Smith\nDr Green", intro: "Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.", video_url: "https://www.youtube.com/embed/cRskjqpgSNs?rel=0", content_chunk_1_id: 3, content_chunk_2_id: nil, content_chunk_3_id: nil, content_chunk_4_id: 4, content_chunk_5_id: 5, content_chunk_6_id: 6, content_chunk_7_id: 7, further_information_chunk_id: 4, slug: "recognising-and-responding-to-survivors-of-trauma-trafficking-and-exploitation"}
 ])
 Resources::PracticeExample.create!([
   {title: "Using Pictures To Help Non-English Speakers Understand The Repeat Prescription Process", contributed_by: "Dr Brown long name\nDr Smith\nDr Green", intro: "Purpose: To share emerging practice and learn lessons", video_url: nil, content_chunk_1_id: 15, content_chunk_2_id: 16, content_chunk_3_id: 17, content_chunk_4_id: 18, content_chunk_5_id: 19, content_chunk_6_id: nil, content_chunk_7_id: nil, further_information_chunk_id: nil, slug: "using-pictures-to-help-non-english-speakers-understand-the-repeat-prescription-process"}
