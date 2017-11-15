@@ -64,6 +64,7 @@ module Resources
           what_did_we_do_chunk_attributes: [:title, :intro, :content, :after],
           did_it_work_chunk_attributes: [:title, :intro, :content, :after],
           recommendations_chunk_attributes: [:title, :intro, :content, :after],
+          topic_list: []
         )
     end
 

@@ -10,12 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
 //= require fitvids
 //= require set_up_fitvids
-
-
+//= require select2
+//= require autocomplete

@@ -14,9 +14,8 @@ gem 'pg_search'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 
-# Jquery and turbolinks
+# Jquery
 gem 'jquery-rails'
-gem 'turbolinks'
 
 # Multiple environment files
 gem 'dotenv-rails'
@@ -25,6 +24,9 @@ gem 'awesome_print'
 
 # For pretty urls
 gem 'stringex'
+
+# For topics
+gem 'acts-as-taggable-on', '~> 5.0'
 
 # Tidy logs
 gem 'lograge'
@@ -60,6 +62,7 @@ group :development do
   gem 'rails_best_practices'
   gem 'rubocop'
   gem 'annotate'
+  gem 'seed_dump'
 end
 
 group :test do

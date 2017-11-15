@@ -66,6 +66,7 @@ module Resources
           consider_relevant_chunk_attributes: [:title, :intro, :content, :after],
           symptoms_reported_chunk_attributes: [:title, :intro, :content, :after],
           resources_chunk_attributes: [:title, :intro, :after, external_resources_attributes: [:title, :url]],
+          topic_list: []
         )
     end
 

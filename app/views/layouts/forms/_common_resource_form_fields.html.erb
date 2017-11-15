@@ -1,4 +1,5 @@
 <div role="tabpanel" class="tab-pane active" id="common">
+
   <fieldset>
     <legend>Common fields for all resources</legend>
      <div class="form-group">
@@ -19,6 +20,18 @@
       <%= f.label :video_url, 'Embedded Video (optional)' %>
       <p class="help-block">Enter the URL for the video you wish to embed.</p>
       <%= f.text_field :video_url, class: 'form-control', placeholder: 'URL for video, for example: https://youtube.com/my-video' %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div class="form-group">
+      <%= f.label "#{f.object.class.model_name.param_key}[topic_list][]", 'Topics' %>
+      <%= select_tag "#{f.object.class.model_name.param_key}[topic_list][]",
+        options_from_collection_for_select(@tags, "name", "name", resource.topic_list),
+        id: "topic-placeholder",
+        data: { placeholder: "Choose the topics" },
+        multiple: 'multiple',
+        class: 'form-control' %>
     </div>
   </fieldset>
 </div>

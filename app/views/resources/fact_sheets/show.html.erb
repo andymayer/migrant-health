@@ -12,7 +12,7 @@
 
           <%= render 'layouts/renderers/further_information_renderer', chunk: @fact_sheet.further_information_chunk if @fact_sheet.further_information_chunk %>
 
-          <%= render 'layouts/relevant_topics' %>
+          <%= render 'layouts/relevant_topics', resource: @fact_sheet %>
         </div>
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', video_url: @fact_sheet.video_url if @fact_sheet.video_url %>
