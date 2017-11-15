@@ -21,4 +21,16 @@
       <%= f.text_field :video_url, class: 'form-control', placeholder: 'URL for video, for example: https://youtube.com/my-video' %>
     </div>
   </fieldset>
+  <fieldset>
+    <div class="form-group">
+    <%= f.label "topics[]", 'Topics' %>
+      <%= select_tag "topics[]",
+        options_from_collection_for_select(@tags, "id", "name"),
+        include_blank: true,
+        id: "tag-placeholder",
+        data: { placeholder: "Choose the topics" },
+        multiple: 'multiple',
+        class: 'form-control' %>
+    </div>
+  </fieldset>
 </div>

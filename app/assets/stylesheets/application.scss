@@ -47,4 +47,6 @@
 @import "7__templates/resources";
 @import "7__templates/styleguide";
 
-@import "autocomplete"
+// Styles for topic box
+@import "select2.css";
+@import "select2-bootstrap.css";

@@ -17,7 +17,5 @@
 //= require bootstrap.min
 //= require fitvids
 //= require set_up_fitvids
-//= require jquery-ui/widgets/autocomplete
+//= require select2
 //= require autocomplete
-
- 
