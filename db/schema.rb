@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20171114144430) do
     t.text "type", null: false
     t.text "title", null: false
     t.text "intro", null: false
+    t.text "contributed_by", null: false
     t.text "video_url"
     t.integer "content_chunk_1_id"
     t.integer "content_chunk_2_id"

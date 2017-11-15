@@ -1,56 +1,56 @@
-class Resources::FactSheetsController < ApplicationController
-  before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
+module Resources
+  class FactSheetsController < ResourcesController
+    before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
 
-  MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 6
-
-  # GET /fact_sheets
-  def index
-    @resource_type = 'Fact Sheet'
-    @fact_sheets = FactSheet.all
-  end
-
-  # GET /fact_sheets/1
-  def show
-  end
-
-  # GET /fact_sheets/new
-  def new
-    @fact_sheet = FactSheet.new
-    populate_fact_sheet_chunks
-  end
-
-  # GET /fact_sheets/1/edit
-  def edit
-    populate_fact_sheet_chunks
-  end
-
-  # POST /fact_sheets
-  def create
-    @fact_sheet = FactSheet.new(fact_sheet_params)
-
-    if @fact_sheet.save
-      redirect_to [:resources, @fact_sheet], notice: 'Fact sheet was successfully created.'
-    else
-      render :new
+    # GET /fact_sheets
+    def index
+      @resource_type = 'Fact Sheet'
+      @fact_sheets = FactSheet.all
     end
-  end
 
-  # PATCH/PUT /fact_sheets/1
-  def update
-    if @fact_sheet.update(fact_sheet_params)
-      redirect_to [:resources, @fact_sheet], notice: 'Fact sheet was successfully updated.'
-    else
-      render :edit
+    # GET /fact_sheets/1
+    def show
     end
-  end
 
-  # DELETE /fact_sheets/1
-  def destroy
-    @fact_sheet.destroy
-    redirect_to resources_path, notice: 'Fact sheet was successfully destroyed.'
-  end
+    # GET /fact_sheets/new
+    def new
+      @fact_sheet = FactSheet.new
+      populate_fact_sheet_chunks
+    end
 
-  private
+    # GET /fact_sheets/1/edit
+    def edit
+      populate_fact_sheet_chunks
+    end
+
+    # POST /fact_sheets
+    def create
+      @fact_sheet = FactSheet.new(fact_sheet_params)
+
+      if @fact_sheet.save
+        redirect_to @fact_sheet, notice: 'Fact sheet was successfully created.'
+      else
+        render :new
+      end
+    end
+
+    # PATCH/PUT /fact_sheets/1
+    def update
+      if @fact_sheet.update(fact_sheet_params)
+        redirect_to @fact_sheet, notice: 'Fact sheet was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
+    # DELETE /fact_sheets/1
+    def destroy
+      @fact_sheet.destroy
+      redirect_to resources_path, notice: 'Fact sheet was successfully destroyed.'
+    end
+
+    private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_fact_sheet
       @fact_sheet = FactSheet.find_by_slug(params[:id])
@@ -58,8 +58,8 @@ class Resources::FactSheetsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def fact_sheet_params
-      params.require(:fact_sheet)
-        .permit(:title, :intro,
+      params.require(:resources_fact_sheet)
+        .permit(:title, :intro, :video_url, :contributed_by,
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
           further_information_chunk_attributes: [:title, :intro, :after,
           external_resources_attributes: [:title, :url]],
@@ -88,5 +88,6 @@ class Resources::FactSheetsController < ApplicationController
       @fact_sheet.build_indicators_chunk          if @fact_sheet.indicators_chunk.nil?
       @fact_sheet.build_what_to_do_chunk          if @fact_sheet.what_to_do_chunk.nil?
     end
+  end
 end
 

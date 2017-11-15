@@ -1,7 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.middleware.insert_before(ActionDispatch::Executor, Rack::Auth::Basic, "Migrant Health") do |u, p|
-    [u, p] == ['parkhill', 'niceview']
+  if ENV['HTTP_AUTH_USERNAME'] && ENV['HTTP_AUTH_PASSWORD']
+    config.middleware.insert_before(ActionDispatch::Executor, Rack::Auth::Basic, "Migrant Health") do |u, p|
+      [u, p] == [ENV['HTTP_AUTH_USERNAME'], ENV['HTTP_AUTH_PASSWORD']]
+    end
   end
 
   # Code is not reloaded between requests.
