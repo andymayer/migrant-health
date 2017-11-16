@@ -66,3 +66,23 @@ Resource.tagged_with('topic name as string')
 Show like search
 
 Set up routes of course
+
+## Attachments
+
+For local development, set the required AWS environment variables in a ```.env``` file as follows:
+
+```
+S3_BUCKET_NAME=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_REGION=
+```
+
+## Setting heroku environment variables
+
+Install the heroku config plugin (using ```heroku plugins:install heroku-config```) if it isn't already installed, then if you run 
+```
+heroku config:push --remote heroku
+```
+
+it will push your ```.env``` file variables to heroku.

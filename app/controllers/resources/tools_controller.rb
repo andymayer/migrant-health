@@ -63,8 +63,12 @@ module Resources
           explanation_chunk_attributes: [:title, :intro, :content, :after],
           where_it_s_from_chunk_attributes: [:title, :intro, :content, :after],
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
-          attachments_chunk_attributes: [:title, :intro, :after,
-          external_resources_attributes: [:title, :url]],
+          attachments_chunk_attributes: [
+            :title, 
+            :intro, 
+            :after,
+            external_resources_attributes: [:title, :url], 
+            uploaded_attachments_attributes: [:uploaded_file, :title]],
           topic_list: []
         )
     end
@@ -78,12 +82,19 @@ module Resources
         @tool.build_attachments_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
           @tool.attachments_chunk.external_resources.build
+          @tool.attachments_chunk.uploaded_attachments.build
         end
       else
         number_of_external_resources = @tool.attachments_chunk.external_resources.count
         if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
              @tool.attachments_chunk.external_resources.build
+          end
+        end
+        number_of_uploaded_attachments = @tool.attachments_chunk.uploaded_attachments.count
+        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
+          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
+             @tool.attachments_chunk.uploaded_attachments.build
           end
         end
       end
