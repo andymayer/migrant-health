@@ -5,18 +5,21 @@
 <% if chunk.intro %>
   <p><%= chunk.intro %></p>
 <% end %>
+<% if chunk.external_resources.any? %>
+  <ul class="listing resources-list">
+    <% chunk.external_resources.each do |external_resource| %>
+      <%= render 'layouts/renderers/further_information_link', external_resource: external_resource %>
+    <% end %>
+  </ul>
+<% end %>
 
-<ul class="listing resources-list">
-  <% chunk.external_resources.each do |external_resource| %>
-    <%= render 'layouts/renderers/further_information_link', external_resource: external_resource %>
-  <% end %>
-</ul>
-
-<ul class="listing resources-list">
-  <% chunk.uploaded_attachments.each do |uploaded_attachment| %>
-    <%= render 'layouts/renderers/uploaded_attachment_link', uploaded_attachment: uploaded_attachment %>
-  <% end %>
-</ul>
+<% if chunk.uploaded_attachments.any? %>
+  <ul class="listing resources-list">
+    <% chunk.uploaded_attachments.each do |uploaded_attachment| %>
+      <%= render 'layouts/renderers/uploaded_attachment_link', uploaded_attachment: uploaded_attachment %>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if chunk.after %>
   <p><%= chunk.after %></p>

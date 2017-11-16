@@ -65,7 +65,12 @@ module Resources
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
           consider_relevant_chunk_attributes: [:title, :intro, :content, :after],
           symptoms_reported_chunk_attributes: [:title, :intro, :content, :after],
-          resources_chunk_attributes: [:title, :intro, :after, external_resources_attributes: [:title, :url]],
+          resources_chunk_attributes: [
+            :title, 
+            :intro, 
+            :after,
+            external_resources_attributes: [:title, :url], 
+            uploaded_attachments_attributes: [:uploaded_file, :title]],
           topic_list: []
         )
     end
@@ -92,10 +97,10 @@ module Resources
              @how_to.resources_chunk.external_resources.build
           end
         end
-        number_of_uploaded_attachments = @how_to.attachments_chunk.uploaded_attachments.count
+        number_of_uploaded_attachments = @how_to.resources_chunk.uploaded_attachments.count
         if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @how_to.attachments_chunk.uploaded_attachments.build
+             @how_to.resources_chunk.uploaded_attachments.build
           end
         end    
       end
