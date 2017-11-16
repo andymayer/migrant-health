@@ -30,10 +30,16 @@
       <% ff.object.uploaded_attachments.each do |ua| %>
         <%= ff.fields_for :uploaded_attachments, ua do |fff|  %>
           <div class="form-group">
-            <%= fff.label :title %>
-            <%= fff.text_field :title, class: 'form-control' %>         
-            <%= fff.label :uploaded_file %>
-            <%= fff.file_field :uploaded_file, class: 'form-control' %>
+            <% unless ua.uploaded_file_file_name.nil? %>
+              <label class="control-label"><%= ua.title %></label>
+              <p><%= link_to ua.uploaded_file_file_name, ua.uploaded_file.url %> <%#= fff.check_box "Change file", label: "Change file", class: "change-file" %> </p>
+            <% else %>
+              <%= fff.label :title %>
+              <%= fff.text_field :title, class: 'form-control' %>         
+              <%= fff.label :uploaded_file %>
+              <%= fff.file_field :uploaded_file, class: 'form-control' %>
+            <% end %>
+
           </div>
         <% end %>
       <% end %>
