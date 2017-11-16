@@ -1,25 +1,25 @@
-<%= content_for :title, @practice_example.title %>
+<%= content_for :title, @resource.title %>
 
 <section class="section" aria-label="Content">
-  <%= render 'resources/show_strip', resource: @practice_example %>
+  <%= render 'resources/show_strip', resource: @resource %>
   <div class="strip">
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.what_was_the_problem_chunk, intro_class: true if @practice_example.what_was_the_problem_chunk %>
-          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.how_did_we_approach_it_chunk if @practice_example.how_did_we_approach_it_chunk %>
-          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @practice_example.what_did_we_do_chunk if @practice_example.what_did_we_do_chunk %>
-          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.did_it_work_chunk if @practice_example.did_it_work_chunk %>
-          <%= render 'layouts/renderers/paragraph_renderer', chunk: @practice_example.recommendations_chunk if @practice_example.recommendations_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.what_was_the_problem_chunk, intro_class: true if @resource.what_was_the_problem_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.how_did_we_approach_it_chunk if @resource.how_did_we_approach_it_chunk %>
+          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @resource.what_did_we_do_chunk if @resource.what_did_we_do_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.did_it_work_chunk if @resource.did_it_work_chunk %>
+          <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.recommendations_chunk if @resource.recommendations_chunk %>
           <h2>
             Optional links to contributing author profiles
           </h2>
-           <%= render 'layouts/relevant_topics', resource: @practice_example %>
+           <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
         <div class="col-sm-4">
-          <%= render 'layouts/embedded_video', video_url: @practice_example.video_url if @practice_example.video_url %>
-          <%= render 'layouts/related_resources', resource: @practice_example %>
-          <%= link_to 'Edit', edit_resources_practice_example_path(@practice_example), class: 'btn btn-default' %>
+          <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
+          <%= render 'layouts/related_resources', resource: @resource %>
+          <%= link_to 'Edit', edit_resources_practice_example_path(@resource), class: 'btn btn-default' %>
         </div>
       </div>
     </div>

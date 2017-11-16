@@ -5,7 +5,7 @@ module Resources
     # GET /how_tos
     def index
       @resource_type = 'How To'
-      @how_tos = HowTo.all
+      @resources = HowTo.all
     end
 
     # GET /how_tos/1
@@ -14,7 +14,7 @@ module Resources
 
     # GET /how_tos/new
     def new
-      @how_to = HowTo.new
+      @resource = HowTo.new
       populate_how_to_chunks
     end
 
@@ -25,9 +25,9 @@ module Resources
 
     # POST /how_tos
     def create
-      @how_to = HowTo.new(how_to_params)
-      if @how_to.save
-        redirect_to @how_to, notice: 'How to was successfully created.'
+      @resource = HowTo.new(how_to_params)
+      if @resource.save
+        redirect_to @resource, notice: 'How to was successfully created.'
       else
         render :new
       end
@@ -35,8 +35,8 @@ module Resources
 
     # PATCH/PUT /how_tos/1
     def update
-      if @how_to.update(how_to_params)
-        redirect_to @how_to, notice: 'How to was successfully updated.'
+      if @resource.update(how_to_params)
+        redirect_to @resource, notice: 'How to was successfully updated.'
       else
         render :edit
       end
@@ -44,14 +44,14 @@ module Resources
 
     # DELETE /how_tos/1
     def destroy
-      @how_to.destroy
+      @resource.destroy
       redirect_to resources_path, notice: 'How to was successfully destroyed.'
     end
 
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_how_to
-      @how_to = HowTo.find_by_slug(params[:id])
+      @resource = HowTo.find_by_slug(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
@@ -77,30 +77,30 @@ module Resources
 
     # YUCK
     def populate_how_to_chunks
-      @how_to.build_before_in_preparation_chunk if @how_to.before_in_preparation_chunk.nil?
-      @how_to.build_during_consultation_chunk   if @how_to.during_consultation_chunk.nil?
-      @how_to.build_after_aftercare_chunk       if @how_to.after_aftercare_chunk.nil?
-      @how_to.build_indicators_chunk            if @how_to.indicators_chunk.nil?
-      @how_to.build_what_to_do_chunk            if @how_to.what_to_do_chunk.nil?
-      @how_to.build_consider_relevant_chunk     if @how_to.consider_relevant_chunk.nil?
-      @how_to.build_symptoms_reported_chunk     if @how_to.symptoms_reported_chunk.nil?
-      if @how_to.resources_chunk.nil?
-        @how_to.build_resources_chunk
+      @resource.build_before_in_preparation_chunk if @resource.before_in_preparation_chunk.nil?
+      @resource.build_during_consultation_chunk   if @resource.during_consultation_chunk.nil?
+      @resource.build_after_aftercare_chunk       if @resource.after_aftercare_chunk.nil?
+      @resource.build_indicators_chunk            if @resource.indicators_chunk.nil?
+      @resource.build_what_to_do_chunk            if @resource.what_to_do_chunk.nil?
+      @resource.build_consider_relevant_chunk     if @resource.consider_relevant_chunk.nil?
+      @resource.build_symptoms_reported_chunk     if @resource.symptoms_reported_chunk.nil?
+      if @resource.resources_chunk.nil?
+        @resource.build_resources_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
-          @how_to.resources_chunk.external_resources.build
-          @how_to.resources_chunk.uploaded_attachments.build
+          @resource.resources_chunk.external_resources.build
+          @resource.resources_chunk.uploaded_attachments.build
         end
       else
-        number_of_external_resources = @how_to.resources_chunk.external_resources.count
+        number_of_external_resources = @resource.resources_chunk.external_resources.count
         if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
-             @how_to.resources_chunk.external_resources.build
+             @resource.resources_chunk.external_resources.build
           end
         end
-        number_of_uploaded_attachments = @how_to.resources_chunk.uploaded_attachments.count
+        number_of_uploaded_attachments = @resource.resources_chunk.uploaded_attachments.count
         if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @how_to.resources_chunk.uploaded_attachments.build
+             @resource.resources_chunk.uploaded_attachments.build
           end
         end    
       end

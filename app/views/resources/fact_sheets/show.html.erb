@@ -1,23 +1,23 @@
-<%= content_for :title, @fact_sheet.title %>
+<%= content_for :title, @resource.title %>
 
 <section class="section" aria-label="Content">
-  <%= render 'resources/show_strip', resource: @fact_sheet %>
+  <%= render 'resources/show_strip', resource: @resource %>
   <div class="strip">
     <div class="container">
       <div class="row">
         <div class="content col-sm-8">
-          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @fact_sheet.numbered_paragraph_chunk if @fact_sheet.numbered_paragraph_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.indicators_chunk if @fact_sheet.indicators_chunk %>
-          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @fact_sheet.what_to_do_chunk if @fact_sheet.what_to_do_chunk %>
+          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @resource.numbered_paragraph_chunk if @resource.numbered_paragraph_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @resource.indicators_chunk if @resource.indicators_chunk %>
+          <%= render 'layouts/renderers/bullet_point_renderer', chunk: @resource.what_to_do_chunk if @resource.what_to_do_chunk %>
 
-          <%= render 'layouts/renderers/further_information_renderer', chunk: @fact_sheet.further_information_chunk if @fact_sheet.further_information_chunk %>
+          <%= render 'layouts/renderers/further_information_renderer', chunk: @resource.further_information_chunk if @resource.further_information_chunk %>
 
-          <%= render 'layouts/relevant_topics', resource: @fact_sheet %>
+          <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
         <div class="col-sm-4">
-          <%= render 'layouts/embedded_video', video_url: @fact_sheet.video_url if @fact_sheet.video_url %>
-          <%= render 'layouts/related_resources', resource: @fact_sheet  %>
-          <%= link_to 'Edit', edit_resources_fact_sheet_path(@fact_sheet), class: 'btn btn-default' %>
+          <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
+          <%= render 'layouts/related_resources', resource: @resource  %>
+          <%= link_to 'Edit', edit_resources_fact_sheet_path(@resource), class: 'btn btn-default' %>
         </div>
       </div>
       <%= render 'layouts/what_are_people_asking' %>
