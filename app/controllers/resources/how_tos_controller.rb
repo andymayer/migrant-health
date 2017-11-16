@@ -65,7 +65,12 @@ module Resources
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
           consider_relevant_chunk_attributes: [:title, :intro, :content, :after],
           symptoms_reported_chunk_attributes: [:title, :intro, :content, :after],
-          resources_chunk_attributes: [:title, :intro, :after, external_resources_attributes: [:title, :url]],
+          resources_chunk_attributes: [
+            :title, 
+            :intro, 
+            :after,
+            external_resources_attributes: [:title, :url], 
+            uploaded_attachments_attributes: [:uploaded_file, :title]],
           topic_list: []
         )
     end
