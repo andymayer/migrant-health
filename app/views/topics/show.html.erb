@@ -3,11 +3,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 strip__left">
+          <%= render 'layouts/breadcrumb' %>
           <div class="jumbotron">
-            <h1 class="title--strip">Search Results (<%= @results.count %>)</h1>
-            <p class="intro">
-              We’re here as a reference point and resource to help you with your questions about new migrants.
-            </p>
+            <h1 class="title--strip">Topic: <%= @topic.name %></h1>
+            <p class="intro"><%= @topic.description %></p>
           </div>
         </div>
       </div>
@@ -19,20 +18,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <% if @results.count > 0 %>
+          <% if @resources.count > 0 %>
             <ul class="listing listing--large">
-              <% @results.each do |result| %>
+              <% @resources.each do |resource| %>
                   <li>
-                    <%= link_to polymorphic_path(result.searchable) do %>
-                    <%= render 'layouts/icon_image', file_name: result.searchable.icon_file_name, alt_text: result.searchable.icon_alt_text %>
-                      <h3 class="listing__title"><%= result.searchable.title %></h3>
-                      <p class="listing__desc"><%= result.searchable.intro %></p>
+                    <%= link_to polymorphic_path(resource) do %>
+                    <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
+                      <h3 class="listing__title"><%= resource.title %></h3>
+                      <p class="listing__desc"><%= resource.intro %></p>
                     <% end %>
                   </li>
               <% end %>
             </ul>
           <% else %>
-            <p>No results found</p>
+            <p>No resources with topic found</p>
           <% end %>
         </div><!-- /col-md-9 -->
         <div class="col-md-3">

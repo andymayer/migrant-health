@@ -4,9 +4,10 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration[5.1]
 
   def change
     create_table :tags do |t|
-      t.string :name
+      t.string  :name
       t.integer :taggings_count, default: 0
-      t.text   :description
+      t.text    :description
+      t.text    :slug, index: true
     end
 
     create_table :taggings do |t|

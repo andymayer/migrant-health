@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20171114144430) do
     t.index ["content_chunk_6_id"], name: "index_resources_on_content_chunk_6_id"
     t.index ["content_chunk_7_id"], name: "index_resources_on_content_chunk_7_id"
     t.index ["further_information_chunk_id"], name: "index_resources_on_further_information_chunk_id"
+    t.index ["slug"], name: "index_resources_on_slug"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -102,7 +103,9 @@ ActiveRecord::Schema.define(version: 20171114144430) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.text "description"
+    t.text "slug"
     t.index ["name"], name: "index_tags_on_name", unique: true
+    t.index ["slug"], name: "index_tags_on_slug"
   end
 
   create_table "users", force: :cascade do |t|

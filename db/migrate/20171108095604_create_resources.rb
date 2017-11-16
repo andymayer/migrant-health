@@ -14,7 +14,7 @@ class CreateResources < ActiveRecord::Migration[5.1]
       t.integer     :content_chunk_6_id, index: true, foreign_key: { to_table: :content_chunks }
       t.integer     :content_chunk_7_id, index: true, foreign_key: { to_table: :content_chunks }
       t.integer     :further_information_chunk_id, index: true, foreign_key: { to_table: :further_information_chunks }
-      t.text        :slug,        null: false    # For Pretty URLS
+      t.text        :slug, index: true, null: false    # For Pretty URLS
       t.timestamps
     end
   end
