@@ -92,10 +92,10 @@ module Resources
              @how_to.resources_chunk.external_resources.build
           end
         end
-        number_of_uploaded_attachments = @how_to.attachments_chunk.uploaded_attachments.count
+        number_of_uploaded_attachments = @how_to.resources_chunk.uploaded_attachments.count
         if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @how_to.attachments_chunk.uploaded_attachments.build
+             @how_to.resources_chunk.uploaded_attachments.build
           end
         end    
       end

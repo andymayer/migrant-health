@@ -19,4 +19,15 @@ class UploadedAttachment < ApplicationRecord
   has_attached_file :uploaded_file
 
   validates_attachment_file_name :uploaded_file, matches: [/pdf\z/, /doc?x\z/, /xls?x\z/, /txt\z/, /md\z/]
+
+  before_validation { uploaded_file.clear if @delete_uploaded_file }
+
+  def delete_uploaded_file
+    @delete_uploaded_file ||= false
+  end
+
+  def delete_uploaded_file=(value)
+    @delete_uploaded_file = !value.to_i.zero?
+  end
+
 end
