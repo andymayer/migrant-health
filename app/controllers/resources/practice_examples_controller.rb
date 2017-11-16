@@ -1,15 +1,10 @@
 module Resources
   class PracticeExamplesController < ResourcesController
-    before_action :set_practice_example, only: [:show, :edit, :update, :destroy]
 
     # GET /practice_examples
     def index
       @resource_type = 'Practice Example'
       @resources = PracticeExample.all
-    end
-
-    # GET /practice_examples/1
-    def show
     end
 
     # GET /practice_examples/new
@@ -50,10 +45,6 @@ module Resources
     end
 
     private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_practice_example
-      @resource = PracticeExample.find_by_slug(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def practice_example_params

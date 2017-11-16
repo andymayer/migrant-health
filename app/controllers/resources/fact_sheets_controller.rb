@@ -1,15 +1,10 @@
 module Resources
   class FactSheetsController < ResourcesController
-    before_action :set_fact_sheet, only: [:show, :edit, :update, :destroy]
 
     # GET /fact_sheets
     def index
       @resource_type = 'Fact Sheet'
       @resources = FactSheet.all
-    end
-
-    # GET /fact_sheets/1
-    def show
     end
 
     # GET /fact_sheets/new
@@ -36,7 +31,6 @@ module Resources
 
     # PATCH/PUT /fact_sheets/1
     def update
-
       if @resource.update(fact_sheet_params)
         redirect_to @resource, notice: 'Fact sheet was successfully updated.'
       else
@@ -51,11 +45,6 @@ module Resources
     end
 
     private
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_fact_sheet
-      @resource = FactSheet.find_by_slug(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def fact_sheet_params
@@ -81,22 +70,10 @@ module Resources
       if @resource.further_information_chunk.nil?
         @resource.build_further_information_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
-          @resource.further_information_chunk.external_resources.build
-          @resource.further_information_chunk.uploaded_attachments.build
+          build_external_resources_and_attachments(@resource.further_information_chunk)
         end
       else
-        number_of_external_resources = @resource.further_information_chunk.external_resources.count
-        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
-             @resource.further_information_chunk.external_resources.build
-          end
-        end
-        number_of_uploaded_attachments = @resource.further_information_chunk.uploaded_attachments.count
-        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @resource.further_information_chunk.uploaded_attachments.build
-          end
-        end
+        populate_external_resources_and_attachments(@resource.further_information_chunk)
       end
       @resource.build_indicators_chunk          if @resource.indicators_chunk.nil?
       @resource.build_what_to_do_chunk          if @resource.what_to_do_chunk.nil?

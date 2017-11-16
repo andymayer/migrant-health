@@ -1,15 +1,10 @@
 module Resources
   class ToolsController < ResourcesController
-    before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
     # GET /tools
     def index
       @resource_type = 'Tool'
       @resources = Tool.all
-    end
-
-    # GET /tools/1
-    def show
     end
 
     # GET /tools/new
@@ -51,11 +46,6 @@ module Resources
 
     private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tool
-      @resource = Tool.find_by_slug(params[:id])
-    end
-
     # Only allow a trusted parameter "white list" through.
     def tool_params
       params.require(:resources_tool)
@@ -81,22 +71,10 @@ module Resources
       if @resource.attachments_chunk.nil?
         @resource.build_attachments_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
-          @resource.attachments_chunk.external_resources.build
-          @resource.attachments_chunk.uploaded_attachments.build
+          build_external_resources_and_attachments(@resource.attachments_chunk)
         end
       else
-        number_of_external_resources = @resource.attachments_chunk.external_resources.count
-        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
-             @resource.attachments_chunk.external_resources.build
-          end
-        end
-        number_of_uploaded_attachments = @resource.attachments_chunk.uploaded_attachments.count
-        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @resource.attachments_chunk.uploaded_attachments.build
-          end
-        end
+        populate_external_resources_and_attachments(@resource.attachments_chunk)       
       end
     end
   end

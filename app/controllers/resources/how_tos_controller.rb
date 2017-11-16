@@ -1,15 +1,10 @@
 module Resources
   class HowTosController < ResourcesController
-    before_action :set_how_to, only: [:show, :edit, :update, :destroy]
 
     # GET /how_tos
     def index
       @resource_type = 'How To'
       @resources = HowTo.all
-    end
-
-    # GET /how_tos/1
-    def show
     end
 
     # GET /how_tos/new
@@ -49,10 +44,6 @@ module Resources
     end
 
     private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_how_to
-      @resource = HowTo.find_by_slug(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def how_to_params
@@ -87,22 +78,10 @@ module Resources
       if @resource.resources_chunk.nil?
         @resource.build_resources_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
-          @resource.resources_chunk.external_resources.build
-          @resource.resources_chunk.uploaded_attachments.build
+          build_external_resources_and_attachments(@resource.resources_chunk)
         end
       else
-        number_of_external_resources = @resource.resources_chunk.external_resources.count
-        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
-             @resource.resources_chunk.external_resources.build
-          end
-        end
-        number_of_uploaded_attachments = @resource.resources_chunk.uploaded_attachments.count
-        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @resource.resources_chunk.uploaded_attachments.build
-          end
-        end    
+        populate_external_resources_and_attachments(@resource.resources_chunk)       
       end
     end
   end
