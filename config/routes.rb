@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users
   root 'static_pages#home'
 
@@ -12,6 +11,7 @@ Rails.application.routes.draw do
     resources :fact_sheets
     resources :practice_examples
     resources :tools
+    resources :countries
   end
 
   resources :topics, only: [:index, :show]

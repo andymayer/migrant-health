@@ -16,17 +16,21 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-          <ul class="listing listing--large">
-            <% resources.each do |resource| %>
-              <li>
-                <%= link_to polymorphic_path(resource) do %>
-                  <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
-                  <h3 class="listing__title"><%= resource.title %></h3>
-                  <p class="listing__desc"><%= resource.intro %></p>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
+          <% unless resources.nil? %>
+            <ul class="listing listing--large">
+              <% resources.each do |resource| %>
+                <li>
+                  <%= link_to polymorphic_path(resource) do %>
+                    <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
+                    <h3 class="listing__title"><%= resource.title %></h3>
+                    <p class="listing__desc"><%= resource.intro %></p>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>No resources</p>
+          <% end %>
         </div>
       </div>
     </div>
