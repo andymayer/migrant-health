@@ -78,12 +78,19 @@ module Resources
         @fact_sheet.build_further_information_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
           @fact_sheet.further_information_chunk.external_resources.build
+          @fact_sheet.further_information_chunk.uploaded_attachments.build
         end
       else
         number_of_external_resources = @fact_sheet.further_information_chunk.external_resources.count
         if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
              @fact_sheet.further_information_chunk.external_resources.build
+          end
+        end
+        number_of_uploaded_attachments = @fact_sheet.further_information_chunk.uploaded_attachments.count
+        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
+          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
+             @fact_sheet.further_information_chunk.uploaded_attachments.build
           end
         end
       end
