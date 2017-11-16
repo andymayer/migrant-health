@@ -1,5 +1,5 @@
-<% if resource %>
-  <div class="related-box related-resources">
+<div class="related-box related-resources">
+  <% if resource.becomes(Resource).find_related_topics.any? %>
     <h3 class="related-box__title">Related resources</h3>
     <ul class="listing related-nav">
       <!-- cast as Resource to get tags working -->
@@ -13,5 +13,6 @@
         </li>
       <% end %>
     </ul>
-  </div>
-<% end %>
+  <% end %>
+</div>
+
