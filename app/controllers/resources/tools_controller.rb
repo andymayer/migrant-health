@@ -78,12 +78,19 @@ module Resources
         @tool.build_attachments_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
           @tool.attachments_chunk.external_resources.build
+          @tool.attachments_chunk.uploaded_attachments.build
         end
       else
         number_of_external_resources = @tool.attachments_chunk.external_resources.count
         if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
           (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
              @tool.attachments_chunk.external_resources.build
+          end
+        end
+        number_of_uploaded_attachments = @tool.attachments_chunk.uploaded_attachments.count
+        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
+          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
+             @tool.attachments_chunk.uploaded_attachments.build
           end
         end
       end

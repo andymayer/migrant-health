@@ -13,17 +13,28 @@
       <legend>External Resources</legend>
       <p class="help-block">Enter external resources.</p>
 
-        <% ff.object.external_resources.each do |er| %>
-          <%= ff.fields_for :external_resources, er do |fff|  %>
-            <div class="form-group">
-              <%= ff.label :title %>
-              <%= fff.text_field :title, class: 'form-control' %>
-              <%= ff.label :url %>
-              <%= fff.text_field :url, class: 'form-control' %>
-            </div>
-          <% end %>
+      <% ff.object.external_resources.each do |er| %>
+        <%= ff.fields_for :external_resources, er do |fff|  %>
+          <div class="form-group">
+            <%= fff.label :title %>
+            <%= fff.text_field :title, class: 'form-control' %>
+            <%= fff.label :url %>
+            <%= fff.text_field :url, class: 'form-control' %>
+          </div>
         <% end %>
+      <% end %>
 
+      <legend>Upload Attachments</legend>
+      <p class="help-block">Upload attachments.</p>
+
+      <% ff.object.uploaded_attachments.each do |ua| %>
+        <%= ff.fields_for :uploaded_attachments, ua do |fff|  %>
+          <div class="form-group">
+            <%= fff.label :uploaded_file %>
+            <%= fff.file_field :uploaded_file, class: 'form-control' %>
+          </div>
+        <% end %>
+      <% end %>
       <div class="form-group">
         <%= ff.label :after %>
         <%= ff.text_area :after, class: 'form-control', size: "60x6", placeholder: "After paragraph" %>
