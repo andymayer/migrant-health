@@ -8,7 +8,7 @@
 #  uploaded_file_file_size      :integer
 #  uploaded_file_updated_at     :datetime
 #  further_information_chunk_id :integer          not null
-#  title                        :text             not null
+#  title                        :text
 #  created_at                   :datetime         not null
 #  updated_at                   :datetime         not null
 #
@@ -17,4 +17,6 @@ class UploadedAttachment < ApplicationRecord
   belongs_to :further_information_chunk
 
   has_attached_file :uploaded_file
+
+  validates_attachment_file_name :uploaded_file, matches: [/pdf\z/, /doc?x\z/, /xls?x\z/, /txt\z/, /md\z/]
 end

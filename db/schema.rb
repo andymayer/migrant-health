@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20171116140808) do
     t.integer "uploaded_file_file_size"
     t.datetime "uploaded_file_updated_at"
     t.integer "further_information_chunk_id", null: false
-    t.text "title", null: false
+    t.text "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["further_information_chunk_id"], name: "index_uploaded_attachments_on_further_information_chunk_id"

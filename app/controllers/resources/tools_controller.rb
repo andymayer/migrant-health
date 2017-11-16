@@ -63,8 +63,12 @@ module Resources
           explanation_chunk_attributes: [:title, :intro, :content, :after],
           where_it_s_from_chunk_attributes: [:title, :intro, :content, :after],
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
-          attachments_chunk_attributes: [:title, :intro, :after,
-          external_resources_attributes: [:title, :url]],
+          attachments_chunk_attributes: [
+            :title, 
+            :intro, 
+            :after,
+            external_resources_attributes: [:title, :url], 
+            uploaded_attachments_attributes: [:uploaded_file, :title]],
           topic_list: []
         )
     end

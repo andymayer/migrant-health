@@ -12,6 +12,12 @@
   <% end %>
 </ul>
 
+<ul class="listing resources-list">
+  <% chunk.uploaded_attachments.each do |uploaded_attachment| %>
+    <%= render 'layouts/renderers/uploaded_attachment_link', uploaded_attachment: uploaded_attachment %>
+  <% end %>
+</ul>
+
 <% if chunk.after %>
   <p><%= chunk.after %></p>
 <% end %>

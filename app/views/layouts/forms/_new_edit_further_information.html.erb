@@ -30,6 +30,8 @@
       <% ff.object.uploaded_attachments.each do |ua| %>
         <%= ff.fields_for :uploaded_attachments, ua do |fff|  %>
           <div class="form-group">
+            <%= fff.label :title %>
+            <%= fff.text_field :title, class: 'form-control' %>         
             <%= fff.label :uploaded_file %>
             <%= fff.file_field :uploaded_file, class: 'form-control' %>
           </div>
