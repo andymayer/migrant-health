@@ -5,7 +5,7 @@ module ActsAsTaggableOn
   class Tag
     acts_as_url :name, url_attribute: :slug
 
-    def params
+    def to_param
       slug
     end
   end
