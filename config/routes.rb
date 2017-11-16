@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :tools
   end
 
+  resources :topics, only: [:index, :show]
+
   get '/search/', to: 'search#index', as: :search
 
   # Static pages

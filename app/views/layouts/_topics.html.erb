@@ -3,72 +3,21 @@
     <div class="row">
       <div class="col-md-9">
         <div class="row">
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              Immigration status
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            Understanding the difference between an asylum seeker, failing asylum seeker, refugee, and undocumented migrant.
-          </p>
-        </div>
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              Entitlements to Primary Care
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            Explanation of entitlements of primary care in England.
-          </p>
-        </div>
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              Screening
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            Screening considerations for new migrant patients
-          </p>
-        </div>
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              Trauma, trafficking, and victims of exploitation
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            When and how to ask about difficult topics, and what to do with the answer
-          </p>
-        </div>
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              FGM
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            Latest guidance on FGM
-          </p>
-        </div>
-        <div class="tag-summary">
-          <h3 class="tag-summary__title">
-            <a class="tag-summary__link" href="/health-foundation/topics/fgm.html">
-              Safeguarding
-            </a>
-          </h3>
-          <p class="tag-summary_desc">
-            Safeguarding issues particularly relevant to migrant patients
-          </p>
-        </div>
-
-      </div><!-- /row -->
-    </div><!-- /col-md-9 -->
-    <div class="col-md-3">
-      <a href="/health-foundation/topics/">View all topics</a>
-    </div>
+          <% ActsAsTaggableOn::Tag.most_used(6).each do |topic| %>
+            <div class="tag-summary">
+              <h3 class="tag-summary__title">
+                <%= link_to topic.name, topic_path(topic), class: 'tag-summary__link' %>
+              </h3>
+              <p class="tag-summary_desc">
+                <%= topic.description %>
+              </p>
+            </div>
+          <% end %>
+        </div><!-- /row -->
+      </div><!-- /col-md-9 -->
+      <div class="col-md-3">
+        <%= link_to 'View all topics', topics_path %>
+      </div>
     </div>
   </div>
 </div>

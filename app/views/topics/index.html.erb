@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-12 strip__left">
           <div class="jumbotron">
-            <h1 class="title--strip">Search Results (<%= @results.count %>)</h1>
+            <h1 class="title--strip">Topics</h1>
             <p class="intro">
               We’re here as a reference point and resource to help you with your questions about new migrants.
             </p>
@@ -19,20 +19,20 @@
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <% if @results.count > 0 %>
+          <% if @topics.count > 0 %>
             <ul class="listing listing--large">
-              <% @results.each do |result| %>
+              <% @topics.each do |topic| %>
                   <li>
-                    <%= link_to polymorphic_path(result.searchable) do %>
-                    <%= render 'layouts/icon_image', file_name: result.searchable.icon_file_name, alt_text: result.searchable.icon_alt_text %>
-                      <h3 class="listing__title"><%= result.searchable.title %></h3>
-                      <p class="listing__desc"><%= result.searchable.intro %></p>
+                    <%= link_to topic_path(topic) do %>
+                    <%= render 'layouts/icon_image', file_name: 'icon-topic.svg', alt_text: 'Topic' %>
+                      <h3 class="listing__title"><%= topic.name %></h3>
+                      <p class="listing__desc"><%= topic.description %></p>
                     <% end %>
                   </li>
               <% end %>
             </ul>
           <% else %>
-            <p>No results found</p>
+            <p>No Topics found</p>
           <% end %>
         </div><!-- /col-md-9 -->
         <div class="col-md-3">
