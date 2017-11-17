@@ -39,7 +39,7 @@ module Resources
     end
 
     def icon_alt_text
-      'Tools'
+      'Tool'
     end
   end
 end

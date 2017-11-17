@@ -4,7 +4,7 @@
     <legend>Common fields for all resources</legend>
      <div class="form-group">
        <%= f.label :title %>
-       <%= f.text_field :title, class: 'form-control', placeholder: "Enter #{resource.type.titleize} Title" %>
+       <%= f.text_field :title, class: 'form-control', placeholder: "Enter #{resource.icon_alt_text.titleize} Title" %>
      </div>
     <div class="form-group">
       <%= f.label :intro, 'Introductory Paragraph' %>
