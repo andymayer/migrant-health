@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   resources :topics, only: [:index, :show]
 
+  get '/topics/:id', to: 'topics#show', as: :acts_as_taggable_on_tag
+
   get '/search/', to: 'search#index', as: :search
 
   # Static pages
