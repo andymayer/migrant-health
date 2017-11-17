@@ -19,6 +19,7 @@ gem 'jquery-rails'
 
 # Multiple environment files
 gem 'dotenv-rails'
+
 # Useful for debug all over the place
 gem 'awesome_print'
 
@@ -33,7 +34,6 @@ gem 'lograge'
 
 # Authentication and authorisation
 gem 'devise'
-gem 'pundit'
 
 # Attachments
 gem "paperclip", "~> 5.0.0"

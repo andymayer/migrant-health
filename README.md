@@ -26,16 +26,39 @@ Some example resources are set up in ```seeds.rb```
 
 Run ```rake db:seed``` to populate the database.
 
+This seeding will create a ```superuser``` with admin privileges. It will either use the environment variables 
+
+```
+SUPERUSER_EMAIL
+SUPERUSER_PASSWORD
+``` 
+
+on creation, or will default to
+
+```
+username: developers@yoomee.com
+password: weather-medley-impiety-onerous
+```
+
 ### Resetting the database on development
 
 The ```reset.sh``` file will drop the database, recreate, migrate, and seed.
 
-## Yucky code or Technical Debt
+## User roles
 
-As usual with prototypes, some code isn't as neat as it could be - feel free to annotate with #YUCK for future fixing.
+Users can be a simple user or admin. Changing the role of a user currently can only be completed in the console.
 
+```
+user.update(role: :admin)
+```
 
- ## Deployment
+or
+
+```
+user.update(role: :user)
+```
+
+## Deployment
 
 Heroku is supported and indeed, the ```Procfile``` and config has been optimised for Heroku and Puma deployment.
 
@@ -58,14 +81,9 @@ Search is currently using Postgres's inbuilt TSearch function, with part words e
 
 Functionality is provided by the ```acts-taggable-on``` gem with the front end magic select box provided by [Select2](https://select2.org/).
 
-WIP - Set up tag/topics so they have slugs for searching.
-Then set up topics controller which uses that slug (converted back to topic name) to find the relevant resources.
+Note that the ```Tag``` model provided by the gem is monkeypatched with search and other bits and bobs in an initializer 
 
-Resource.tagged_with('topic name as string')
-
-Show like search
-
-Set up routes of course
+```config/initializers/acts_on_taggable_on.rb```
 
 ## Attachments
 
@@ -78,6 +96,15 @@ AWS_SECRET_ACCESS_KEY=
 AWS_REGION=
 ```
 
+## Email
+
+is configured to use AWS Simple Email Service. SMTP username and password from AWS should be set in the environment as follows
+
+```
+AWS_SMTP_USERNAME=
+AWS_SMTP_PASSWORD=
+```
+
 ## Setting heroku environment variables
 
 Install the heroku config plugin (using ```heroku plugins:install heroku-config```) if it isn't already installed, then if you run 
@@ -86,3 +113,8 @@ heroku config:push --remote heroku
 ```
 
 it will push your ```.env``` file variables to heroku.
+
+## Yucky code or Technical Debt
+
+As usual with prototypes, some code isn't as neat as it could be - feel free to annotate with #YUCK for future fixing.
+
