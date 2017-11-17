@@ -24,5 +24,17 @@ module MigrantHealth
       },
       s3_host_name: "s3-#{ENV['AWS_REGION']}.amazonaws.com"
     }
+
+    config.x.mail_from = %(Migrant Health <no-reply@migrant.health>)
+     
+    config.action_mailer.default_url_options = { host: 'migrant.health' }
+    config.action_mailer.smtp_settings = {
+      address: 'email-smtp.eu-west-1.amazonaws.com',
+      user_name: ENV['AWS_SMTP_USERNAME'],
+      password: ENV['AWS_SMTP_PASSWORD']
+    }
+     
+    config.action_mailer.raise_delivery_errors = true
+
   end
 end
