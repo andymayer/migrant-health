@@ -1,20 +1,15 @@
 module Resources
   class ToolsController < ResourcesController
-    before_action :set_tool, only: [:show, :edit, :update, :destroy]
 
     # GET /tools
     def index
       @resource_type = 'Tool'
-      @tools = Tool.all
-    end
-
-    # GET /tools/1
-    def show
+      @resources = Tool.all
     end
 
     # GET /tools/new
     def new
-      @tool = Tool.new
+      @resource = Tool.new
       populate_tool_chunks
     end
 
@@ -25,10 +20,10 @@ module Resources
 
     # POST /tools
     def create
-      @tool = Tool.new(tool_params)
+      @resource = Tool.new(tool_params)
 
-      if @tool.save
-        redirect_to @tool, notice: 'Tool was successfully created.'
+      if @resource.save
+        redirect_to @resource, notice: 'Tool was successfully created.'
       else
         render :new
       end
@@ -36,8 +31,8 @@ module Resources
 
     # PATCH/PUT /tools/1
     def update
-      if @tool.update(tool_params)
-        redirect_to @tool, notice: 'Tool was successfully updated.'
+      if @resource.update(tool_params)
+        redirect_to @resource, notice: 'Tool was successfully updated.'
       else
         render :edit
       end
@@ -45,16 +40,11 @@ module Resources
 
     # DELETE /tools/1
     def destroy
-      @tool.destroy
+      @resource.destroy
       redirect_to resources_url, notice: 'Tool was successfully destroyed.'
     end
 
     private
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tool
-      @tool = Tool.find_by_slug(params[:id])
-    end
 
     # Only allow a trusted parameter "white list" through.
     def tool_params
@@ -74,29 +64,17 @@ module Resources
     end
 
     def populate_tool_chunks
-      @tool.build_explanation_chunk         if @tool.explanation_chunk.nil?
-      @tool.build_where_it_s_from_chunk     if @tool.where_it_s_from_chunk.nil?
-      @tool.build_numbered_paragraph_chunk  if @tool.numbered_paragraph_chunk.nil?
+      @resource.build_explanation_chunk         if @resource.explanation_chunk.nil?
+      @resource.build_where_it_s_from_chunk     if @resource.where_it_s_from_chunk.nil?
+      @resource.build_numbered_paragraph_chunk  if @resource.numbered_paragraph_chunk.nil?
 
-      if @tool.attachments_chunk.nil?
-        @tool.build_attachments_chunk
+      if @resource.attachments_chunk.nil?
+        @resource.build_attachments_chunk
         MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES.times do
-          @tool.attachments_chunk.external_resources.build
-          @tool.attachments_chunk.uploaded_attachments.build
+          build_external_resources_and_attachments(@resource.attachments_chunk)
         end
       else
-        number_of_external_resources = @tool.attachments_chunk.external_resources.count
-        if number_of_external_resources < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_external_resources).times do
-             @tool.attachments_chunk.external_resources.build
-          end
-        end
-        number_of_uploaded_attachments = @tool.attachments_chunk.uploaded_attachments.count
-        if number_of_uploaded_attachments < MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES
-          (MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES - number_of_uploaded_attachments).times do
-             @tool.attachments_chunk.uploaded_attachments.build
-          end
-        end
+        populate_external_resources_and_attachments(@resource.attachments_chunk)       
       end
     end
   end
