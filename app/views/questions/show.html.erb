@@ -21,40 +21,28 @@
               </div>
               <h1 class="post__title"><%= @question.content %></h1>
               <span class="comment-info">
-                <a href="/health-foundation/user/profile.html" class="comment-info__link"><%= @question.user.first_name %>
-                </a><span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
+                <%= render 'user_profile', user: @question.user %>
+                <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
             </div>
             <% if @question.comments.exists? %>
               <div class="post-comments">
                 <div class="comment-wrap">
                   <h3 class="comments-title">2 Comments</h3>
-                  <p class="comment">
-                    Do you mean anyone with a British passport?
-                    <span class="comment-info"> <a href="/health-foundation/user/profile.html" class="comment-info__link">
-                      John
-                    </a> <span class="comment-info__time">2 hours ago</span> </span>
-                  </p>
-                  <p class="comment">
-                    No, I am thinking about a few patients who I’ve seen recently who have a European passport.
-                    <span class="comment-info"> <a href="/health-foundation/user/profile.html" class="comment-info__link">
-                      Alice
-                    </a> <span class="comment-info__time">2 hours ago</span> </span>
-                  </p>
+                  <% @question.comments.each do |comment| %>
+                    <p class="comment">
+                      <%= comment.content %>
+                      <span class="comment-info">
+                        <%= render 'user_profile', user: comment.user %>
+                      <span class="comment-info__time"><%= time_ago_in_words(comment.created_at) %> ago</span> </span>
+                    </p>
+                  <% end %>
                 </div>
               </div>
             <% end %>
           </div>
         </div>
         <div class="col-sm-4">
-          <div class="ask-question">
-            <h2 class="ask-question__title">
-              Ask your own question
-            </h2>
-            <p class="ask-question__desc">
-              Post your question to the community of interest
-            </p>
-            <a href="/health-foundation/questions/ask.html" class="btn btn-primary ask-question__btn">Ask a question</a>
-          </div>
+          <%= render 'ask_your_own_question_panel' %>
         </div>
       </div>
     </div>

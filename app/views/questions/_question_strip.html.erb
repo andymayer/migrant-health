@@ -9,9 +9,5 @@
   </div>
 </div>
 <div class="col-sm-4">
-  <div class="ask-question">
-    <h2 class="ask-question__title">Ask your own question</h2>
-    <p class="ask-question__desc">Post your question to the community of interest</p>
-    <%= link_to 'Ask a question', new_question_path, class: 'btn btn-primary ask-question__btn' %>
-  </div>
+  <%= render 'ask_your_own_question_panel' %>
 </div>
