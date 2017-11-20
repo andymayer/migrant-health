@@ -208,6 +208,83 @@ Answer.create(
   content: "There is no point vaccinating new migrants as they have been exposed to disease in the past."
   )
 
+q3 = Question.create(user: user, content: 'Can anyone in England access NHS primary care?')
+c1 = Comment.create(user: user2, content: 'Do you mean anyone with a British passport?', question: q3 )
+c2 = Comment.create(user: user, content: 'No, I am thinking about a few patients who I’ve seen recently who have a European passport.', question: q3)
+
+a1 = Answer.create(
+  user: admin,
+  question: q3,
+  content: 'If they are from the EEA then they are entitled to free NHS care. The rules are more complicated for people outside the EEA but everyone – regardless of where they are from – is entitled to free primary care. '
+)
+
+c3 = Comment.create(user: user, content: 'We do not register anyone without a fixed UK abode and we always ask for passports at registration ', answer: a1)
+
+a2 = Answer.create(
+  user: user2,
+  question: q3,
+  content: 'Yes, NHS England guidance states anyone can access primary care, and not having proof of address should not be a barrier to this. Please see the section on entitlements for more information. '
+)
+
+a3 = Answer.create(
+  user: user,
+  question: q3,
+  content: 'Anyone with proof of address can register in England.'
+)
+
+q4 = Question.create(user: user, content: 'How do I ask about FGM? Who should I ask?')
+
+a4 = Answer.create(
+  user: user2,
+  question: q4,
+  content: 'RCOG says all pregnant women should be asked about cutting https://www.gov.uk/government/news/new-government-measures-to-end-fgm. Asking can be very difficult. See our section on this (?and video) for how to create a safe space for disclosure. '
+)
+
+a5 = Answer.create(
+  user: admin,
+  question: q4,
+  content: 'it isn’t up to GPs to ask about FGM.'
+)
+
+q5 = Question.create(user: user, content: 'What are the signs of trafficking?')
+
+a6 = Answer.create(
+  user: user2,
+  question: q5,
+  content: 'Trafficking can be difficult to detect. There are certain signs to look out for, which you can find under the trafficking tag. '
+)
+
+a7 = Answer.create(
+  user: admin,
+  question: q5,
+  content: 'Most people who have been trafficked will disclose this, or it will be obvious.'
+)
+
+q6 = Question.create(user: user2, content: 'Is everyone entitled to free secondary care?')
+
+a8 = Answer.create(
+  user: admin,
+  question: q6,
+  content: 'The guidance for secondary care is very complex. Importantly, A&E and infectious diseases remain free at point of care, but other services are charged depending on immigration status. See the section on entitlements to healthcare for more information. '
+)
+
+a9 = Answer.create(
+  user: user,
+  question: q6,
+  content: 'migrants are not entitled to secondary care'
+)
+
+a10 = Answer.create(
+  user: user2,
+  question: q6,
+  content: 'everyone is entitled to free secondary care'
+)
+
+
+
+
+
+
 
 
 
