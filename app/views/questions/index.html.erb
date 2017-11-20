@@ -1,25 +1,192 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Questions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @questions.each do |question| %>
-      <tr>
-        <td><%= link_to 'Show', question %></td>
-        <td><%= link_to 'Edit', edit_question_path(question) %></td>
-        <td><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
+    <section class="section" aria-label="Content">
+      <div class="strip strip--brand-color strip--questions">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/breadcrumb' %>
 
-<%= link_to 'New Question', new_question_path %>
+      </div>
+      <div class="col-sm-8 strip__left">
+        <div class="jumbotron intro-with-icon">
+          <div class="page-icon">
+            <%= render 'layouts/icon_image', file_name: 'icon-discussion.svg', alt_text: 'Questions' %>
+
+            <span class="page-icon__label">
+              Questions
+            </span>
+          </div>
+          <h1 class="title--strip">
+            Questions
+          </h1>
+          <p class="intro">
+            We’re here as a reference point and resource to help you with your questions about new migrants.
+          </p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="ask-question">
+  <h2 class="ask-question__title">
+    Ask your own question
+  </h2>
+  <p class="ask-question__desc">
+    Post your question to the community of interest
+  </p>
+  <a href="/health-foundation/questions/ask.html" class="btn btn-primary ask-question__btn">Ask a question</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="strip">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10">
+        <div id="question-banner" class="question-banner panel clearfix">
+  <button type="button" class="close" data-target="#question-banner" data-dismiss="alert"> <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  <div class="col-md-4">
+    <p class="intro">
+      Migrant.health is a question and answer site for health professionals. Join now to be part of the discussion.
+    </p>
+    <%= link_to  'Sign up', new_user_session_path, class: 'btn btn-primary'  %>
+  </div>
+  <div class="col-md-6 col-md-offset-1 how-it-works-icons">
+    <h3 class="how-it-works-title">Here's how it works</h3>
+    <div class="row">
+      <div class="col-sm-4 how-it-works">
+        <%= render 'layouts/icon_image', file_name: 'icon-question-1.svg', alt_text: 'Questions' %>
+
+        <p>Anybody can ask a question</p>
+      </div>
+      <div class="col-sm-4 how-it-works">
+        <%= render 'layouts/icon_image', file_name: 'icon-question-2.svg', alt_text: 'Questions' %>
+        <p>Anybody can answer</p>
+      </div>
+      <div class="col-sm-4 how-it-works">
+        <%= render 'layouts/icon_image', file_name: 'icon-question-3.svg', alt_text: 'Questions' %>
+        <p>The best answers are voted up and rise to the top</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+        <div id="exTab2" class="">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#1" data-toggle="tab">Top questions</a></li>
+            <li><a href="#2" data-toggle="tab">Active</a></li>
+            <li><a href="#3" data-toggle="tab">Week</a></li>
+            <li><a href="#4" data-toggle="tab">Month</a></li>
+          </ul>
+
+          <div class="tab-content ">
+            <div class="tab-pane active" id="1">
+
+                <ul class="listing listing--questions">
+                  <li>
+                    <a href="/health-foundation/questions/can-anyone-in-england-accesss-nhs-primary-care.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">Can anyone in England access NHS primary care?</h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">
+                        What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
+                      </h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/health-foundation/questions/how-do-I-know-what-immunisations–a-new-migrant-patient-needs.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">
+                        How do I know what immunisations a new migrant patient needs, and what they might have already had?
+                      </h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/health-foundation/questions/how-do-i-ask-about-fgm.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">
+                        How do I ask about FGM? Who should I ask?
+                      </h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/health-foundation/questions/what—are-the-signs-of-trafficking.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">
+                        What are the signs of trafficking?
+                      </h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="/health-foundation/questions/is-everyone-entitled-to-free-secondary-care.html">
+                      <img src="/health-foundation/assets/img/icon-discussion.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-discussion.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon">
+
+                      <h3 class="listing__title">
+                        Is everyone entitled to free secondary care?
+                      </h3>
+                      <p class="metadata">
+                          6 votes, 1 answer, 54 views
+                      </p>
+                    </a>
+                  </li>
+
+
+                </ul>
+            </div>
+            <div class="tab-pane" id="2">
+              <div class="well">
+                Active questions can go here
+              </div>
+            </div>
+            <div class="tab-pane" id="3">
+              <div class="well">
+                Active questions this week
+              </div>
+            </div>
+            <div class="tab-pane" id="3">
+              <div class="well">
+                Active questions this month
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </section>

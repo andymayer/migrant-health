@@ -4,6 +4,11 @@ ContentChunk.delete_all
 ExternalResource.delete_all
 FurtherInformationChunk.delete_all
 Resource.delete_all
+Vote.delete_all
+Comment.delete_all
+Answer.delete_all
+Question.delete_all
+
 User.delete_all
 
 ActsAsTaggableOn::Tag.delete_all
@@ -14,16 +19,32 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-
-User.create(
+admin = User.create(
   email:    ENV['SUPERUSER_EMAIL']    || 'developers@yoomee.com',
   password: ENV['SUPERUSER_PASSWORD'] || 'weather-medley-impiety-onerous',
   role: :admin,
   title: '',
-  first_name: 'Developer',
+  first_name: 'Admin',
   last_name: 'YooMee'
 )
 
+user = User.create(
+  email:    'developers+normal@yoomee.com',
+  password: 'weather-medley-impiety-onerous',
+  role: :user,
+  title: '',
+  first_name: 'Normal User',
+  last_name: 'YooMee'
+)
+
+user2 = User.create(
+  email:    'developers+normal2@yoomee.com',
+  password: 'weather-medley-impiety-onerous',
+  role: :user,
+  title: '',
+  first_name: 'Normal User 2',
+  last_name: 'YooMee'
+)
 
 FurtherInformationChunk.create!([
   {title: nil, intro: "The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:", after: nil},
@@ -146,3 +167,47 @@ ActsAsTaggableOn::Tagging.create!([
   {tag_id: 16, taggable_type: "Resource", taggable_id: 6, tagger_type: nil, tagger_id: nil, context: "topics"},
   {tag_id: 10, taggable_type: "Resource", taggable_id: 6, tagger_type: nil, tagger_id: nil, context: "topics"}
 ])
+
+q1 = Question.create(
+  user: user,
+  content: 'What is the difference between an asylum seeker and a refugee? What is an illegal migrant?'
+)
+
+Answer.create(
+  user: admin,
+  question: q1,
+  content: "Migration status can be confusing, and getting the terms right is important as it affects healthcare entitlement. The section on immigration status provides clarity on this.)")
+
+Answer.create(
+  user: user2,
+  question: q1,
+  content: "There is no difference between asylum seeker and refugee status. Any illegal migrant is anyone else."
+  )
+
+q2 = Question.create(
+  user: user,
+  content: 'How do I know what immunisations a new migrant patient needs, and what they might have already had?'
+)
+
+Answer.create(
+  user: user2,
+  question: q2,
+  content: "You should assume that patients aren’t immunised, unless they can give a reliable history. There is useful guidance on the Migrant Health Guide here: https://www.gov.uk/guidance/immunisation-migrant-health-guide "
+  )
+
+
+Answer.create(
+  user: admin,
+  question: q2,
+  content: "Migrants should follow the immunisation schedule of their country of origin. "
+  )
+
+Answer.create(
+  user: user2,
+  question: q2,
+  content: "There is no point vaccinating new migrants as they have been exposed to disease in the past."
+  )
+
+
+
+

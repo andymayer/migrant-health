@@ -13,6 +13,8 @@
 class Question < ApplicationRecord
   include PgSearch
 
+  acts_as_url :content, url_attribute: :slug
+
   belongs_to  :user
   has_many    :answers
   has_many    :comments
@@ -21,5 +23,9 @@ class Question < ApplicationRecord
   validates_presence_of :content
 
   multisearchable against: :content
+
+  def to_param
+    slug
+  end
 
 end
