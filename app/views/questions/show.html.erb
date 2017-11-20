@@ -24,21 +24,7 @@
                 <%= render 'user_profile', user: @question.user %>
                 <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
             </div>
-            <% if @question.comments.exists? %>
-              <div class="post-comments">
-                <div class="comment-wrap">
-                  <h3 class="comments-title">2 Comments</h3>
-                  <% @question.comments.each do |comment| %>
-                    <p class="comment">
-                      <%= comment.content %>
-                      <span class="comment-info">
-                        <%= render 'user_profile', user: comment.user %>
-                      <span class="comment-info__time"><%= time_ago_in_words(comment.created_at) %> ago</span> </span>
-                    </p>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
+            <%= render 'comments', thing: @question %>
           </div>
         </div>
         <div class="col-sm-4">
@@ -50,116 +36,33 @@
   <div class="strip">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <h2>
-            2 Answers
-          </h2>
-          <div class="post-wrap">
-            <div class="post post--answer">
-              <div class="post__ui">
-                <a href="#" class="vote vote-up">
-                  <i class="fa fa-thumbs-o-up"></i>
-                </a>
-                <span class="vote-count">
-                  1
-                </span>
-                <a href="#" class="vote vote-down">
-                  <i class="fa fa-thumbs-o-down"></i>
-                </a>
-                <i class="fa fa-check the-post-answer-icon"></i>
-              </div>
-              <p class="answer__title">
-                If they are from the EEA then they are entitled to free NHS care. The rules are more complicated for people outside the EEA but everyone – regardless of where they are from – is entitled to free primary care.
-              </p>
-              <span class="comment-info"> <a href="/health-foundation/user/profile.html" class="comment-info__link">
-                John
-              </a> <span class="comment-info__time">2 hours ago</span> </span>
-            </div>
-            <div class="post-comments">
-              <div class="comment-wrap">
-                <h3 class="comments-title">2 Comments</h3>
-                <p class="comment">
-                  We do not register anyone without a fixed UK abode and we always ask for passports at registration.
-                  <span class="comment-info"> <a href="/health-foundation/user/profile.html" class="comment-info__link">
-                    John
-                  </a> <span class="comment-info__time">2 hours ago</span> </span>
-                </p>
-              </div>
-            </div>
+        <% if @question.answers.exists? %>
+          <div class="col-sm-8">
+            <h2><%= @question.answers.count %> Answers</h2>
+            <% @question.answers.each do |answer| %>
+              <%= render 'answer', answer: answer %>
+            <% end %>
           </div>
-          <div class="post-wrap">
-            <div class="post post--good">
-              <div class="post__ui">
-                <a href="#" class="vote vote-up">
-                  <i class="fa fa-thumbs-o-up"></i>
-                </a>
-                <span class="vote-count">
-                  1
-                </span>
-                <a href="#" class="vote vote-down">
-                  <i class="fa fa-thumbs-o-down"></i>
-                </a>
-              </div>
-              <p class="answer__title">
-                Yes, NHS England guidance states anyone can access primary care, and not having proof of address should not be a barrier to this. Please see the section on entitlements for more information.
-              </p>
-              <span class="time-ago">9 hours ago</span>
-            </div>
+        <% else %>
+          <div class="col-sm-8">
+            <h2>This question has no answers, can you help?</h2>
           </div>
-          <div class="post-wrap">
-            <div class="post post--bad">
-              <div class="post__ui">
-                <a href="#" class="vote vote-up">
-                  <i class="fa fa-thumbs-o-up"></i>
-                </a>
-                <span class="vote-count">
-                  1
-                </span>
-                <a href="#" class="vote vote-down">
-                  <i class="fa fa-thumbs-o-down"></i>
-                </a>
-              </div>
-              <p class="answer__title">
-                Anyone with proof of address can register in England.
-              </p>
-              <span class="time-ago">9 hours ago</span>
-            </div>
-          </div>
-        </div>
+        <% end %>
         <div class="col-sm-4">
           <div class="related-box related-fact-sheets">
             <h3 class="related-box__title">Relevant topics</h3>
             <ul class="listing listing--topics">
+              <% ActsAsTaggableOn::Tag.order("RANDOM()").limit(4).each do |topic| %>
               <li>
-                <a href="/health-foundation/topics/fgm.html">
-                  <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-                  <p>Infectious diseases</p>
-                </a>
+                <%= link_to topic_path(topic) do %>
+                  <%= render 'layouts/icon_image', file_name: 'icon-topic.svg', alt_text: 'Topic', smaller: true %>
+                  <%= topic %>
+                <% end %>
               </li>
-              <li>
-                <a href="/health-foundation/topics/fgm.html">
-                  <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-                  <p>Safeguarding</p>
-                </a>
-              </li>
-              <li>
-                <a href="/health-foundation/topics/fgm.html">
-                  <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-                  <p>FGM</p>
-                </a>
-              </li>
-              <li>
-                <a href="/health-foundation/topics/fgm.html">
-                  <img src="/health-foundation/assets/img/icon-topic.svg" onerror="this.onerror=null; this.src='/health-foundation/assets/img/icon-topic.png'" aria-hidden="true" credit="Created by Vectors Market from the Noun Project" class="icon icon--smaller">
-
-                  <p>First appointment</p>
-                </a>
-              </li>
+              <% end %>
             </ul>
           </div>
+
         </div>
       </div>
       <div class="row">
