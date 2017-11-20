@@ -19,6 +19,7 @@ gem 'jquery-rails'
 
 # Multiple environment files
 gem 'dotenv-rails'
+
 # Useful for debug all over the place
 gem 'awesome_print'
 

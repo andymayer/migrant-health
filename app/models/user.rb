@@ -5,6 +5,10 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  title                  :string           default("")
+#  first_name             :text
+#  last_name              :text
+#  role                   :integer          default("user")
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
@@ -18,8 +22,20 @@
 #
 
 class User < ApplicationRecord
+  after_initialize :set_default_role, if: :new_record?
+
+  enum role: [:user, :admin]
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  private
+
+  def set_default_role
+    self.role ||= :user
+  end
+
 end
+

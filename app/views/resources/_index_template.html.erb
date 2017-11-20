@@ -39,7 +39,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
-         <%= link_to "Create #{@resource_type}", new_path, class: 'btn-info btn' %>
+         <%= link_to "Create #{@resource_type}", new_path, class: 'btn-info btn' if current_user.try(:admin?) %>
         </div>
       </div>
     </div>

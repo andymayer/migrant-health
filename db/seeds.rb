@@ -1,24 +1,12 @@
-# Fact Sheet
-# numbered_paragraph_chunk
-# further_information_chunk
-# indicators_chunk
-# what_to_do_chunk
 
-# How To
-# before_in_preparation_chunk
-# during_consultation_chunk
-# after_aftercare_chunk
-# indicators_chunk
-# what_to_do_chunk
-# consider_relevant_chunk
-# symptoms_reported_chunk
 
 ContentChunk.delete_all
 ExternalResource.delete_all
 FurtherInformationChunk.delete_all
 Resource.delete_all
-ActsAsTaggableOn::Tag.delete_all
+User.delete_all
 
+ActsAsTaggableOn::Tag.delete_all
 
 PgSearch::Document.delete_all
 
@@ -27,15 +15,14 @@ ActiveRecord::Base.connection.tables.each do |t|
 end
 
 
-
-# PgSearch::Document.create!([
-#   {content: "Interpreters are an invaluable resource, but can vary in availability, and accessibility. When an in-person interpreter is not available, language line can be used. Many struggle to build a rapport on the telephone and via interpreters. This section provides a few useful tips for using interpreting services effectively.", searchable_type: "Resource", searchable_id: 1},
-#   {content: "Some new migrants may have lived through a traumatic experience. Some have been exploited and a minority are still in exploitative situations. Whilst some people will want to talk, others will not and should not be pressured. However, identifying potential signs of trauma and abuse can help us provide appropriate support to the most vulnerable.", searchable_type: "Resource", searchable_id: 2},
-#   {content: "FGM is illegal and mandatory reporting now exists for under 18s. Asking sensitively about the topic can be challenging. Developing a pathway for your practice may be helpful in encouraging practitioners to ask, and knowing what to do with the response.", searchable_type: "Resource", searchable_id: 3},
-#   {content: "Most migrants have do not have communicable diseases, and in fact carry a low burden. However, some are at greater risk due to unstable living conditions, the journey with exposure to high risk situations, lack of vaccinations, and lack of screening. Identifying those at risk for assessment and screening is vital.", searchable_type: "Resource", searchable_id: 4},
-#   {content: "Purpose: To share emerging practice and learn lessons", searchable_type: "Resource", searchable_id: 5},
-#   {content: "This is an example of the sorts of factors practices can take into account when assessing the social needs of newly registering patients from overseas. It may help establish if they are in stable and decent living conditions, have a job or an income and if they feel ‘safe’ in their neighbourhood.", searchable_type: "Resource", searchable_id: 6}
-# ])
+User.create(
+  email:    ENV['SUPERUSER_EMAIL']    || 'developers@yoomee.com',
+  password: ENV['SUPERUSER_PASSWORD'] || 'weather-medley-impiety-onerous',
+  role: :admin,
+  title: '',
+  first_name: 'Developer',
+  last_name: 'YooMee'
+)
 
 
 FurtherInformationChunk.create!([

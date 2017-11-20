@@ -5,6 +5,10 @@
 #  id                     :integer          not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  title                  :string           default("")
+#  first_name             :text
+#  last_name              :text
+#  role                   :integer          default("user")
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime

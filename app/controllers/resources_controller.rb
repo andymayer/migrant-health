@@ -1,18 +1,64 @@
 class ResourcesController < ApplicationController
+  before_action :set_resource_type, execept: :index
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
   before_action :set_tags
+
+  after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
 
   MAXIMUM_NUMBER_OF_EXTERNAL_RESOURCES = 3
 
   # GET /resources
   def index
-    @resources = Resource.all
+    @resources = @resource_class.all
   end
 
   def show
   end
 
+  def new
+    # This gets the full class name from the controller and instantiates the resource
+    @resource = @resource_class.new
+    authorize @resource
+    populate_nested_chunks
+  end
+
+  def edit
+    authorize @resource
+    populate_nested_chunks
+  end
+
+  def create
+    @resource = @resource_class.new(resource_params)
+    authorize @resource
+
+    if @resource.save
+      redirect_to @resource, notice: "#{@resource_type} was successfully created."
+    else
+      render :new
+    end
+  end
+
+  def destroy
+    authorize @resource
+    @resource.destroy
+    redirect_to resources_url, notice: "#{@resource_type} was successfully destroyed."
+  end
+
+  def update
+    authorize @resource
+    if @resource.update(resource_params)
+      redirect_to @resource, notice: "#{@resource_type} was successfully updated."
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_resource_type
+    @resource_class = Resource
+    @resource_type = 'Resources'
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_resource

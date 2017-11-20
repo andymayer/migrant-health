@@ -1,52 +1,15 @@
 module Resources
   class HowTosController < ResourcesController
 
-    # GET /how_tos
-    def index
-      @resource_type = 'How To'
-      @resources = HowTo.all
-    end
-
-    # GET /how_tos/new
-    def new
-      @resource = HowTo.new
-      populate_how_to_chunks
-    end
-
-    # GET /how_tos/1/edit
-    def edit
-      populate_how_to_chunks
-    end
-
-    # POST /how_tos
-    def create
-      @resource = HowTo.new(how_to_params)
-      if @resource.save
-        redirect_to @resource, notice: 'How to was successfully created.'
-      else
-        render :new
-      end
-    end
-
-    # PATCH/PUT /how_tos/1
-    def update
-      if @resource.update(how_to_params)
-        redirect_to @resource, notice: 'How to was successfully updated.'
-      else
-        render :edit
-      end
-    end
-
-    # DELETE /how_tos/1
-    def destroy
-      @resource.destroy
-      redirect_to resources_path, notice: 'How to was successfully destroyed.'
-    end
-
     private
 
+    def set_resource_type
+      @resource_class = Resources::HowTo
+      @resource_type = 'How To'
+    end
+
     # Only allow a trusted parameter "white list" through.
-    def how_to_params
+    def resource_params
       params.require(:resources_how_to)
         .permit(:title, :intro, :video_url, :contributed_by,
           before_in_preparation_chunk_attributes: [:title, :intro, :content, :after],
@@ -57,17 +20,17 @@ module Resources
           consider_relevant_chunk_attributes: [:title, :intro, :content, :after],
           symptoms_reported_chunk_attributes: [:title, :intro, :content, :after],
           resources_chunk_attributes: [
-            :title, 
-            :intro, 
+            :title,
+            :intro,
             :after,
-            external_resources_attributes: [:title, :url], 
+            external_resources_attributes: [:title, :url],
             uploaded_attachments_attributes: [:uploaded_file, :title]],
           topic_list: []
         )
     end
 
     # YUCK
-    def populate_how_to_chunks
+    def populate_nested_chunks
       @resource.build_before_in_preparation_chunk if @resource.before_in_preparation_chunk.nil?
       @resource.build_during_consultation_chunk   if @resource.during_consultation_chunk.nil?
       @resource.build_after_aftercare_chunk       if @resource.after_aftercare_chunk.nil?
@@ -81,7 +44,7 @@ module Resources
           build_external_resources_and_attachments(@resource.resources_chunk)
         end
       else
-        populate_external_resources_and_attachments(@resource.resources_chunk)       
+        populate_external_resources_and_attachments(@resource.resources_chunk)
       end
     end
   end
