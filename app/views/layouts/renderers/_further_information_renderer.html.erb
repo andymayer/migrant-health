@@ -5,7 +5,7 @@
 <% if chunk.intro %>
   <p><%= chunk.intro %></p>
 <% end %>
-<% if chunk.external_resources.any? %>
+<% if chunk.external_resources.exists? %>
   <ul class="listing resources-list">
     <% chunk.external_resources.each do |external_resource| %>
       <%= render 'layouts/renderers/further_information_link', external_resource: external_resource %>
@@ -13,7 +13,7 @@
   </ul>
 <% end %>
 
-<% if chunk.uploaded_attachments.any? %>
+<% if chunk.uploaded_attachments.exists? %>
   <ul class="listing resources-list">
     <% chunk.uploaded_attachments.each do |uploaded_attachment| %>
       <%= render 'layouts/renderers/uploaded_attachment_link', uploaded_attachment: uploaded_attachment %>

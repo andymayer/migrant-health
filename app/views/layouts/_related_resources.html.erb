@@ -1,5 +1,5 @@
 <div class="related-box related-resources">
-  <% if resource.becomes(Resource).find_related_topics.any? %>
+  <% if resource.becomes(Resource).find_related_topics.exists? %>
     <h3 class="related-box__title">Related resources</h3>
     <ul class="listing related-nav">
       <!-- cast as Resource to get tags working -->
