@@ -1,61 +1,23 @@
 module Resources
   class FactSheetsController < ResourcesController
 
-    # GET /fact_sheets
-    def index
-      @resource_type = 'Fact Sheet'
-      @resources = FactSheet.all
-    end
-
-    # GET /fact_sheets/new
-    def new
-      @resource = FactSheet.new
-      populate_fact_sheet_chunks
-    end
-
-    # GET /fact_sheets/1/edit
-    def edit
-      populate_fact_sheet_chunks
-    end
-
-    # POST /fact_sheets
-    def create
-      @resource = FactSheet.new(fact_sheet_params)
-
-      if @resource.save
-        redirect_to @resource, notice: 'Fact sheet was successfully created.'
-      else
-        render :new
-      end
-    end
-
-    # PATCH/PUT /fact_sheets/1
-    def update
-      if @resource.update(fact_sheet_params)
-        redirect_to @resource, notice: 'Fact sheet was successfully updated.'
-      else
-        render :edit
-      end
-    end
-
-    # DELETE /fact_sheets/1
-    def destroy
-      @resource.destroy
-      redirect_to resources_path, notice: 'Fact sheet was successfully destroyed.'
-    end
-
     private
 
+    def set_resource_type
+      @resource_class = Resources::FactSheet
+      @resource_type = 'Fact Sheet'
+    end
+
     # Only allow a trusted parameter "white list" through.
-    def fact_sheet_params
+    def resource_params
       params.require(:resources_fact_sheet)
         .permit(:title, :intro, :video_url, :contributed_by,
           numbered_paragraph_chunk_attributes: [:title, :intro, :content, :after],
           further_information_chunk_attributes: [
-            :title, 
-            :intro, 
+            :title,
+            :intro,
             :after,
-            external_resources_attributes: [:title, :url], 
+            external_resources_attributes: [:title, :url],
             uploaded_attachments_attributes: [:uploaded_file, :title]],
           indicators_chunk_attributes: [:title, :intro, :content, :after],
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
@@ -64,7 +26,7 @@ module Resources
     end
 
     # YUCK
-    def populate_fact_sheet_chunks
+    def populate_nested_chunks
       @resource.build_numbered_paragraph_chunk  if @resource.numbered_paragraph_chunk.nil?
 
       if @resource.further_information_chunk.nil?

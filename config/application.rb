@@ -11,6 +11,8 @@ module MigrantHealth
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.action_dispatch.rescue_responses["Pundit::NotAuthorizedError"] = :forbidden
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -26,14 +28,14 @@ module MigrantHealth
     }
 
     config.x.mail_from = %(Migrant Health <no-reply@migrant.health>)
-     
+
     config.action_mailer.default_url_options = { host: 'migrant.health' }
     config.action_mailer.smtp_settings = {
       address: 'email-smtp.eu-west-1.amazonaws.com',
       user_name: ENV['AWS_SMTP_USERNAME'],
       password: ENV['AWS_SMTP_PASSWORD']
     }
-     
+
     config.action_mailer.raise_delivery_errors = true
 
   end

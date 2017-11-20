@@ -34,6 +34,7 @@ gem 'lograge'
 
 # Authentication and authorisation
 gem 'devise'
+gem 'pundit'
 
 # Attachments
 gem "paperclip", "~> 5.0.0"
