@@ -6,8 +6,8 @@
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  title                  :string           default("")
-#  first_name             :text             not null
-#  last_name              :text             not null
+#  first_name             :text
+#  last_name              :text
 #  role                   :integer          default("user")
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
