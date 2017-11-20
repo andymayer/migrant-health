@@ -24,7 +24,7 @@
         <div class="col-sm-4">
           <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
           <%= render 'layouts/related_resources', resource: @resource %>
-          <%= link_to 'Edit', edit_resources_how_to_path(@resource), class: 'btn btn-default' if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_resources_how_to_path(@resource), class: 'btn btn-default' if current_user.try(:admin?) %>
         </div>
       </div>
     </div>
