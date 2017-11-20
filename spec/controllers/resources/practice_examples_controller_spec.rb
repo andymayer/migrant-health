@@ -25,7 +25,7 @@ require 'rails_helper'
 
 module Resources
 
-  RSpec.describe PracticeExamplesController, type: :controller do
+  RSpec.describe PracticeExamplesController, type: :controller, pending: 'adding devise tests' do
 
     # This should return the minimal set of attributes required to create a valid
     # PracticeExample. As you add validations to PracticeExample, be sure to

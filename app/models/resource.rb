@@ -29,7 +29,6 @@ class Resource < ApplicationRecord
   acts_as_taggable_on :topics
 
   multisearchable against: [:title, :intro]
-# multisearchable against: :intro
 
   validates_presence_of :title, :intro, :contributed_by
 
