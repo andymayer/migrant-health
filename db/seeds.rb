@@ -19,6 +19,9 @@ User.create(
   email:    ENV['SUPERUSER_EMAIL']    || 'developers@yoomee.com',
   password: ENV['SUPERUSER_PASSWORD'] || 'weather-medley-impiety-onerous',
   role: :admin,
+  title: '',
+  first_name: 'Developer',
+  last_name: 'YooMee'
 )
 
 
