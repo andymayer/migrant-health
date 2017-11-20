@@ -36,6 +36,10 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
 
+  def display_name
+    "#{title} #{first_name} #{last_name}"
+  end
+
   private
 
   def set_default_role

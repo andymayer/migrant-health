@@ -1,0 +1,66 @@
+<%= content_for :title, "User profile for #{@user.display_name}" %>
+
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <div class="jumbotron">
+            <h1 class="title--strip">User Profile</h1>
+            <p class="intro"><%=  @user.display_name %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+         <% if @user.questions.exists? %>
+         <p>Has asked <%= @user.questions.count %> questions</p>
+          <ul class="listing listing--questions">
+           <% @user.questions.each do |question| %>
+              <%= render 'questions/question', question: question %>
+           <% end %>
+         </ul>
+         <% else %>
+          <p>Has not asked any questions.</p>
+         <% end %>
+
+         <% if @user.answers.exists? %>
+         <p>Has answered <%= @user.answers.count %> questions</p>
+          <ul class="listing listing--questions">
+           <% @user.answers.each do |answer| %>
+              <%= render 'questions/question', question: answer.question %>
+           <% end %>
+         </ul>
+         <% else %>
+         <p>Has not answered any questions.</p>
+         <% end %>
+
+         <% if @user.comments.exists? %>
+         <p>Has given <%= @user.comments.count %> comments</p>
+        <ul class="listing listing--questions">
+           <% @user.comments.each do |comment| %>
+
+            <%= render 'questions/question', question: comment.question if comment.question %>
+            <%= render 'questions/question', question: comment.answer.question if comment.answer %>
+
+           <% end %>
+         </ul>
+
+         <% else %>
+         <p>Has not answered any questions.</p>
+         <% end %>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+
+
+</section>
+
+

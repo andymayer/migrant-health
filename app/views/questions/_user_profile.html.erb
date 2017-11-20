@@ -1,3 +1,1 @@
-<a href="/health-foundation/user/profile.html" class="comment-info__link">
-  <%= user.first_name %>
-</a>
+<%= link_to user.first_name, user_profile_path(user), class: "comment-info__link" %>
