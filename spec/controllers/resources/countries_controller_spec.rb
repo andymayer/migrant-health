@@ -25,7 +25,7 @@ require 'rails_helper'
 
 module Resources
 
-  RSpec.describe CountriesController, type: :controller do
+  RSpec.describe CountriesController, type: :controller, pending: 'adding devise tests' do
 
     # This should return the minimal set of attributes required to create a valid
     # Country. As you add validations to Country, be sure to

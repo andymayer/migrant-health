@@ -25,7 +25,7 @@ require 'rails_helper'
 
 module Resources
 
-  RSpec.describe FactSheetsController, type: :controller do
+  RSpec.describe FactSheetsController, type: :controller, pending: 'adding devise tests' do
 
     # This should return the minimal set of attributes required to create a valid
     # FactSheet. As you add validations to FactSheet, be sure to

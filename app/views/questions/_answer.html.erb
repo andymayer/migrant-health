@@ -1,0 +1,23 @@
+<div class="post-wrap">
+  <div class="post post--answer">
+    <div class="post__ui">
+      <a href="#" class="vote vote-up">
+        <i class="fa fa-thumbs-o-up"></i>
+      </a>
+      <span class="vote-count">
+        1
+      </span>
+      <a href="#" class="vote vote-down">
+        <i class="fa fa-thumbs-o-down"></i>
+      </a>
+      <i class="fa fa-check the-post-answer-icon"></i>
+    </div>
+    <p class="answer__title">
+      <%= answer.content %>
+    </p>
+    <span class="comment-info">
+      <%= render 'user_profile', user: answer.user %>
+    </a> <span class="comment-info__time"><%=  time_ago_in_words(answer.created_at) %></span> </span>
+  </div>
+  <%= render 'comments', thing: answer %>
+</div>

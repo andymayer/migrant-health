@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'static_pages#home'
 
+  get 'users/:id', to: 'users#show', as: :user_profile
 
   resources :resources, only: :index
 
@@ -13,6 +14,11 @@ Rails.application.routes.draw do
     resources :tools
     resources :countries
   end
+
+  resources :votes
+  resources :comments
+  resources :answers
+  resources :questions
 
   resources :topics, only: [:index, :show]
 

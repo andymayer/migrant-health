@@ -1,0 +1,50 @@
+<%= content_for :title,'Questions' %>
+
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--questions">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/breadcrumb' %>
+        </div>
+        <%= render 'question_strip' %>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10">
+          <%= render 'question_banner' %>
+          <div id="exTab2" class="">
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#1" data-toggle="tab">Top questions</a></li>
+              <li><a href="#2" data-toggle="tab">Active</a></li>
+              <li><a href="#3" data-toggle="tab">Week</a></li>
+              <li><a href="#4" data-toggle="tab">Month</a></li>
+            </ul>
+
+            <div class="tab-content ">
+              <div class="tab-pane active" id="1">
+                <ul class="listing listing--questions">
+                  <% Question.all.each do |question| %>
+                    <%= render 'question', question: question %>
+                  <% end %>
+                </ul>
+              </div>
+              <div class="tab-pane" id="2">
+                <div class="well">Active questions can go here</div>
+              </div>
+              <div class="tab-pane" id="3">
+                <div class="well">Active questions this week</div>
+              </div>
+              <div class="tab-pane" id="3">
+                <div class="well">Active questions this month</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

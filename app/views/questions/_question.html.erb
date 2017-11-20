@@ -1,0 +1,8 @@
+<li>
+  <%= link_to question_path(question) do %>
+    <%= render 'layouts/icon_image', file_name: 'icon-discussion.svg', alt_text: 'Question' %>
+
+    <h3 class="listing__title"><%= sanitize question.content %></h3>
+    <p class="metadata">6 votes, <%= pluralize(question.answers.count, 'answer') %>, 54 views</p>
+  <% end %>
+</li>

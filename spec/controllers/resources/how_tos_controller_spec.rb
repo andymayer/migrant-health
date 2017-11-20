@@ -25,7 +25,7 @@ require 'rails_helper'
 
 module Resources
 
-  RSpec.describe HowTosController, type: :controller do
+  RSpec.describe HowTosController, type: :controller, pending: 'adding devise tests' do
 
     # This should return the minimal set of attributes required to create a valid
     # HowTo. As you add validations to HowTo, be sure to

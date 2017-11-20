@@ -31,6 +31,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :questions
+  has_many :answers
+  has_many :comments
+  has_many :votes
+
+  def display_name
+    "#{title} #{first_name} #{last_name}"
+  end
+
   private
 
   def set_default_role

@@ -1,0 +1,73 @@
+<%= content_for :title, @question.content %>
+
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--questions">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/breadcrumb' %>
+          <%= render 'question_banner' %>
+        </div>
+        <div class="col-sm-8 strip__left">
+          <div class="post-wrap">
+            <div class="post post--question">
+              <div class="post__ui">
+                <a href="#" class="vote vote-up">
+                  <i class="fa fa-thumbs-o-up"></i>
+                </a>
+                <span class="vote-count"> 1 </span>
+                <a href="#" class="vote vote-down">
+                  <i class="fa fa-thumbs-o-down"></i>
+                </a>
+                <i class="fa fa-star the-post-question-icon"></i>
+              </div>
+              <h1 class="post__title"><%= @question.content %></h1>
+              <span class="comment-info">
+                <%= render 'user_profile', user: @question.user %>
+                <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
+            </div>
+            <%= render 'comments', thing: @question %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <%= render 'ask_your_own_question_panel' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <% if @question.answers.exists? %>
+          <div class="col-sm-8">
+            <h2><%= @question.answers.count %> Answers</h2>
+            <% @question.answers.each do |answer| %>
+              <%= render 'answer', answer: answer %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-sm-8">
+            <h2>This question has no answers, can you help?</h2>
+          </div>
+        <% end %>
+        <div class="col-sm-4">
+          <div class="related-box related-fact-sheets">
+            <h3 class="related-box__title">Relevant topics</h3>
+            <ul class="listing listing--topics">
+              <% ActsAsTaggableOn::Tag.order("RANDOM()").limit(4).each do |topic| %>
+              <li>
+                <%= link_to topic_path(topic) do %>
+                  <%= render 'layouts/icon_image', file_name: 'icon-topic.svg', alt_text: 'Topic', smaller: true %>
+                  <%= topic %>
+                <% end %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+      <%= render 'layouts/what_are_people_asking' %>
+    </div>
+  </div>
+</section>

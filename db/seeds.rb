@@ -4,6 +4,11 @@ ContentChunk.delete_all
 ExternalResource.delete_all
 FurtherInformationChunk.delete_all
 Resource.delete_all
+Vote.delete_all
+Comment.delete_all
+Answer.delete_all
+Question.delete_all
+
 User.delete_all
 
 ActsAsTaggableOn::Tag.delete_all
@@ -14,16 +19,32 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-
-User.create(
+admin = User.create(
   email:    ENV['SUPERUSER_EMAIL']    || 'developers@yoomee.com',
   password: ENV['SUPERUSER_PASSWORD'] || 'weather-medley-impiety-onerous',
   role: :admin,
   title: '',
-  first_name: 'Developer',
+  first_name: 'Admin',
   last_name: 'YooMee'
 )
 
+user = User.create(
+  email:    'developers+normal@yoomee.com',
+  password: 'weather-medley-impiety-onerous',
+  role: :user,
+  title: '',
+  first_name: 'Normal User',
+  last_name: 'YooMee'
+)
+
+user2 = User.create(
+  email:    'developers+normal2@yoomee.com',
+  password: 'weather-medley-impiety-onerous',
+  role: :user,
+  title: '',
+  first_name: 'Normal User 2',
+  last_name: 'YooMee'
+)
 
 FurtherInformationChunk.create!([
   {title: nil, intro: "The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:", after: nil},
@@ -146,3 +167,124 @@ ActsAsTaggableOn::Tagging.create!([
   {tag_id: 16, taggable_type: "Resource", taggable_id: 6, tagger_type: nil, tagger_id: nil, context: "topics"},
   {tag_id: 10, taggable_type: "Resource", taggable_id: 6, tagger_type: nil, tagger_id: nil, context: "topics"}
 ])
+
+q1 = Question.create(
+  user: user,
+  content: 'What is the difference between an asylum seeker and a refugee? What is an illegal migrant?'
+)
+
+Answer.create(
+  user: admin,
+  question: q1,
+  content: "Migration status can be confusing, and getting the terms right is important as it affects healthcare entitlement. The section on immigration status provides clarity on this.)")
+
+Answer.create(
+  user: user2,
+  question: q1,
+  content: "There is no difference between asylum seeker and refugee status. Any illegal migrant is anyone else."
+  )
+
+q2 = Question.create(
+  user: user,
+  content: 'How do I know what immunisations a new migrant patient needs, and what they might have already had?'
+)
+
+Answer.create(
+  user: user2,
+  question: q2,
+  content: "You should assume that patients aren’t immunised, unless they can give a reliable history. There is useful guidance on the Migrant Health Guide here: https://www.gov.uk/guidance/immunisation-migrant-health-guide "
+  )
+
+
+Answer.create(
+  user: admin,
+  question: q2,
+  content: "Migrants should follow the immunisation schedule of their country of origin. "
+  )
+
+Answer.create(
+  user: user2,
+  question: q2,
+  content: "There is no point vaccinating new migrants as they have been exposed to disease in the past."
+  )
+
+q3 = Question.create(user: user, content: 'Can anyone in England access NHS primary care?')
+c1 = Comment.create(user: user2, content: 'Do you mean anyone with a British passport?', question: q3 )
+c2 = Comment.create(user: user, content: 'No, I am thinking about a few patients who I’ve seen recently who have a European passport.', question: q3)
+
+a1 = Answer.create(
+  user: admin,
+  question: q3,
+  content: 'If they are from the EEA then they are entitled to free NHS care. The rules are more complicated for people outside the EEA but everyone – regardless of where they are from – is entitled to free primary care. '
+)
+
+c3 = Comment.create(user: user, content: 'We do not register anyone without a fixed UK abode and we always ask for passports at registration ', answer: a1)
+
+a2 = Answer.create(
+  user: user2,
+  question: q3,
+  content: 'Yes, NHS England guidance states anyone can access primary care, and not having proof of address should not be a barrier to this. Please see the section on entitlements for more information. '
+)
+
+a3 = Answer.create(
+  user: user,
+  question: q3,
+  content: 'Anyone with proof of address can register in England.'
+)
+
+q4 = Question.create(user: user, content: 'How do I ask about FGM? Who should I ask?')
+
+a4 = Answer.create(
+  user: user2,
+  question: q4,
+  content: 'RCOG says all pregnant women should be asked about cutting https://www.gov.uk/government/news/new-government-measures-to-end-fgm. Asking can be very difficult. See our section on this (?and video) for how to create a safe space for disclosure. '
+)
+
+a5 = Answer.create(
+  user: admin,
+  question: q4,
+  content: 'it isn’t up to GPs to ask about FGM.'
+)
+
+q5 = Question.create(user: user, content: 'What are the signs of trafficking?')
+
+a6 = Answer.create(
+  user: user2,
+  question: q5,
+  content: 'Trafficking can be difficult to detect. There are certain signs to look out for, which you can find under the trafficking tag. '
+)
+
+a7 = Answer.create(
+  user: admin,
+  question: q5,
+  content: 'Most people who have been trafficked will disclose this, or it will be obvious.'
+)
+
+q6 = Question.create(user: user2, content: 'Is everyone entitled to free secondary care?')
+
+a8 = Answer.create(
+  user: admin,
+  question: q6,
+  content: 'The guidance for secondary care is very complex. Importantly, A&E and infectious diseases remain free at point of care, but other services are charged depending on immigration status. See the section on entitlements to healthcare for more information. '
+)
+
+a9 = Answer.create(
+  user: user,
+  question: q6,
+  content: 'migrants are not entitled to secondary care'
+)
+
+a10 = Answer.create(
+  user: user2,
+  question: q6,
+  content: 'everyone is entitled to free secondary care'
+)
+
+
+
+
+
+
+
+
+
