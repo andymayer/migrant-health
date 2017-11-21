@@ -15,6 +15,9 @@ class Question < ApplicationRecord
 
   acts_as_url :content, url_attribute: :slug
 
+  acts_as_taggable
+  acts_as_taggable_on :topics
+
   belongs_to  :user
   has_many    :answers
   has_many    :comments
