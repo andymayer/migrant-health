@@ -38,18 +38,17 @@
   <div class="strip">
     <div class="container">
       <div class="row">
-        <% if @question.answers.exists? %>
-          <div class="col-sm-8">
+         <div class="col-sm-8">
+          <% if @question.answers.exists? %>
             <h2><%= @question.answers.count %> Answers</h2>
             <% @question.answers.each do |answer| %>
               <%= render 'answer', answer: answer %>
             <% end %>
-          </div>
-        <% else %>
-          <div class="col-sm-8">
+          <% else %>
             <h2>This question has no answers, can you help?</h2>
-          </div>
-        <% end %>
+          <% end %>
+          <%= render 'answer_form', answer: @answer %>
+        </div>
         <div class="col-sm-4">
           <div class="related-box related-fact-sheets">
             <h3 class="related-box__title">Relevant topics</h3>

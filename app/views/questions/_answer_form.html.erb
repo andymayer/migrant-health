@@ -1,0 +1,13 @@
+<%= form_with(model: answer, local: true) do |f| %>
+  <%= render 'layouts/form_error_messages', resource: answer %>
+  <%= f.hidden_field :question_id, value: answer.question.id %>
+  <fieldset>
+    <legend>Answer the question</legend>
+    <div class="form-group">
+     <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Your answer" %>
+    </div>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit 'Answer', class: 'btn btn-default' %>
+  </div>
+<% end %>
