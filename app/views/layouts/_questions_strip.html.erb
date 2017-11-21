@@ -4,114 +4,33 @@
       <div class="col-sm-4">
         <h2>Hot questions</h2>
           <ul class="listing listing--questions listing--small">
-            <li>
-              <a href="/health-foundation/questions/can-anyone-in-england-accesss-nhs-primary-care.html">
-
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-                <h3 class="listing__title">Can anyone in England access NHS primary care?</h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-            <li>
-              <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-                <h3 class="listing__title">
-                  What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
-            <li>
-              <a href="/health-foundation/questions/how-do-I-know-what-immunisations–a-new-migrant-patient-needs.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  How do I know what immunisations a new migrant patient needs, and what they might have already had?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
+            <% Question.all.order(:updated_at).limit(3).each do |question| %>
+              <%= render 'questions/question', question: question %>
+            <% end %>
           </ul>
-        <a href="/health-foundation/questions/" class="btn btn-primary">View all</a>
+          <%= link_to 'View all', questions_path, class: 'btn btn-primary' %>
       </div>
       <div class="col-sm-4">
         <h2>New questions</h2>
           <ul class="listing listing--questions listing--small">
-            <li>
-              <a href="/health-foundation/questions/what—are-the-signs-of-trafficking.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  What are the signs of trafficking?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-            <li>
-              <a href="/health-foundation/questions/how-do-I-know-what-immunisations–a-new-migrant-patient-needs.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  How do I know what immunisations a new migrant patient needs, and what they might have already had?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
-            <li>
-              <a href="/health-foundation/questions/is-everyone-entitled-to-free-secondary-care.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  Is everyone entitled to free secondary care?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
-
-
+            <% Question.all.order(:created_at).limit(3).each do |question| %>
+              <%= render 'questions/question', question: question %>
+            <% end %>
           </ul>
-        <a href="/health-foundation/questions/" class="btn btn-primary">View all</a>
+        <%= link_to 'View all', questions_path, class: 'btn btn-primary' %>
       </div>
       <div class="col-sm-4">
         <h2>Unanswered questions</h2>
-          <ul class="listing listing--questions listing--small">
-            <li>
-              <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-            <li>
-              <a href="/health-foundation/questions/difference-between-assylum-seeker-and-refugee.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">
-                  What is the difference between an asylum seeker and a refugee? What is an illegal migrant?
-                </h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
-            <li>
-              <a href="/health-foundation/questions/can-anyone-in-england-accesss-nhs-primary-care.html">
-                <%= image_tag 'icon-discussion.png', alt: 'Discussion', class: 'icon', credit: "Created by Vectors Market from the Noun Project" %>
-
-                <h3 class="listing__title">Can anyone in England access NHS primary care?</h3>
-                <p class="metadata">6 votes, 1 answer, 54 views</p>
-              </a>
-            </li>
-
-
-          </ul>
-        <a href="/health-foundation/questions/" class="btn btn-primary">View all</a>
+          <% if Question.includes(:answers).where(answers: { id: nil }).exists? %>
+            <ul class="listing listing--questions listing--small">
+              <% Question.includes(:answers).where(answers: { id: nil }).each do |question| %>
+                <%= render 'questions/question', question: question %>
+              <% end %>
+            </ul>
+          <% else %>
+            <p>There are no unanswered questions at the moment</p>
+          <% end %>
+        <%= link_to 'View all', questions_path, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
