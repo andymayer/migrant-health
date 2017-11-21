@@ -18,6 +18,15 @@
     <span class="comment-info">
       <%= render 'user_profile', user: answer.user %>
     </a> <span class="comment-info__time"><%=  time_ago_in_words(answer.created_at) %></span> </span>
+
+    <div class="pull-right">
+      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-<%= index %>" aria-expanded="false" aria-controls="collapseExample-<%= index %>">
+      Add comment
+      </button>
+    </div>
+  </div>
+  <div class="collapse" id="collapseExample-<%= index %>">
+    <%= render 'comment_form', thing: answer, answer_id: answer.id, comment: comment %>
   </div>
   <%= render 'comments', thing: answer %>
 </div>

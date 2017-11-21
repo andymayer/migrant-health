@@ -1,0 +1,15 @@
+<p class="comment">
+  <%= form_with(model: comment, local: true) do |f| %>
+    <%= render 'layouts/form_error_messages', resource: comment %>
+    <%= f.hidden_field :question_id, value: question_id if defined? question_id %>
+    <%= f.hidden_field :answer_id, value: answer_id if defined? answer_id %>
+    <fieldset>
+      <div class="form-group">
+       <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Your comment" %>
+      </div>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit 'Comment', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</p>
