@@ -25,7 +25,19 @@
               <span class="comment-info">
                 <%= render 'user_profile', user: @question.user %>
                 <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
-            </div>
+
+ <div class="pull-right">
+      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-question" aria-expanded="false" aria-controls="collapseExample-question">
+      Add comment
+      </button>
+    </div>
+  </div>
+  <div class="collapse" id="collapseExample-question">
+    <%= render 'comment_form', thing: @question, question_id: @question.id, comment: @comment %>
+  </div>
+
+
+
             <%= render 'comments', thing: @question %>
           </div>
         </div>
@@ -41,13 +53,13 @@
          <div class="col-sm-8">
           <% if @question.answers.exists? %>
             <h2><%= @question.answers.count %> Answers</h2>
-            <% @question.answers.each do |answer| %>
-              <%= render 'answer', answer: answer %>
+            <% @question.answers.each_with_index do |answer, index| %>
+              <%= render 'answer', answer: answer, comment: @comment, index: index %>
             <% end %>
           <% else %>
             <h2>This question has no answers, can you help?</h2>
           <% end %>
-          <%= render 'answer_form', answer: @answer %>
+          <%= render 'answer_form', answer: @answer, comment: @comment %>
         </div>
         <div class="col-sm-4">
           <div class="related-box related-fact-sheets">

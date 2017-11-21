@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
       @topics = ActsAsTaggableOn::Tag.order("RANDOM()").limit(4)
     end
     @answer = Answer.new(question: @question)
+    @comment = Comment.new()
   end
 
   # GET /questions/new
