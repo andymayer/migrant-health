@@ -22,9 +22,9 @@ class AnswersController < ApplicationController
   # POST /answers
   def create
     @answer = Answer.new(answer_params)
-
+    @answer.user = current_user
     if @answer.save
-      redirect_to @answer, notice: 'Answer was successfully created.'
+      redirect_to @answer.question, notice: 'Answer was successfully created.'
     else
       render :new
     end
@@ -53,6 +53,6 @@ class AnswersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def answer_params
-      params.fetch(:answer, {})
+      params.require(:answer).permit(:question_id, :content)
     end
 end
