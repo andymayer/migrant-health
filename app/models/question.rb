@@ -23,8 +23,8 @@ class Question < ApplicationRecord
   has_many    :comments
   has_many    :votes
 
-  validates_presence_of :content
-  validates_presence_of :topic_list
+  validates_presence_of :content, { message: ": Please enter the question"}
+  validates_presence_of :topic_list, { message: ": Please choose at least one relevant topic"}
 
   multisearchable against: :content
 
