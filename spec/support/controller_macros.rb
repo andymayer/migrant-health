@@ -1,9 +1,14 @@
 module ControllerMacros
-  # extend ActiveSupport::Concern
+  extend ActiveSupport::Concern
 
-  # included do
-  #   include Devise::Test::ControllerHelpers, type: :controller
-  # end
+  included do
+    include Devise::Test::ControllerHelpers, type: :controller
+  end
+
+  def setup
+    @request.env["devise.mapping"] = Devise.mappings[:admin]
+    sign_in FactoryBot.create(:admin)
+  end
 
   def login_admin
     before(:each) do
