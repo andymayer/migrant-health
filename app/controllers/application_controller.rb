@@ -16,8 +16,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_not_authorised
-    flash[:alert] = "You are not authorised to perform this action."
+  def user_not_authorised(exception)
+    if exception.record.is_a? Question
+      flash[:alert] = "You need to be logged in to ask a question."
+    else
+      flash[:alert] = "You are not authorised to perform this action."
+    end
+
     redirect_to(request.referrer || root_path)
   end
 end

@@ -19,25 +19,22 @@
                 <a href="#" class="vote vote-down">
                   <i class="fa fa-thumbs-o-down"></i>
                 </a>
-                <i class="fa fa-star the-post-question-icon"></i>
               </div>
               <h1 class="post__title"><%= @question.content %></h1>
               <span class="comment-info">
                 <%= render 'user_profile', user: @question.user %>
-                <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span></span>
+                <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span>
+              </span>
 
- <div class="pull-right">
-      <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-question" aria-expanded="false" aria-controls="collapseExample-question">
-      Add comment
-      </button>
-    </div>
-  </div>
-  <div class="collapse" id="collapseExample-question">
-    <%= render 'comment_form', thing: @question, question_id: @question.id, comment: @comment %>
-  </div>
-
-
-
+              <div class="pull-right">
+                <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-question" aria-expanded="false" aria-controls="collapseExample-question">
+                Add comment
+                </button>
+              </div>
+            </div>
+            <div class="collapse" id="collapseExample-question">
+              <%= render 'comment_form', thing: @question, question_id: @question.id, comment: @comment %>
+            </div>
             <%= render 'comments', thing: @question %>
           </div>
         </div>
