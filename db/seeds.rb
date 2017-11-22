@@ -170,7 +170,8 @@ ActsAsTaggableOn::Tagging.create!([
 
 q1 = Question.create(
   user: user,
-  content: 'What is the difference between an asylum seeker and a refugee? What is an illegal migrant?'
+  content: 'What is the difference between an asylum seeker and a refugee? What is an illegal migrant?',
+  topic_list: [ ActsAsTaggableOn::Tag.first.name ]
 )
 
 Answer.create(
@@ -186,7 +187,8 @@ Answer.create(
 
 q2 = Question.create(
   user: user,
-  content: 'How do I know what immunisations a new migrant patient needs, and what they might have already had?'
+  content: 'How do I know what immunisations a new migrant patient needs, and what they might have already had?',
+  topic_list: [ ActsAsTaggableOn::Tag.first.name ]
 )
 
 Answer.create(
@@ -208,7 +210,7 @@ Answer.create(
   content: "There is no point vaccinating new migrants as they have been exposed to disease in the past."
   )
 
-q3 = Question.create(user: user, content: 'Can anyone in England access NHS primary care?')
+q3 = Question.create(user: user, content: 'Can anyone in England access NHS primary care?',   topic_list: [ ActsAsTaggableOn::Tag.second.name ])
 c1 = Comment.create(user: user2, content: 'Do you mean anyone with a British passport?', question: q3 )
 c2 = Comment.create(user: user, content: 'No, I am thinking about a few patients who I’ve seen recently who have a European passport.', question: q3)
 
@@ -232,7 +234,7 @@ a3 = Answer.create(
   content: 'Anyone with proof of address can register in England.'
 )
 
-q4 = Question.create(user: user, content: 'How do I ask about FGM? Who should I ask?')
+q4 = Question.create(user: user, content: 'How do I ask about FGM? Who should I ask?', topic_list: [ ActsAsTaggableOn::Tag.find(6).name ])
 
 a4 = Answer.create(
   user: user2,
@@ -246,7 +248,7 @@ a5 = Answer.create(
   content: 'it isn’t up to GPs to ask about FGM.'
 )
 
-q5 = Question.create(user: user, content: 'What are the signs of trafficking?')
+q5 = Question.create(user: user, content: 'What are the signs of trafficking?', topic_list: [ ActsAsTaggableOn::Tag.last.name ])
 
 a6 = Answer.create(
   user: user2,
@@ -260,7 +262,7 @@ a7 = Answer.create(
   content: 'Most people who have been trafficked will disclose this, or it will be obvious.'
 )
 
-q6 = Question.create(user: user2, content: 'Is everyone entitled to free secondary care?')
+q6 = Question.create(user: user2, content: 'Is everyone entitled to free secondary care?', topic_list: [ ActsAsTaggableOn::Tag.third.name ])
 
 a8 = Answer.create(
   user: admin,
