@@ -1,8 +1,8 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :set_topics, only: [:edit, :new]
+  before_action :set_topics, only: [:edit, :new, :create, :update]
 
-    after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
+  after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
 
   # GET /questions
   def index
@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   def show
     if @question.topic_list.any?
-      @topics = @question.topic_list
+      @topics = @question.topics
     else
       @topics = ActsAsTaggableOn::Tag.order("RANDOM()").limit(4)
     end

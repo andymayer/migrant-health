@@ -7,7 +7,8 @@
       <div class="panel-body">
         <ul>
           <% resource.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <!-- YUCK -->
+            <li><span style="color: black;"><%= message %></span></li>
           <% end %>
         </ul>
       </div>

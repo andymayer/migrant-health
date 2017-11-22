@@ -23,9 +23,26 @@ class Question < ApplicationRecord
   has_many    :comments
   has_many    :votes
 
-  validates_presence_of :content
+  validates_presence_of :content, { message: ": Please enter the question"}
+  validates_presence_of :topic_list, { message: ": Please choose at least one relevant topic"}
 
   multisearchable against: :content
+
+  def icon_file_name
+    'icon-discussion.svg'
+  end
+
+  def icon_alt_text
+    'Question'
+  end
+
+  def title
+    content
+  end
+
+  def intro
+    'Question'
+  end
 
   def to_param
     slug

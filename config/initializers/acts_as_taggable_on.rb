@@ -21,7 +21,7 @@ module ActsAsTaggableOn
     end
 
     def intro
-      'This is a topic'
+      'Topic'
     end
 
     def to_param
