@@ -9,11 +9,11 @@ module ActsAsTaggableOn
     multisearchable against: :name
 
     def icon_file_name
-      'icon-fact-sheet.svg'
+      'icon-topic.svg'
     end
 
     def icon_alt_text
-      'Fact Sheet'
+      'Topic'
     end
 
     def title
