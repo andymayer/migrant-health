@@ -16,7 +16,7 @@
     </p>
     <span class="comment-info">
       <%= render 'user_profile', user: answer.user %>
-    </a> <span class="comment-info__time"><%=  time_ago_in_words(answer.created_at) %></span> </span>
+    </a> <span class="comment-info__time"><%=  time_ago_in_words(answer.created_at) %> ago</span> </span>
 
     <div class="pull-right">
       <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-<%= index %>" aria-expanded="false" aria-controls="collapseExample-<%= index %>">
