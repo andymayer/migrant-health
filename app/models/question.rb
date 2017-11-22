@@ -24,8 +24,25 @@ class Question < ApplicationRecord
   has_many    :votes
 
   validates_presence_of :content
+  validates_presence_of :topic_list
 
   multisearchable against: :content
+
+  def icon_file_name
+    'icon-discussion.svg'
+  end
+
+  def icon_alt_text
+    'Question'
+  end
+
+  def title
+    content
+  end
+
+  def intro
+    'Question'
+  end
 
   def to_param
     slug
