@@ -29,6 +29,9 @@ gem 'stringex'
 # For topics
 gem 'acts-as-taggable-on', '~> 5.0'
 
+# For voting
+gem 'acts_as_votable'
+
 # Tidy logs
 gem 'lograge'
 

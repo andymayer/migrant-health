@@ -4,7 +4,7 @@ ContentChunk.delete_all
 ExternalResource.delete_all
 FurtherInformationChunk.delete_all
 Resource.delete_all
-Vote.delete_all
+ActsAsVotable::Vote.delete_all
 Comment.delete_all
 Answer.delete_all
 Question.delete_all

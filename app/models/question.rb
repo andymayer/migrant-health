@@ -14,6 +14,7 @@ class Question < ApplicationRecord
   include PgSearch
 
   acts_as_url :content, url_attribute: :slug
+  acts_as_votable
 
   acts_as_taggable
   acts_as_taggable_on :topics

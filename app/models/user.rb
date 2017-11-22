@@ -36,6 +36,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
 
+  acts_as_voter
+
   def display_name
     "#{title} #{first_name} #{last_name}"
   end
