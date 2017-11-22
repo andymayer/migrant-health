@@ -2,12 +2,13 @@
   <div>
     <div class="panel panel-danger">
       <div class="panel-heading">
-        <h3><%= pluralize(resource.errors.count, "error") %> stopped this <%= resource.type.to_s %> from being saved:</h3>
+        <h3><%= pluralize(resource.errors.count, "error") %> stopped this <%= resource.class.name.demodulize.underscore.humanize %> from being saved:</h3>
       </div>
       <div class="panel-body">
         <ul>
           <% resource.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
+            <!-- YUCK -->
+            <li><span style="color: black;"><%= message %></span></li>
           <% end %>
         </ul>
       </div>
