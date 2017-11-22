@@ -2,6 +2,8 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   before_action :set_topics, only: [:edit, :new]
 
+    after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
+
   # GET /questions
   def index
     @questions = Question.all
@@ -21,15 +23,18 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   def new
     @question = Question.new
+    authorize @question
   end
 
   # GET /questions/1/edit
   def edit
+    authorize @question
   end
 
   # POST /questions
   def create
     @question = Question.new(question_params)
+    authorize @question
     @question.user = current_user
 
     if @question.save
@@ -41,6 +46,7 @@ class QuestionsController < ApplicationController
 
   # PATCH/PUT /questions/1
   def update
+    authorize @question
     if @question.update(question_params)
       redirect_to @question, notice: 'Question was successfully updated.'
     else
@@ -50,6 +56,7 @@ class QuestionsController < ApplicationController
 
   # DELETE /questions/1
   def destroy
+    authorize @question
     @question.destroy
     redirect_to questions_url, notice: 'Question was successfully destroyed.'
   end
