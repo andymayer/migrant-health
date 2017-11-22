@@ -1,0 +1,5 @@
+$('.vote-up').bind('ajax:success', function(){
+   $(this).parent().parent().find('.vote_count').html('<%= escape_javascript @answer.votes_for.size.to_s %>');
+   $(this).closest('.vote-up').hide();
+   $(this).closest('.votes').html(' <%= link_to "Unlike", unlike_answer_path(@answer), remote: true, method: :get, class: 'unlike_post' %>');
+});

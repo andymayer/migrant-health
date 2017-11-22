@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :edit, :update, :destroy, :like, :unlike]
 
   # GET /answers
   def index
@@ -8,6 +8,22 @@ class AnswersController < ApplicationController
 
   # GET /answers/1
   def show
+  end
+
+  def like
+    @answer.liked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js   { render layout: false }
+    end
+  end
+
+  def unlike
+    @answer.unliked_by current_user
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js { render layout: false }
+    end
   end
 
   # GET /answers/new
