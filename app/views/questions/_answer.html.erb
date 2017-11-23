@@ -2,7 +2,7 @@
   <div class="post post--answer">
     <div class="post__ui">
 
-      <%= link_to like_answer_path(answer), method: :get, remote: true, class: "vote vote-up #{'selected' if current_user.voted_up_on? answer}", id: "vote_up_answer_#{answer.id}" do %>
+      <%= link_to like_answer_path(answer), method: :get, remote: true, class: "vote vote-up #{'selected' if (current_user && current_user.voted_up_on?(answer))}", id: "vote_up_answer_#{answer.id}" do %>
         <i class="fa fa-thumbs-o-up"></i>
       <% end %>
 
@@ -10,7 +10,7 @@
         <%= answer.weighted_score %>
       </span>
 
-      <%= link_to unlike_answer_path(answer), method: :get, remote: true, class: "vote vote-down #{'selected' if current_user.voted_down_on? answer}", id: "vote_down_answer_#{answer.id}" do %>
+      <%= link_to unlike_answer_path(answer), method: :get, remote: true, class: "vote vote-down #{'selected' if (current_user && current_user.voted_down_on?(answer))}", id: "vote_down_answer_#{answer.id}" do %>
         <i class="fa fa-thumbs-o-down"></i>
       <% end %>
     </div>

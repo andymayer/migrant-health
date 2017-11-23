@@ -23,7 +23,9 @@ class ApplicationController < ActionController::Base
   def user_not_authorised(exception)
     logger.info ('in user not authorised')
     case exception.record
-    when Question || Answer
+    when Question
+      handle_question_answer_exception(exception.record)   
+    when Answer
       handle_question_answer_exception(exception.record)
     else
       logger.info "User not authorised"
