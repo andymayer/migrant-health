@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   resources :answers do
     member do
-      put 'like',   to: "answers#like"
-      put 'unlike', to: "answers#unlike"
+      get 'like',   to: "answers#like"
+      get 'unlike', to: "answers#unlike"
     end
   end
 

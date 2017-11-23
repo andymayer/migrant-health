@@ -11,7 +11,13 @@ class AnswersController < ApplicationController
   end
 
   def like
-    @answer.liked_by current_user
+
+    if current_user.voted_down_on? @answer
+      @answer.undisliked_by current_user, vote_scope: 'rank', vote_weight: 1
+    elsif ! current_user.voted_up_on? @answer
+      @answer.liked_by current_user, vote_scope: 'rank', vote_weight: 1
+    end
+
     respond_to do |format|
       format.html { redirect_to :back }
       format.js   { render layout: false }
@@ -19,7 +25,15 @@ class AnswersController < ApplicationController
   end
 
   def unlike
-    @answer.unliked_by current_user
+    logger.info 'in unlike'
+    if current_user.voted_up_on? @answer
+      logger.info 'user has voted up this answer'
+      @answer.undisliked_by current_user, vote_scope: 'rank', vote_weight: 1
+    elsif ! current_user.voted_down_on? @answer
+      logger.info 'user has nowt, so unlike it'
+      @answer.unliked_by current_user, vote_scope: 'rank', vote_weight: -1
+    end
+
     respond_to do |format|
       format.html { redirect_to :back }
       format.js { render layout: false }

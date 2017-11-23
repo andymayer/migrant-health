@@ -1,26 +1,17 @@
 <div class="post-wrap">
   <div class="post post--answer">
     <div class="post__ui">
-      <% if current_user.voted_up_on? answer %>
-        <a href="#" class="vote vote-up">
-          <i class="fa fa-thumbs-o-up"></i>
-        </a>
-      <% else %>
-        <%= link_to like_answer_path(answer), method: :put, remote: true, class: "vote vote-up" do %>
-          <i class="fa fa-thumbs-o-up"></i>
-        <% end %>
+
+      <%= link_to like_answer_path(answer), method: :get, remote: true, class: "vote vote-up", id: "vote_up_answer_#{answer.id}" do %>
+        <i class="fa fa-thumbs-o-up"></i>
       <% end %>
-      <span class="vote-count">
+
+      <span class="vote-count" id="vote_count_answer_<%= answer.id %>">
         <%= answer.get_likes.size %>
       </span>
-      <% if current_user.voted_down_on? answer %>
-        <a href="#" class="vote vote-down">
-          <i class="fa fa-thumbs-o-down"></i>
-        </a>
-      <% else %>
-        <%= link_to unlike_answer_path(answer), method: :put, remote: true, class: "vote vote-down" do %>
-          <i class="fa fa-thumbs-o-down"></i>
-        <% end %>
+
+      <%= link_to unlike_answer_path(answer), method: :get, remote: true, class: "vote vote-down", id: "vote_down_answer_#{answer.id}" do %>
+        <i class="fa fa-thumbs-o-down"></i>
       <% end %>
     </div>
     <p class="answer__title">
