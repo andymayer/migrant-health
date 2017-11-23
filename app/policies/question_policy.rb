@@ -29,4 +29,12 @@ class QuestionPolicy < ApplicationPolicy
   def destroy?
     user.present?
   end
+
+  def like?
+    user.present?
+  end
+
+  def unlike?
+    user.present?
+  end
 end

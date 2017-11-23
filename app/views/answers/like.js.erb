@@ -1,3 +1,3 @@
 $('#vote_up_answer_<%= @answer.id %>').bind('ajax:success', function(){
-   $(this).parent().parent().find('#vote_count_answer_<%= @answer.id %>').html('<%= escape_javascript @answer.find_votes_for(:vote_scope => "rank").sum(:vote_weight).to_s %>');
+   $(this).parent().parent().find('#vote_count_answer_<%= @answer.id %>').html('<%= escape_javascript @answer.weighted_score.to_s %>');
 });

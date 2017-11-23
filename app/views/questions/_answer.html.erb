@@ -7,7 +7,7 @@
       <% end %>
 
       <span class="vote-count" id="vote_count_answer_<%= answer.id %>">
-        <%= answer.get_likes.size %>
+        <%= answer.weighted_score %>
       </span>
 
       <%= link_to unlike_answer_path(answer), method: :get, remote: true, class: "vote vote-down", id: "vote_down_answer_#{answer.id}" do %>
