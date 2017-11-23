@@ -13,7 +13,10 @@
 class Question < ApplicationRecord
   include PgSearch
 
+  AUTHORISATION_MESSAGE = "You need to be logged in to ask or vote for a question.".freeze
+
   acts_as_url :content, url_attribute: :slug
+  acts_as_votable
 
   acts_as_taggable
   acts_as_taggable_on :topics
@@ -46,6 +49,10 @@ class Question < ApplicationRecord
 
   def to_param
     slug
+  end
+
+  def authorisation_message
+    AUTHORISATION_MESSAGE
   end
 
 end

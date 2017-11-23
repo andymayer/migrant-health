@@ -1,5 +1,9 @@
 class AnswersController < ApplicationController
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  include VotingConcern
+
+  before_action :set_answer,  only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_votable, only: [:like, :unlike]   
+  before_action :authorise,   only: [:like, :unlike]
 
   # GET /answers
   def index
@@ -51,8 +55,17 @@ class AnswersController < ApplicationController
       @answer = Answer.find(params[:id])
     end
 
+    def authorise
+      authorize @answer
+    end
+
     # Only allow a trusted parameter "white list" through.
     def answer_params
       params.require(:answer).permit(:question_id, :content)
+    end
+
+    def set_votable
+      logger.info "set votable, answer is #{@answer}"
+      @votable = @answer
     end
 end

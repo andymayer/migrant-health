@@ -1,15 +1,18 @@
 <div class="post-wrap">
   <div class="post post--answer">
     <div class="post__ui">
-      <a href="#" class="vote vote-up">
+
+      <%= link_to like_answer_path(answer), method: :get, remote: true, class: "vote vote-up #{'selected' if current_user.voted_up_on? answer}", id: "vote_up_answer_#{answer.id}" do %>
         <i class="fa fa-thumbs-o-up"></i>
-      </a>
-      <span class="vote-count">
-        1
+      <% end %>
+
+      <span class="vote-count" id="vote_count_answer_<%= answer.id %>">
+        <%= answer.weighted_score %>
       </span>
-      <a href="#" class="vote vote-down">
+
+      <%= link_to unlike_answer_path(answer), method: :get, remote: true, class: "vote vote-down #{'selected' if current_user.voted_down_on? answer}", id: "vote_down_answer_#{answer.id}" do %>
         <i class="fa fa-thumbs-o-down"></i>
-      </a>
+      <% end %>
     </div>
     <p class="answer__title">
       <%= answer.content %>

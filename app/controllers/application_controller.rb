@@ -16,13 +16,36 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def ajax_redirect_to(redirect_uri)
+    { js: "window.location.replace('#{redirect_uri}');" }
+  end
+
   def user_not_authorised(exception)
-    if exception.record.is_a? Question
-      flash[:alert] = "You need to be logged in to ask a question."
+    logger.info ('in user not authorised')
+    case exception.record
+    when Question || Answer
+      handle_question_answer_exception(exception.record)
     else
+      logger.info "User not authorised"
       flash[:alert] = "You are not authorised to perform this action."
     end
 
-    redirect_to(request.referrer || root_path)
+    redirect_to_path = request.referrer || root_path
+    
+    # If voting, for example, you are sending a JS request via ajax
+    respond_to do |format|
+       format.js { render ajax_redirect_to redirect_to_path }
+       format.html { redirect_to redirect_to_path }
+    end
+  end
+
+  def handle_question_answer_exception(thing)
+    if current_user && thing.user == current_user
+      logger.info "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
+      flash[:alert] = "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
+    else
+      logger.info "User not authorised #{thing.class.name.downcase.pluralize}"
+      flash[:alert] = thing.authorisation_message
+    end
   end
 end

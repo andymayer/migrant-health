@@ -17,7 +17,21 @@ Rails.application.routes.draw do
 
   resources :votes
   resources :comments
-  resources :answers
+
+  resources :answers do
+    member do
+      get 'like',   to: "answers#like"
+      get 'unlike', to: "answers#unlike"
+    end
+  end
+
+  resources :questions do
+    member do
+      get 'like',   to: "questions#like"
+      get 'unlike', to: "questions#unlike"
+    end
+  end
+
   resources :questions
 
   resources :topics, only: [:index, :show]

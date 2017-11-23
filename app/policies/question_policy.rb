@@ -15,7 +15,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def new?
-  user.present?
+    user.present?
   end
 
   def update?
@@ -28,5 +28,13 @@ class QuestionPolicy < ApplicationPolicy
 
   def destroy?
     user.present?
+  end
+
+  def like?
+    user.present? && @question.user != user
+  end
+
+  def unlike?
+    user.present? && @question.user != user
   end
 end
