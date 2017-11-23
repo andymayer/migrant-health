@@ -20,21 +20,14 @@ class ApplicationController < ActionController::Base
     { js: "window.location.replace('#{redirect_uri}');" }
   end
 
-  # YUCK = this should be refactored
   def user_not_authorised(exception)
     logger.info ('in user not authorised')
     case exception.record
-
-      when Question
-              logger.info ('a question')
-        handle_question_exception(exception.record)
-      when Answer
-          logger.info ('a answer')
-        handle_answer_exception(exception.record)
-      else
-
-        logger.info "User not authorised"
-        flash[:alert] = "You are not authorised to perform this action."
+    when Question || Answer
+      handle_question_answer_exception(exception.record)
+    else
+      logger.info "User not authorised"
+      flash[:alert] = "You are not authorised to perform this action."
     end
 
     redirect_to_path = request.referrer || root_path
@@ -46,23 +39,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def handle_question_exception(question)
-    if current_user && question.user == current_user
-      logger.info "You cannot vote on your own questions"
-      flash[:alert] = "You cannot vote on your own questions"
+  def handle_question_answer_exception(thing)
+    if current_user && thing.user == current_user
+      logger.info "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
+      flash[:alert] = "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
     else
-      logger.info "User not authorised question"
-      flash[:alert] = "You need to be logged in to ask or vote for a question."
-    end
-  end
-
-  def handle_answer_exception(answer)
-    if current_user && answer.user == current_user
-      logger.info "You cannot vote on your own answers"
-      flash[:alert] = "You cannot vote on your own answers"
-    else
-      logger.info "User not authorised answer"
-      flash[:alert] = "You need to be logged in vote on answers."
+      logger.info "User not authorised #{thing.class.name.downcase.pluralize}"
+      flash[:alert] = thing.authorisation_message
     end
   end
 end
