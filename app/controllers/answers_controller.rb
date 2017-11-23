@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :authorise, only: [:like, :unlike]
 
   # GET /answers
   def index
@@ -11,33 +12,23 @@ class AnswersController < ApplicationController
   end
 
   def like
-    authorize @answer
-
     if current_user.voted_up_on? @answer
       @answer.unliked_by current_user
     else
       @answer.liked_by current_user
     end
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js   { render layout: false }
-    end
+    respond_to_voting
   end
 
   def unlike
-    authorize @answer
-
     if current_user.voted_down_on? @answer
       @answer.undisliked_by current_user
     else
       @answer.disliked_by current_user
     end
 
-    respond_to do |format|
-      format.html { redirect_to :back }
-      format.js { render layout: false }
-    end
+    respond_to_voting
   end
 
   # GET /answers/new
@@ -84,5 +75,16 @@ class AnswersController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def answer_params
       params.require(:answer).permit(:question_id, :content)
+    end
+
+    def authorise
+      authorize @answer
+    end
+
+    def respond_to_voting
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js { render layout: false }
+      end
     end
 end
