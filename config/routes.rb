@@ -25,6 +25,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :questions do
+    member do
+      get 'like',   to: "questions#like"
+      get 'unlike', to: "questions#unlike"
+    end
+  end
+
   resources :questions
 
   resources :topics, only: [:index, :show]
