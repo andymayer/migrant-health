@@ -79,11 +79,24 @@ Search is currently using Postgres's inbuilt TSearch function, with part words e
 
 ## Topics
 
-Functionality is provided by the ```acts-taggable-on``` gem with the front end magic select box provided by [Select2](https://select2.org/).
+Functionality is provided by the [acts-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)  gem with the front end magic select box provided by [Select2](https://select2.org/).
 
 Note that the ```Tag``` model provided by the gem is monkeypatched with search and other bits and bobs in an initializer 
 
 ```config/initializers/acts_on_taggable_on.rb```
+
+## Pretty URLs
+
+is provided by the ```stringex``` gem. It is activated at a model level and the ```slug``` column provides the slug. You need to use 
+
+```
+Model.find_by_slug(slug)
+``` 
+methodology.
+
+## Voting
+
+Is provided by [Acts as Votable](https://github.com/ryanto/acts_as_votable) gem.
 
 ## Attachments
 
@@ -96,6 +109,10 @@ AWS_SECRET_ACCESS_KEY=
 AWS_REGION=
 ```
 
+## Authentication and Authorisation
+
+is provided by ```Devise``` and ```Pundit```
+
 ## Email
 
 is configured to use AWS Simple Email Service. SMTP username and password from AWS should be set in the environment as follows
@@ -103,7 +120,10 @@ is configured to use AWS Simple Email Service. SMTP username and password from A
 ```
 AWS_SMTP_USERNAME=
 AWS_SMTP_PASSWORD=
+SENDING_EMAIL_ADDRESS=
 ```
+
+Note that unless you're on the paid AWS plan, the sending email address has to be verified in the AWS panel.
 
 ## Setting heroku environment variables
 
