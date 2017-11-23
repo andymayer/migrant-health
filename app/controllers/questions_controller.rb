@@ -1,8 +1,10 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
-  before_action :set_topics, only: [:edit, :new, :create, :update]
+  include VotingConcern
 
-  after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
+  before_action :set_question,  only: [:show, :edit, :update, :destroy]
+  before_action :set_topics,    only: [:edit, :new, :create, :update]
+  before_action :set_votable, only: [:like, :unlike]   
+  before_action :authorise,   only: [:like, :unlike]
 
   # GET /questions
   def index
@@ -70,6 +72,14 @@ class QuestionsController < ApplicationController
 
   def set_topics
     @topics = ActsAsTaggableOn::Tag.all
+  end
+
+  def set_votable
+    @votable = @question
+  end
+
+  def authorise
+    authorize @question
   end
 
   # Only allow a trusted parameter "white list" through.
