@@ -1,0 +1,51 @@
+<%= content_for :title, 'Users' %>
+
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 strip__left">
+          <div class="jumbotron">
+            <h1 class="title--strip">Users</h1>
+            <p class="intro">All the registered users</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>User name</th>
+                <th>Email address</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @users.each do |user| %>
+              <tr>
+                <td><%= user.display_name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.role %></td>
+              </tr>
+              <% end %>
+
+            </tbody>
+
+
+          </table>
+
+     </div>
+   </div>
+ </div>
+
+
+
+
+</section>
+
+
