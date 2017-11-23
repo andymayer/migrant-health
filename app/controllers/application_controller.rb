@@ -20,13 +20,24 @@ class ApplicationController < ActionController::Base
     { js: "window.location.replace('#{redirect_uri}');" }
   end
 
+  # YUCK = this should be refactored
   def user_not_authorised(exception)
     if exception.record.is_a? Question
-      logger.info "User not authorised question"
-      flash[:alert] = "You need to be logged in to ask or vote for a question."
+      if current_user && exception.record.user == current_user
+        logger.info "You cannot vote on your own questions"
+        flash[:alert] = "You cannot vote on your own questions"
+      else
+        logger.info "User not authorised question"
+        flash[:alert] = "You need to be logged in to ask or vote for a question."
+      end
     elsif exception.record.is_a? Answer
-      logger.info "User not authorised answer"
-       flash[:alert] = "You need to be logged in vote on answers."
+      if current_user && exception.record.user == current_user
+        logger.info "You cannot vote on your own answers"
+        flash[:alert] = "You cannot vote on your own answers"
+      else
+        logger.info "User not authorised answer"
+        flash[:alert] = "You need to be logged in vote on answers."
+      end
     else
       logger.info "User not authorised"
       flash[:alert] = "You are not authorised to perform this action."

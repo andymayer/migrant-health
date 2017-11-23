@@ -11,7 +11,6 @@ class QuestionsController < ApplicationController
 
   # GET /questions/1
   def show
-    logger.ap flash
     if @question.topic_list.any?
       @topics = @question.topics
     else

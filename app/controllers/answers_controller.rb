@@ -12,13 +12,10 @@ class AnswersController < ApplicationController
 
   def like
     authorize @answer
-    logger.error 'in like'
+
     if current_user.voted_up_on? @answer
-       logger.error 'already voted up so unlike'
-      # Undo like
       @answer.unliked_by current_user
     else
-      logger.error 'like'
       @answer.liked_by current_user
     end
 
@@ -30,13 +27,10 @@ class AnswersController < ApplicationController
 
   def unlike
     authorize @answer
-    logger.error 'in unlike'
+
     if current_user.voted_down_on? @answer
-      logger.error 'already voted down so undislike'
-      # Undo like
       @answer.undisliked_by current_user
     else
-      logger.error 'dislike'
       @answer.disliked_by current_user
     end
 

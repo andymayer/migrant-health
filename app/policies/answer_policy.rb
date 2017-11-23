@@ -9,4 +9,12 @@ class AnswerPolicy < QuestionPolicy
   def show?
     scope.where(:id => answer.id).exists?
   end
+
+  def like?
+    user.present? && @answer.user != user
+  end
+
+  def unlike?
+    user.present? && @answer.user != user
+  end
 end
