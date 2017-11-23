@@ -27,11 +27,11 @@ module MigrantHealth
 
     config.x.mail_from = %(Migrant Health <no-reply@migrant.health>)
 
-    config.action_mailer.default_url_options = { host: 'migrant.health' }
+    config.action_mailer.default_url_options = { host: 'migrant-health.dev' }
     config.action_mailer.smtp_settings = {
-      address: 'email-smtp.eu-west-1.amazonaws.com',
-      user_name: ENV['AWS_SMTP_USERNAME'],
-      password: ENV['AWS_SMTP_PASSWORD']
+      address:    'email-smtp.eu-west-1.amazonaws.com',
+      user_name:  ENV['AWS_SMTP_USERNAME'],
+      password:   ENV['AWS_SMTP_PASSWORD']
     }
 
     config.action_mailer.raise_delivery_errors = true

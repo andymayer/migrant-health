@@ -19,7 +19,7 @@ ActiveRecord::Base.connection.tables.each do |t|
   ActiveRecord::Base.connection.reset_pk_sequence!(t)
 end
 
-admin = User.create(
+admin = User.new(
   email:    ENV['SUPERUSER_EMAIL']    || 'developers@yoomee.com',
   password: ENV['SUPERUSER_PASSWORD'] || 'weather-medley-impiety-onerous',
   role: :admin,
@@ -28,23 +28,32 @@ admin = User.create(
   last_name: 'YooMee'
 )
 
-user = User.create(
-  email:    'developers+normal@yoomee.com',
+admin.skip_confirmation!
+admin.save!
+
+user = User.new(
+  email:    'developers+normal-migrant-health@yoomee.com',
   password: 'weather-medley-impiety-onerous',
   role: :user,
-  title: '',
-  first_name: 'Normal User',
-  last_name: 'YooMee'
+  title: 'Dr',
+  first_name: 'Jane',
+  last_name: 'Smith'
 )
 
-user2 = User.create(
-  email:    'developers+normal2@yoomee.com',
+user.skip_confirmation!
+user.save!
+
+user2 = User.new(
+  email:    'developers+normal-migrant-health-2@yoomee.com',
   password: 'weather-medley-impiety-onerous',
   role: :user,
-  title: '',
-  first_name: 'Normal User 2',
-  last_name: 'YooMee'
+  title: 'Dr',
+  first_name: 'John',
+  last_name: 'Davies'
 )
+
+user2.skip_confirmation!
+user2.save!
 
 FurtherInformationChunk.create!([
   {title: nil, intro: "The Department of Health has useful training videos, protcols and posters surrounding the mandatory reporting:", after: nil},
