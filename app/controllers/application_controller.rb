@@ -22,31 +22,47 @@ class ApplicationController < ActionController::Base
 
   # YUCK = this should be refactored
   def user_not_authorised(exception)
-    if exception.record.is_a? Question
-      if current_user && exception.record.user == current_user
-        logger.info "You cannot vote on your own questions"
-        flash[:alert] = "You cannot vote on your own questions"
+    logger.info ('in user not authorised')
+    case exception.record
+
+      when Question
+              logger.info ('a question')
+        handle_question_exception(exception.record)
+      when Answer
+          logger.info ('a answer')
+        handle_answer_exception(exception.record)
       else
-        logger.info "User not authorised question"
-        flash[:alert] = "You need to be logged in to ask or vote for a question."
-      end
-    elsif exception.record.is_a? Answer
-      if current_user && exception.record.user == current_user
-        logger.info "You cannot vote on your own answers"
-        flash[:alert] = "You cannot vote on your own answers"
-      else
-        logger.info "User not authorised answer"
-        flash[:alert] = "You need to be logged in vote on answers."
-      end
-    else
-      logger.info "User not authorised"
-      flash[:alert] = "You are not authorised to perform this action."
+
+        logger.info "User not authorised"
+        flash[:alert] = "You are not authorised to perform this action."
     end
 
+    redirect_to_path = request.referrer || root_path
+    
     # If voting, for example, you are sending a JS request via ajax
     respond_to do |format|
-       format.js { render ajax_redirect_to(request.referrer || root_path) }
-       format.html { redirect_to (request.referrer || root_path) }
+       format.js { render ajax_redirect_to redirect_to_path }
+       format.html { redirect_to redirect_to_path }
+    end
+  end
+
+  def handle_question_exception(question)
+    if current_user && question.user == current_user
+      logger.info "You cannot vote on your own questions"
+      flash[:alert] = "You cannot vote on your own questions"
+    else
+      logger.info "User not authorised question"
+      flash[:alert] = "You need to be logged in to ask or vote for a question."
+    end
+  end
+
+  def handle_answer_exception(answer)
+    if current_user && answer.user == current_user
+      logger.info "You cannot vote on your own answers"
+      flash[:alert] = "You cannot vote on your own answers"
+    else
+      logger.info "User not authorised answer"
+      flash[:alert] = "You need to be logged in vote on answers."
     end
   end
 end
