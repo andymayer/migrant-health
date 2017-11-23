@@ -1,0 +1,11 @@
+$( "#vote_down_question_<%= @question.id %>" ).unbind();
+
+$('#vote_down_question_<%= @question.id %>').bind('ajax:success', function(){
+  $(this).toggleClass('selected');
+
+  if ($('#vote_up_question_<%= @question.id %>').hasClass('selected')) {
+    $('#vote_up_question_<%= @question.id %>').removeClass('selected');
+  }
+
+  $(this).parent().find('#vote_count_question_<%= @question.id %>').html('<%= escape_javascript @question.weighted_score.to_s %>');
+});

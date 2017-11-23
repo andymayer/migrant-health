@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   include VotingConcern
 
-  before_action :set_question,  only: [:show, :edit, :update, :destroy]
+  before_action :set_question,  only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :set_topics,    only: [:edit, :new, :create, :update]
   before_action :set_votable, only: [:like, :unlike]   
   before_action :authorise,   only: [:like, :unlike]
