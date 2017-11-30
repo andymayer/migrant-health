@@ -26,12 +26,12 @@ Some example resources are set up in ```seeds.rb```
 
 Run ```rake db:seed``` to populate the database.
 
-This seeding will create a ```superuser``` with admin privileges. It will either use the environment variables 
+This seeding will create a ```superuser``` with admin privileges. It will either use the environment variables
 
 ```
 SUPERUSER_EMAIL
 SUPERUSER_PASSWORD
-``` 
+```
 
 on creation, or will default to
 
@@ -39,6 +39,20 @@ on creation, or will default to
 username: developers@yoomee.com
 password: weather-medley-impiety-onerous
 ```
+
+### Get a copy of the production database
+
+Assuming you have access to the Heroku app (migrant-health-production), then you can copy the database from production to local as follows. (Don't forget to start your local PostgreSQL server first).
+
+Download and restore the latest backup from Heroku:
+
+    curl -o latest.dump `heroku pg:backups public-url --app migrant-health-production`
+    pg_restore --verbose --clean --no-acl --no-owner -h localhost -U $USER -d migrant_health_development latest.dump
+    rm latest.dump
+
+If you need to trigger a database backup on Heroku:
+
+    heroku pg:backups capture --app migrant-health-production
 
 ### Resetting the database on development
 
@@ -81,17 +95,17 @@ Search is currently using Postgres's inbuilt TSearch function, with part words e
 
 Functionality is provided by the [acts-taggable-on](https://github.com/mbleigh/acts-as-taggable-on)  gem with the front end magic select box provided by [Select2](https://select2.org/).
 
-Note that the ```Tag``` model provided by the gem is monkeypatched with search and other bits and bobs in an initializer 
+Note that the ```Tag``` model provided by the gem is monkeypatched with search and other bits and bobs in an initializer
 
 ```config/initializers/acts_on_taggable_on.rb```
 
 ## Pretty URLs
 
-is provided by the ```stringex``` gem. It is activated at a model level and the ```slug``` column provides the slug. You need to use 
+is provided by the ```stringex``` gem. It is activated at a model level and the ```slug``` column provides the slug. You need to use
 
 ```
 Model.find_by_slug(slug)
-``` 
+```
 methodology.
 
 ## Voting
@@ -127,7 +141,7 @@ Note that unless you're on the paid AWS plan, the sending email address has to b
 
 ## Setting heroku environment variables
 
-Install the heroku config plugin (using ```heroku plugins:install heroku-config```) if it isn't already installed, then if you run 
+Install the heroku config plugin (using ```heroku plugins:install heroku-config```) if it isn't already installed, then if you run
 ```
 heroku config:push --remote heroku
 ```
@@ -137,4 +151,3 @@ it will push your ```.env``` file variables to heroku.
 ## Yucky code or Technical Debt
 
 As usual with prototypes, some code isn't as neat as it could be - feel free to annotate with #YUCK for future fixing.
-
