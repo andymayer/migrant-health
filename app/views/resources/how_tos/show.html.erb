@@ -16,9 +16,6 @@
 
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @resource.consider_relevant_chunk if @resource.consider_relevant_chunk %>
           <%= render 'layouts/renderers/bullet_point_renderer', chunk: @resource.symptoms_reported_chunk if @resource.symptoms_reported_chunk %>
-          <h2>
-            Optional links to contributing author profiles
-          </h2>
           <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
         <div class="col-sm-4">

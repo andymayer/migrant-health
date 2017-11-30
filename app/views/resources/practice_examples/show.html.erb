@@ -11,9 +11,6 @@
           <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @resource.what_did_we_do_chunk if @resource.what_did_we_do_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.did_it_work_chunk if @resource.did_it_work_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.recommendations_chunk if @resource.recommendations_chunk %>
-          <h2>
-            Optional links to contributing author profiles
-          </h2>
            <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
         <div class="col-sm-4">
