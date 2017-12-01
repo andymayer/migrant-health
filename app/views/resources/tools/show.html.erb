@@ -8,7 +8,7 @@
         <div class="content col-sm-8">
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.explanation_chunk, intro_class: true if @resource.explanation_chunk %>
           <%= render 'layouts/renderers/paragraph_renderer', chunk: @resource.where_it_s_from_chunk if @resource.where_it_s_from_chunk %>
-          <%= render 'layouts/renderers/numbered_paragraph_renderer', numbered_paragraph_chunk: @resource.numbered_paragraph_chunk if @resource.numbered_paragraph_chunk %>
+          <%= render 'layouts/renderers/numbered_paragraph_renderer', chunk: @resource.numbered_paragraph_chunk if @resource.numbered_paragraph_chunk %>
           <%= render 'layouts/renderers/further_information_renderer', chunk: @resource.attachments_chunk if @resource.attachments_chunk %>
           <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
