@@ -22,16 +22,51 @@
       <div class="row">
         <div class="col-sm-8">
           <ul class="listing listing--large">
-            <% @resources.each do |resource| %>
-              <li>
-                <%= link_to polymorphic_path(resource) do %>
-                  <%= render 'layouts/icon_image', file_name: resource.icon_file_name, alt_text: resource.icon_alt_text %>
-                  <h3 class="listing__title"><%= resource.title %></h3>
-                  <p class="listing__desc"><%= resource.intro %></p>
-                <% end %>
-              </li>
-            <% end %>
+            <li>
+              <a href="<%=resources_fact_sheets_path%>">
+                <%= image_tag "icon-fact-sheet.svg", alt: "Factsheets", class: "icon", credit: "Created by Vectors Market from the Noun Project" %>
+                <h3 class="listing__title">Factsheets</h3>
+                <p class="listing__desc">Overview of specific topic areas, with key facts</p>
+              </a>
+            </li>
           </ul>
+          <ul class="listing listing--large">
+            <li>
+              <a href="<%=resources_how_tos_path%>">
+                <%= image_tag "icon-how-to.svg", alt: "How to", class: "icon", credit: "Created by Vectors Market from the Noun Project" %>
+                <h3 class="listing__title">How-tos</h3>
+                <p class="listing__desc">Practical guides on issues facing primary care staff</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="listing listing--large">
+            <li>
+              <a href="<%=resources_practice_examples_path%>">
+                <%= image_tag "icon-practice-example.svg", alt: "Practice example", class: "icon", credit: "Created by Vectors Market from the Noun Project" %>
+                <h3 class="listing__title">Practice examples</h3>
+                <p class="listing__desc">Practical guidance about how to deal with specific problems</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="listing listing--large">
+            <li>
+              <a href="<%=resources_tools_path%>">
+                <%= image_tag "icon-tool.svg", alt: "Tool", class: "icon", credit: "Created by Vectors Market from the Noun Project" %>
+                <h3 class="listing__title">Tools/templates</h3>
+                <p class="listing__desc">For you to use and adapt</p>
+              </a>
+            </li>
+          </ul>
+          <ul class="listing listing--large">
+            <li>
+              <a href="<%=resources_countries_path%>">
+                <%= image_tag "icon-country.svg", alt: "Country", class: "icon", credit: "Created by Vectors Market from the Noun Project" %>
+                <h3 class="listing__title">Country context</h3>
+                <p class="listing__desc">For quick reference</p>
+              </a>
+            </li>
+          </ul>
+
         </div>
       </div>
     </div>
