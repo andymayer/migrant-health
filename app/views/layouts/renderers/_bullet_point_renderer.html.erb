@@ -3,7 +3,7 @@
 <% end %>
 
 <% if chunk.intro %>
-  <p><%= chunk.intro %></p>
+  <p><%= fancy_paragraphs(chunk.intro) %></p>
 <% end %>
 
 <ul class="bullets">
@@ -13,5 +13,5 @@
 </ul>
 
 <% if chunk.after %>
-  <p><%= chunk.after %></p>
+  <p><%= fancy_paragraphs(chunk.after) %></p>
 <% end %>

@@ -20,11 +20,24 @@ module ApplicationHelper
     end
   end
 
-  def nice_paragraph(text)
+  def fancy_paragraphs(text)
     html = ""
     if text
+      bullets = false
       text.split("\n").each do |para|
-        html += "<p>#{para}</p>" if para.length > 1
+        if para[0] == "-"
+          if !bullets
+            html +=  "<ul>"
+            bullets = true
+          end
+          html += "<li>#{para[1..-1]}</li>" if para.length > 1
+        else
+          if bullets
+            html +=  "</ul>"
+            bullets = false
+          end
+          html += "<p>#{para}</p>" if para.length > 1
+        end
       end
     end
     html.html_safe
