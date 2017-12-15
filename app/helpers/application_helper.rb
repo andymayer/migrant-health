@@ -20,6 +20,16 @@ module ApplicationHelper
     end
   end
 
+  def nice_paragraph(text)
+    html = ""
+    if text
+      text.split("\n").each do |para|
+        html += "<p>#{para}</p>" if para.length > 1
+      end
+    end
+    html.html_safe
+  end
+
   private
 
   # YUCK

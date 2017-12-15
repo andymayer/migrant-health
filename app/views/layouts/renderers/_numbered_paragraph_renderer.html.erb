@@ -3,7 +3,7 @@
 <% end %>
 
 <% if chunk.intro %>
-  <p><%= chunk.intro %></p>
+  <%= nice_paragraph(chunk.intro) %>
 <% end %>
 
 <ol class="big-ol">
@@ -13,5 +13,5 @@
 </ol>
 
 <% if chunk.after %>
-  <p><%= chunk.after %></p>
+  <%= nice_paragraph(chunk.after) %>
 <% end %>
