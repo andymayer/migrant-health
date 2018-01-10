@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171121220009) do
+ActiveRecord::Schema.define(version: 20180110152611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20171121220009) do
     t.text "type", null: false
     t.text "title", null: false
     t.text "intro", null: false
-    t.text "contributed_by", null: false
+    t.text "contributed_by"
     t.text "video_url"
     t.integer "content_chunk_1_id"
     t.integer "content_chunk_2_id"

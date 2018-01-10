@@ -6,7 +6,7 @@
 #  type                         :text             not null
 #  title                        :text             not null
 #  intro                        :text             not null
-#  contributed_by               :text             not null
+#  contributed_by               :text
 #  video_url                    :text
 #  content_chunk_1_id           :integer
 #  content_chunk_2_id           :integer
@@ -30,7 +30,7 @@ class Resource < ApplicationRecord
 
   multisearchable against: [:title, :intro]
 
-  validates_presence_of :title, :intro, :contributed_by
+  validates_presence_of :title, :intro
 
   # Enables pretty urls
   def to_param
