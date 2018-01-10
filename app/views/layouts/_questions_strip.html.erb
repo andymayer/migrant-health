@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4">
-        <h2>Hot questions</h2>
+        <h2>Top questions</h2>
           <ul class="listing listing--questions listing--small">
             <% Question.all.order(:updated_at).limit(3).each do |question| %>
               <%= render 'questions/question', question: question %>
