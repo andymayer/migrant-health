@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
   before_action :set_question,  only: [:show, :edit, :update, :destroy, :like, :unlike]
   before_action :set_topics,    only: [:edit, :new, :create, :update]
-  before_action :set_votable, only: [:like, :unlike]   
+  before_action :set_votable, only: [:like, :unlike]
   before_action :authorise,   only: [:like, :unlike]
 
   # GET /questions
@@ -71,7 +71,7 @@ class QuestionsController < ApplicationController
   end
 
   def set_topics
-    @topics = ActsAsTaggableOn::Tag.all
+    @topics = ActsAsTaggableOn::Tag.all.order(:name)
   end
 
   def set_votable

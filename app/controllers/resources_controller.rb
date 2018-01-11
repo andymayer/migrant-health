@@ -66,7 +66,7 @@ class ResourcesController < ApplicationController
   end
 
   def set_tags
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.order(:name)
   end
 
   def build_external_resources_and_attachments(further_information_chunk)
