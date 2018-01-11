@@ -41,7 +41,7 @@ class ResourcesController < ApplicationController
   def destroy
     authorize @resource
     @resource.destroy
-    redirect_to resources_url, notice: "#{@resource_type} was successfully destroyed."
+    redirect_to resources_url, notice: "#{@resource_type} was successfully deleted."
   end
 
   def update

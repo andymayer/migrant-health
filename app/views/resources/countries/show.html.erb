@@ -12,6 +12,7 @@
           <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
           <%= render 'layouts/related_resources', resource: @resource  %>
           <%= link_to 'Edit', edit_resources_country_path(@resource), class: 'btn btn-default' if current_user.try(:admin?) %>
+          <%= link_to 'Delete', resources_country_path(@resource), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
         </div>
       </div>
       <%= render 'layouts/what_are_people_asking' %>
