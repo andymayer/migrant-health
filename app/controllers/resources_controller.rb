@@ -41,7 +41,7 @@ class ResourcesController < ApplicationController
   def destroy
     authorize @resource
     @resource.destroy
-    redirect_to resources_url, notice: "#{@resource_type} was successfully destroyed."
+    redirect_to resources_url, notice: "#{@resource_type} was successfully deleted."
   end
 
   def update
@@ -66,7 +66,7 @@ class ResourcesController < ApplicationController
   end
 
   def set_tags
-    @tags = ActsAsTaggableOn::Tag.all
+    @tags = ActsAsTaggableOn::Tag.all.order(:name)
   end
 
   def build_external_resources_and_attachments(further_information_chunk)

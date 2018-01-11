@@ -20,7 +20,7 @@ module ApplicationHelper
     end
   end
 
-  def fancy_paragraphs(text)
+  def fancy_paragraphs(text, intro = false)
     html = ""
     if text
       bullets = false
@@ -36,7 +36,11 @@ module ApplicationHelper
             html +=  "</ul>"
             bullets = false
           end
-          html += "<p>#{para}</p>" if para.length > 1
+          if intro
+            html += "<p class='intro'>#{para}</p>" if para.length > 1
+          else
+            html += "<p>#{para}</p>" if para.length > 1
+          end
         end
       end
     end
