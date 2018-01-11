@@ -24,6 +24,7 @@
 # various artifacts
 **.war
 *.rbc
+.env*
 *.sassc
 .redcar/
 .sass-cache

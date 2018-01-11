@@ -1,19 +1,19 @@
-<div class="col-sm-4">
-  <div class="contributed-by">
-    <% if resource.contributed_by %>
+<% if resource.contributed_by.present? %>
+  <div class="col-sm-4">
+    <div class="contributed-by">
       <h4 class="contributed-by__title">Contributed by</h4>
       <ul class="contributed-by__list">
         <% resource.contributed_by.split("\n").each do |contributor| %>
           <li><h5 class="contributed-by__name"><%= contributor %></h5></li>
         <% end %>
-      </ul>
-    <% end %>
+      </ul>  
+    </div>
   </div>
-</div>
+<% end %>
 
 <div class="col-sm-4">
   <div class="contributed-by">
-      <h5 class="contributed-by__title">Last updated</h5>
-      <p class="contributed-by__name"><%= resource.updated_at.strftime("on %a %e %b at %H:%M") %></p>
+    <h5 class="contributed-by__title">Last updated</h5>
+    <p class="contributed-by__name"><%= resource.updated_at.strftime("on %d.%m.%Y") %></p>
   </div>
 </div>
