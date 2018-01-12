@@ -63,6 +63,7 @@ class ResourcesController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_resource
     @resource = Resource.find_by_slug(params[:id])
+    render file: "public/404", status: 404, formats: :html unless @resource
   end
 
   def set_tags
