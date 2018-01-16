@@ -24,6 +24,7 @@ module ApplicationHelper
     end
   end
 
+  # YUCK
   def fancy_paragraphs(text, intro = false)
     html = ""
     if text
@@ -68,10 +69,15 @@ module ApplicationHelper
   end
 
   def get_breadcrumb_title(component)
-    if component.empty?
+    title = case component
+    when '' || nil
       'Home'
+    when 'how_tos'
+      'How To'
     else
-      truncate(component.titleize, length: 25, omission: '... ')
+      component.titleize
     end
+
+    truncate(title, length: 25, omission: '... ')
   end
 end
