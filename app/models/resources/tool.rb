@@ -24,6 +24,8 @@
 module Resources
   class Tool < Resource
 
+    DISPLAY_TYPE = 'Tool'.freeze
+
     belongs_to :explanation_chunk,        optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_1_id'
     belongs_to :where_it_s_from_chunk,    optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_2_id'
     belongs_to :numbered_paragraph_chunk, optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_3_id'
@@ -36,10 +38,6 @@ module Resources
 
     def icon_file_name
       'icon-tool.svg'
-    end
-
-    def icon_alt_text
-      'Tool'
     end
   end
 end

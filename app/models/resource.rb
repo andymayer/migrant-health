@@ -24,6 +24,8 @@
 class Resource < ApplicationRecord
   include PgSearch
 
+  DISPLAY_TYPE = 'Resource'.freeze
+
   acts_as_url :title, url_attribute: :slug
   acts_as_taggable
   acts_as_taggable_on :topics
@@ -35,5 +37,9 @@ class Resource < ApplicationRecord
   # Enables pretty urls
   def to_param
     slug
+  end
+
+  def icon_alt_text
+    DISPLAY_TYPE
   end
 end

@@ -22,8 +22,9 @@
 #
 
 module Resources
-
   class FactSheet < Resource
+
+    DISPLAY_TYPE = 'Fact Sheet'.freeze
 
     belongs_to :numbered_paragraph_chunk,   optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_1_id'
     belongs_to :indicators_chunk,           optional: true, class_name: 'BulletPointChunk',       foreign_key: 'content_chunk_3_id'
@@ -37,10 +38,6 @@ module Resources
 
     def icon_file_name
       'icon-fact-sheet.svg'
-    end
-
-    def icon_alt_text
-      'Fact Sheet'
     end
   end
 end

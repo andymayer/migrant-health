@@ -24,6 +24,8 @@
 module Resources
   class HowTo < Resource
 
+    DISPLAY_TYPE = 'How To'.freeze
+
     belongs_to :before_in_preparation_chunk, optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_1_id'
     belongs_to :during_consultation_chunk,   optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_2_id'
     belongs_to :after_aftercare_chunk,       optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_3_id'
@@ -44,10 +46,6 @@ module Resources
 
     def icon_file_name
       'icon-how-to.svg'
-    end
-
-    def icon_alt_text
-      'How To'
     end
   end
 end

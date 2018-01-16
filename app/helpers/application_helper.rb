@@ -9,6 +9,10 @@ module ApplicationHelper
     end
   end
 
+  def display_resource_type(resource_type)
+    resource_type == Resources::HowTo::DISPLAY_TYPE ? resource_type : resource_type.pluralize
+  end
+
   def breadcrumbs(request)
     path = request.path
     components = path.split('/')

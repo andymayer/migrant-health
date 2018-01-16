@@ -24,6 +24,8 @@
 module Resources
   class PracticeExample < Resource
 
+    DISPLAY_TYPE = 'Practice Example'.freeze
+
     belongs_to :what_was_the_problem_chunk,   optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_1_id'
     belongs_to :how_did_we_approach_it_chunk, optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_2_id'
     belongs_to :what_did_we_do_chunk,         optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_3_id'
@@ -38,10 +40,6 @@ module Resources
 
     def icon_file_name
       'icon-practice-example.svg'
-    end
-
-    def icon_alt_text
-      'Practice Example'
     end
   end
 end
