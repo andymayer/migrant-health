@@ -9,7 +9,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources
   def index
-    @resources = @resource_class.all
+    @resources = @resource_class.all.order(:title)
   end
 
   def show
