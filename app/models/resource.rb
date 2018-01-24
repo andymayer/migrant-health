@@ -42,4 +42,11 @@ class Resource < ApplicationRecord
   def icon_alt_text
     DISPLAY_TYPE
   end
+
+  private
+
+  def all_blank_and_new_record(attributes)
+    attributes.all? { |key, value| ( key == "_destroy" || value.blank? ) } && new_record?
+  end
+
 end

@@ -31,10 +31,10 @@ module Resources
     belongs_to :numbered_paragraph_chunk, optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_3_id'
     belongs_to :attachments_chunk,        optional: true, class_name: 'FurtherInformationChunk', foreign_key: 'further_information_chunk_id'
 
-    accepts_nested_attributes_for :explanation_chunk,         reject_if: :all_blank
-    accepts_nested_attributes_for :where_it_s_from_chunk,     reject_if: :all_blank
-    accepts_nested_attributes_for :numbered_paragraph_chunk,  reject_if: :all_blank
-    accepts_nested_attributes_for :attachments_chunk,         reject_if: :all_blank
+    accepts_nested_attributes_for :explanation_chunk,         reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :where_it_s_from_chunk,     reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :numbered_paragraph_chunk,  reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :attachments_chunk,         reject_if: :all_blank_and_new_record
 
     def icon_file_name
       'icon-tool.svg'

@@ -31,10 +31,10 @@ module Resources
     belongs_to :what_to_do_chunk,           optional: true, class_name: 'BulletPointChunk',       foreign_key: 'content_chunk_4_id'
     belongs_to :further_information_chunk,  optional: true
 
-    accepts_nested_attributes_for :numbered_paragraph_chunk,  reject_if: :all_blank
-    accepts_nested_attributes_for :indicators_chunk,          reject_if: :all_blank
-    accepts_nested_attributes_for :what_to_do_chunk,          reject_if: :all_blank
-    accepts_nested_attributes_for :further_information_chunk, reject_if: :all_blank
+    accepts_nested_attributes_for :numbered_paragraph_chunk,  reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :indicators_chunk,          reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :what_to_do_chunk,          reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :further_information_chunk, reject_if: :all_blank_and_new_record
 
     def icon_file_name
       'icon-fact-sheet.svg'
