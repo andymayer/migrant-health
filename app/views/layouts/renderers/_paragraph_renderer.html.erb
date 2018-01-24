@@ -3,16 +3,11 @@
 <% end %>
 
 <% if chunk.intro %>
-  <p><%= fancy_paragraphs(chunk.intro, true) %></p>
+  <p><%= fancy_paragraphs(chunk.intro) %></p>
 <% end %>
 
-<%# YUCK %>
-<% chunk.content.split("\n").each_with_index do |para, index| %>
-  <% if ! (defined?(intro_class)).nil? && index == 0 && ! chunk.intro %>
-    <p class="intro"><%= para %></p>
-  <% else %>
-    <p><%= para %></p>
-  <% end %>
+<% chunk.content.split("\n").each do |para| %>
+  <p><%= para %></p>
 <% end %>
 
 <% if chunk.after %>
