@@ -1,14 +1,7 @@
 <li>
   <%= link_to external_resource.url do %>
-    <% if external_resource.url.rpartition('.').last.downcase == 'pdf' %>
-      <%= render 'layouts/icon_image', file_name: 'icon-document.svg', alt_text: 'Document' %>
-      <h3><%= external_resource.title %></h3>
-      <p class="metadata"><%= external_resource.resource_type %>, 477KB, 2 pages</p>
-
-    <% else %>
-      <%= render 'layouts/icon_image', file_name: 'icon-link.svg', alt_text: 'Document' %>
-      <h3><%= external_resource.title %></h3>
-      <p class="metadata"><%= external_resource.resource_type %> - gov.uk</p>
-    <% end %>
+    <%= render 'layouts/icon_image', file_name: external_resource.icon_file_name, alt_text: external_resource.resource_type %>
+    <h3><%= external_resource.title %></h3>
+    <p class="metadata"><%= external_resource.resource_type %> - <%= external_resource.metadata %></p>
   <% end %>
 </li>
