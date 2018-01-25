@@ -17,4 +17,8 @@ class FurtherInformationChunk < ApplicationRecord
 
   accepts_nested_attributes_for :external_resources,         reject_if: :all_blank
   accepts_nested_attributes_for :uploaded_attachments,       reject_if: :all_blank
+
+  def uploaded_attachments_with_files
+    uploaded_attachments.reject { |uploaded_attachment| uploaded_attachment.uploaded_file_file_size.nil? }
+  end
 end

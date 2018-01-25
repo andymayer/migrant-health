@@ -18,7 +18,7 @@ module Resources
           did_it_work_chunk_attributes: [:title, :intro, :content, :after],
           recommendations_chunk_attributes: [:title, :intro, :content, :after],
           topic_list: []
-        )
+        ).reject{|_, v| v.blank?}
     end
 
     def populate_nested_chunks

@@ -20,7 +20,7 @@ module Resources
             :intro,
             :after,
             external_resources_attributes: [:title, :url],
-            uploaded_attachments_attributes: [:uploaded_file, :title]],
+            uploaded_attachments_attributes: [:uploaded_file, :title, :delete_uploaded_file]],
           topic_list: []
         )
     end

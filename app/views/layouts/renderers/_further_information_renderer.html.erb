@@ -15,7 +15,7 @@
 
 <% if chunk.uploaded_attachments.exists? %>
   <ul class="listing resources-list">
-    <% chunk.uploaded_attachments.each do |uploaded_attachment| %>
+    <% chunk.uploaded_attachments_with_files.each do |uploaded_attachment| %>
       <%= render 'layouts/renderers/uploaded_attachment_link', uploaded_attachment: uploaded_attachment %>
     <% end %>
   </ul>

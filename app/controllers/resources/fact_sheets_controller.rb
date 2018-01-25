@@ -18,7 +18,7 @@ module Resources
             :intro,
             :after,
             external_resources_attributes: [:title, :url],
-            uploaded_attachments_attributes: [:uploaded_file, :title]],
+            uploaded_attachments_attributes: [:uploaded_file, :title, :delete_uploaded_file]],
           indicators_chunk_attributes: [:title, :intro, :content, :after],
           what_to_do_chunk_attributes: [:title, :intro, :content, :after],
           topic_list: []
