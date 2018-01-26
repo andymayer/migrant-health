@@ -7,7 +7,7 @@
 <% end %>
 
 <% chunk.content.split("\n").each do |para| %>
-  <p><%= para %></p>
+  <p><%= fancy_paragraphs(para) %></p>
 <% end %>
 
 <% if chunk.after %>

@@ -24,7 +24,6 @@ module ApplicationHelper
     end
   end
 
-  # YUCK
   def fancy_paragraphs(text)
     html = ""
     if text
