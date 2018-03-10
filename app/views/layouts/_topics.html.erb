@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-9">
         <div class="row">
-          <% ActsAsTaggableOn::Tag.most_used(6).each do |topic| %>
+          <% Topic.featured.each do |topic| %>
             <div class="tag-summary">
               <h3 class="tag-summary__title">
                 <%= link_to topic.name, topic_path(topic), class: 'tag-summary__link' %>

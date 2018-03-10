@@ -25,6 +25,14 @@
            </div>
         </fieldset>
 
+        <fieldset>
+           <div class="form-group">
+             <%= f.label :featuted, "Featured on home page" %>
+             <p class="help-block">Should this topic appear on the home page?</p>
+             <%= f.check_box :featured %>
+           </div>
+        </fieldset>
+
         <%if false%>
         <fieldset>
            <div class="form-group">

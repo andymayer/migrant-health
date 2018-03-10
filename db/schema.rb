@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110152611) do
+ActiveRecord::Schema.define(version: 20180310213458) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20180110152611) do
     t.integer "taggings_count", default: 0
     t.text "description"
     t.text "slug"
+    t.boolean "featured", default: false
     t.index ["name"], name: "index_tags_on_name", unique: true
     t.index ["slug"], name: "index_tags_on_slug"
   end
