@@ -39,6 +39,8 @@ Rails.application.routes.draw do
   resources :topics
 
   get '/topics/:id', to: 'topics#show', as: :acts_as_taggable_on_tag
+  get '/topics', to: 'topics#new', as: :acts_as_taggable_on_tags
+
 
   get '/search/', to: 'search#index', as: :search
 
