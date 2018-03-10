@@ -36,6 +36,12 @@
         </div><!-- /col-md-9 -->
         <div class="col-md-3">
           <%= link_to 'View all topics', topics_path %>
+          <% if current_user.try(:admin?) %>
+            <div style="padding-top: 15px;">
+            <%= link_to 'Edit topic', edit_topic_path(@topic), class: 'btn btn-default' %>
+            <%= link_to 'Delete', @topic, method: :delete, data: { confirm: "Are you sure you want to remove the topic '#{@topic.name}' from all resources?" }, class: 'btn btn-danger' %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

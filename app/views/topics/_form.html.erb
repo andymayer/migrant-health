@@ -1,0 +1,36 @@
+
+
+<div class="sg-body sg-container container">
+  <%= form_with(model: topic, local: true)  do |f| %>
+
+    <%= render 'layouts/form_error_messages', resource: topic %>
+
+    <div class="tab-content">
+
+      <div role="tabpanel" class="tab-pane active" id="common">
+
+        <fieldset>
+           <div class="form-group">
+             <%= f.label :name %>
+             <p class="help-block">What is the display name of this topic?</p>
+             <%= f.text_field :name, class: 'form-control', placeholder: "Enter topic title" %>
+           </div>
+        </fieldset>
+
+        <fieldset>
+           <div class="form-group">
+             <%= f.label :slug, "URL" %>
+             <p class="help-block">What is the slug to be used at the end of the url? (eg https://migratant.health/topics/SLUG)</p>
+             <%= f.text_field :slug, class: 'form-control', placeholder: "Enter topic slug" %>
+           </div>
+        </fieldset>
+
+      </div>
+
+    </div><!-- tab content -->
+    <div class="actions">
+      <%= f.submit nil, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', topics_path, class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

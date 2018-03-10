@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   resources :questions
 
-  resources :topics, only: [:index, :show]
+  resources :topics
 
   get '/topics/:id', to: 'topics#show', as: :acts_as_taggable_on_tag
 
