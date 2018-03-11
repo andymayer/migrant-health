@@ -35,14 +35,14 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise  :database_authenticatable, 
+  devise  :database_authenticatable,
           :registerable,
-          :recoverable, 
-          :rememberable, 
-          :trackable, 
+          :recoverable,
+          :rememberable,
+          :trackable,
           :validatable,
           :confirmable,
-          :lockable, 
+          :lockable,
           :timeoutable
 
   has_many :questions
@@ -52,8 +52,79 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  JOB_TITLES = [    "GP",
+                    "GP registrar",
+                    "Consultant (hospital)",
+                    "Trainee Doctor",
+                    "Practice Nurse",
+                    "Community Nurse",
+                    "Hospital Nurse",
+                    "Health Care Assistant",
+                    "GP Receptionist",
+                    "Practice Manager",
+                    "Health Visitor",
+                    "Student"]
+
+  INSTITUTIONS = [  "NHS - GP practice",
+                    "NHS - hospital",
+                    "University",
+                    "Local government",
+                    "Public Health England",
+                    "CCG",
+                    "NHS - commnity services"]
+
+  LOCATIONS = [     "NW England",
+                    "NE England",
+                    "Scotland",
+                    "Wales",
+                    "Yorkshire and Humber",
+                    "London",
+                    "SE England",
+                    "SW England",
+                    "Midlands"]
+
   def display_name
     "#{title} #{first_name} #{last_name}"
+  end
+
+  def self.job_titles
+    [   "GP",
+        "GP registrar",
+        "Consultant (hospital)",
+        "Trainee Doctor",
+        "Practice Nurse",
+        "Community Nurse",
+        "Hospital Nurse",
+        "Health Care Assistant",
+        "GP Receptionist",
+        "Practice Manager",
+        "Health Visitor",
+        "Student",
+        "Other"]
+  end
+
+  def self.institutions
+    [ "NHS - GP practice",
+      "NHS - hospital",
+      "University",
+      "Local government",
+      "Public Health England",
+      "CCG",
+      "NHS - commnity services",
+      "Other"]
+  end
+
+  def self.locations
+    [ "NW England",
+      "NE England",
+      "Scotland",
+      "Wales",
+      "Yorkshire and Humber",
+      "London",
+      "SE England",
+      "SW England",
+      "Midlands",
+      "Other"]
   end
 
   private
@@ -63,4 +134,3 @@ class User < ApplicationRecord
   end
 
 end
-

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   # So devise creates the correct fields when registering a user
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:title, :first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:title, :first_name, :last_name, :job_title, :institution, :location])
   end
 
   private
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
     logger.info ('in user not authorised')
     case exception.record
     when Question
-      handle_question_answer_exception(exception.record)   
+      handle_question_answer_exception(exception.record)
     when Answer
       handle_question_answer_exception(exception.record)
     else
@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
     end
 
     redirect_to_path = request.referrer || root_path
-    
+
     # If voting, for example, you are sending a JS request via ajax
     respond_to do |format|
        format.js { render ajax_redirect_to redirect_to_path }

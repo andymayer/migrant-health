@@ -20,6 +20,18 @@
       <%= f.text_field :last_name, autofocus: true, class: 'form-control', placeholder: 'Last Name' %>
     </div>
     <div class="form-group">
+      <%= f.label :job_title %>
+      <%= f.select :job_title, options_for_select(User.job_titles), {prompt: 'Please select...'}, {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :institution %>
+      <%= f.select :institution, options_for_select(User.institutions), {prompt: 'Please select...'}, {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :location %>
+      <%= f.select :location, options_for_select(User.locations), {prompt: 'Please select...'}, {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password' %>
     </div>
