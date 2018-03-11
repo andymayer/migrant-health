@@ -1,16 +1,16 @@
 module Resources
-  class PracticeExamplesController < ResourcesController
+  class BrightIdeasController < ResourcesController
 
     private
 
     def set_resource_type
-      @resource_class = Resources::PracticeExample
-      @resource_type = 'Practice Example'
+      @resource_class = Resources::BrightIdea
+      @resource_type = 'Bright ideas'
     end
 
     # Only allow a trusted parameter "white list" through.
     def resource_params
-      params.require(:resources_practice_example)
+      params.require(:resources_bright_idea)
         .permit(:title, :intro, :video_url, :contributed_by,
           what_was_the_problem_chunk_attributes: [:title, :intro, :content, :after],
           how_did_we_approach_it_chunk_attributes: [:title, :intro, :content, :after],

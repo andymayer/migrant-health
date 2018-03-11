@@ -21,12 +21,10 @@
 #  updated_at                   :datetime         not null
 #
 
-# TODO remove this file - it has been replaced by Bright Ideas. And migrate
-
 module Resources
-  class PracticeExample < Resource
+  class BrightIdea < Resource
 
-    DISPLAY_TYPE = 'Practice Example'.freeze
+    DISPLAY_TYPE = 'Bright Idea'.freeze
 
     belongs_to :what_was_the_problem_chunk,   optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_1_id'
     belongs_to :how_did_we_approach_it_chunk, optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_2_id'

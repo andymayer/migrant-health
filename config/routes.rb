@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   namespace :resources do
     resources :how_tos
     resources :fact_sheets
-    resources :practice_examples
+    resources :bright_ideas
     resources :tools
     resources :countries
   end
