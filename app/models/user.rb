@@ -50,6 +50,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :votes
 
+  validate :allowed_email_addresses
+
   acts_as_voter
 
   def display_name
@@ -100,6 +102,14 @@ class User < ApplicationRecord
 
   def set_default_role
     self.role ||= :user
+  end
+
+  def allowed_email_addresses
+    allowed_email_domains = ENV['ALLOWED_EMAIL_DOMAINS'].split(',')
+    allowed = false
+    allowed = true if allowed_email_domains.any? {|allowed_email_domain| email.end_with? "@#{allowed_email_domain}"}
+    allowed = true if allowed_email_domains.any? {|allowed_email_domain| email.end_with? ".#{allowed_email_domain}"}
+    errors.add(:email, "is not allowed by this website") if !allowed
   end
 
 end
