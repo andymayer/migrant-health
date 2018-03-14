@@ -6,15 +6,15 @@
           <div id="exTab2" class="panel panel-login">
             <div class="panel-heading">
               <ul class="nav nav-tabs">
-                <li class="active col-sm-6 center"><a href="#1" data-toggle="tab">Login</a></li>
-                <li class="col-sm-6 center"><a href="#2" data-toggle="tab">Register</a></li>
+                <li class="col-sm-6 center"><a href="#1" data-toggle="tab">Login</a></li>
+                <li class="active col-sm-6 center"><a href="#2" data-toggle="tab">Register</a></li>
               </ul>
             </div><!-- panel heading -->
             <div class="tab-content panel-body">
-              <div class="tab-pane active" id="1">
+              <div class="tab-pane" id="1">
                 <%= render 'devise/sessions/login_panel', resource: resource, resource_name: resource_name %>
               </div>
-              <div class="tab-pane" id="2">
+              <div class="tab-pane active" id="2">
                 <%= render 'devise/sessions/register_panel', resource: resource, resource_name: resource_name %>
               </div>
             </div><!-- end Panel body -->
