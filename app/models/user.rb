@@ -79,7 +79,7 @@ class User < ApplicationRecord
       "Local government",
       "Public Health England",
       "CCG",
-      "NHS - commnity services",
+      "NHS - community services",
       "Other"]
   end
 
