@@ -28,9 +28,9 @@ module ApplicationHelper
     if resource
       type = resource.class.to_s.partition("::").first
       if type == "Resources"
-        social_share_button_tag(resource.title, url: ENV['HOSTNAME']+request.path, desc: resource.intro, 'data-twitter-title' => resource.title)
+        social_share_button_tag(resource.title, url: "https://"+ENV['HOSTNAME']+request.path, desc: resource.intro, 'data-twitter-title' => resource.title)
       elsif type == "Question"
-        social_share_button_tag(resource.content, url: ENV['HOSTNAME']+request.path, desc: resource.content, 'data-twitter-title' => resource.content)
+        social_share_button_tag(resource.content, url: "https://"+ENV['HOSTNAME']+request.path, desc: resource.content, 'data-twitter-title' => resource.content)
       end
     end
   end
