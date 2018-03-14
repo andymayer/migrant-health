@@ -50,4 +50,9 @@ class ApplicationController < ActionController::Base
       flash[:alert] = thing.authorisation_message
     end
   end
+
+  def not_found
+    render :template => "errors/not_found", :status => 404
+  end
+
 end

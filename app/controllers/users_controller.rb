@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order(created_at: :asc)
+    if policy(User).index?
+      @users = User.all.order(created_at: :asc)
+    else
+      not_found
+    end
   end
 end
