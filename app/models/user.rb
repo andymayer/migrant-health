@@ -52,37 +52,6 @@ class User < ApplicationRecord
 
   acts_as_voter
 
-  JOB_TITLES = [    "GP",
-                    "GP registrar",
-                    "Consultant (hospital)",
-                    "Trainee Doctor",
-                    "Practice Nurse",
-                    "Community Nurse",
-                    "Hospital Nurse",
-                    "Health Care Assistant",
-                    "GP Receptionist",
-                    "Practice Manager",
-                    "Health Visitor",
-                    "Student"]
-
-  INSTITUTIONS = [  "NHS - GP practice",
-                    "NHS - hospital",
-                    "University",
-                    "Local government",
-                    "Public Health England",
-                    "CCG",
-                    "NHS - commnity services"]
-
-  LOCATIONS = [     "NW England",
-                    "NE England",
-                    "Scotland",
-                    "Wales",
-                    "Yorkshire and Humber",
-                    "London",
-                    "SE England",
-                    "SW England",
-                    "Midlands"]
-
   def display_name
     "#{title} #{first_name} #{last_name}"
   end
