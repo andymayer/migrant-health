@@ -59,6 +59,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'listen'
+  gem 'letter_opener'
 end
 
 group :development do
@@ -77,4 +78,3 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
 end
-
