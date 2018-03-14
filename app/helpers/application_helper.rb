@@ -24,6 +24,10 @@ module ApplicationHelper
     end
   end
 
+  def social_share(request, resource)
+    social_share_button_tag(resource.title, url: ENV['HOSTNAME']+request.path, desc: resource.intro, 'data-twitter-title' => resource.title)
+  end
+
   def fancy_paragraphs(text)
     html = ""
     if text

@@ -17,3 +17,4 @@
 //= require set_up_fitvids
 //= require select2
 //= require autocomplete
+//= require social-share-button
