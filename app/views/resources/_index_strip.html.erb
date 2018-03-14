@@ -5,7 +5,7 @@
         <%= render 'layouts/breadcrumb' %>
         <div class="jumbotron">
           <h1 class="title--strip"><%= display_resource_type(resource_type) %></h1>
-          <p class="intro">Practical guidance about how to deal with specific problems</p>
+          <p class="intro"><%=display_resource_tagline(@resource_class)%></p>
         </div>
       </div>
     </div>

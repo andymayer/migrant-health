@@ -47,5 +47,9 @@ module Resources
     def icon_file_name
       'icon-how-to.svg'
     end
+
+    def self.tagline
+      'Practical guides on issues facing primary care staff'.freeze
+    end
   end
 end

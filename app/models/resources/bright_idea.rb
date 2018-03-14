@@ -41,5 +41,10 @@ module Resources
     def icon_file_name
       'icon-practice-example.svg'
     end
+
+    def self.tagline
+      'Highlighting innovative and good practice'.freeze
+    end
+
   end
 end

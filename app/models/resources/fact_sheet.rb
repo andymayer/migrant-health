@@ -39,5 +39,10 @@ module Resources
     def icon_file_name
       'icon-fact-sheet.svg'
     end
+
+    def self.tagline
+      'Overview of specific topic areas, with key facts'.freeze
+    end
+
   end
 end

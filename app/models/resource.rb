@@ -34,6 +34,10 @@ class Resource < ApplicationRecord
 
   validates_presence_of :title, :intro
 
+  def self.tagline
+    'Practical guidance about how to deal with specific problems'.freeze
+  end
+
   # Enables pretty urls
   def to_param
     slug

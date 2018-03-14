@@ -39,5 +39,9 @@ module Resources
     def icon_file_name
       'icon-tool.svg'
     end
+
+    def self.tagline
+      'For you to use and adapt'.freeze
+    end
   end
 end

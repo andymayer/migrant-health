@@ -33,5 +33,10 @@ module Resources
     def icon_file_name
       'icon-country.svg'
     end
+
+    def self.tagline
+      'From Public Health England\'s Migrant Health Guide'.freeze
+    end
+
   end
 end
