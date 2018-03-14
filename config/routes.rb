@@ -4,8 +4,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#home'
 
+  get 'profile',     to: 'users#profile', as: :profile
   get 'users/:id', to: 'users#show',  as: :user_profile
   get 'users',     to: 'users#index', as: :users
+
 
   resources :resources, only: :index
 

@@ -12,4 +12,8 @@ class UsersController < ApplicationController
       not_found
     end
   end
+
+  def profile
+    @user = current_user
+  end
 end
