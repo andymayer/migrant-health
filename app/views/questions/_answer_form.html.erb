@@ -2,12 +2,12 @@
   <%= render 'layouts/form_error_messages', resource: answer %>
   <%= f.hidden_field :question_id, value: answer.question.id %>
   <fieldset>
-    <legend>Answer the question</legend>
+    <legend>Add your answer here</legend>
     <div class="form-group">
-     <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Your answer" %>
+     <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Start typing" %>
     </div>
   </fieldset>
   <div class="actions">
-    <%= f.submit 'Answer', class: 'btn btn-default' %>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -59,8 +59,12 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1
   def destroy
     authorize @question
-    @question.destroy
-    redirect_to questions_url, notice: 'Question was successfully deleted.'
+    if @question.answers.present?
+      redirect_to @question, notice: 'Sorry, I can\'t delete a question that has answers posted'
+    else
+      @question.destroy
+      redirect_to questions_url, notice: 'Question was successfully deleted.'
+    end
   end
 
   private

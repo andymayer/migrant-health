@@ -27,7 +27,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.try(:admin?)
+    (user.present? && @question.user == user) || user.try(:admin?)
   end
 
   def like?
