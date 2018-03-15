@@ -25,16 +25,14 @@ class ApplicationController < ActionController::Base
     case exception.record
     when Question
       handle_question_answer_exception(exception.record)
-      force_login = new_user_session_path
     when Answer
       handle_question_answer_exception(exception.record)
-      force_login = new_user_session_path
     else
       logger.info "User not authorised"
       flash[:error] = "You are not authorised to perform this action."
     end
 
-    redirect_to_path = force_login || request.referrer || root_path
+    redirect_to_path = request.referrer || root_path
 
     # If voting, for example, you are sending a JS request via ajax
     respond_to do |format|
@@ -44,12 +42,12 @@ class ApplicationController < ActionController::Base
   end
 
   def handle_question_answer_exception(thing)
-    if current_user && thing.user == current_user
+    if action_name == "like" && thing.user == current_user
       logger.info "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
       flash[:error] = "You cannot vote on your own #{thing.class.name.downcase.pluralize}"
     else
       logger.info "User not authorised #{thing.class.name.downcase.pluralize}"
-      flash[:error] = thing.authorisation_message
+      flash[:error] = "You are not authorised to #{action_name} this #{thing.class.name.downcase}"
     end
   end
 
