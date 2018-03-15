@@ -27,7 +27,7 @@ class Question < ApplicationRecord
   has_many    :comments
   has_many    :votes
 
-  validates_presence_of :content, { message: ": Please enter the question"}
+  validates_presence_of :title, { message: ": Please enter the question"}
   validates_presence_of :topic_list, { message: ": Please choose at least one relevant topic"}
 
   multisearchable against: :content
@@ -38,10 +38,6 @@ class Question < ApplicationRecord
 
   def icon_alt_text
     'Question'
-  end
-
-  def title
-    content
   end
 
   def intro

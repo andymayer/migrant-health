@@ -13,19 +13,29 @@
             <div class="post post--question">
               <%= form_with(model: @question, local: true) do |f| %>
                 <%= render 'layouts/form_error_messages', resource: @question %>
+
                 <fieldset>
                   <legend>Ask your question</legend>
+                  <p class="help-block">Summarise your question with a short, one-line title</p>
                   <div class="form-group">
-                   <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Question?" %>
+                   <%= f.text_field :title, class: 'form-control', size: "60x6", placeholder: "Type here" %>
+                  </div>
+                </fieldset>
+
+                <fieldset>
+                  <p class="help-block">Write more detail about your question</p>
+                  <div class="form-group">
+                   <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Type here" %>
                   </div>
                 </fieldset>
                 <fieldset>
                   <div class="form-group">
                     <%= f.label "question[topic_list][]", 'Topics' %>
+                    <p class="help-block">Pick which topics this question relates to</p>
                     <%= select_tag "question[topic_list][]",
                       options_from_collection_for_select(@topics, "name", "name", @question.topic_list),
                       id: "topic-placeholder",
-                      data: { placeholder: "Choose the topics" },
+                      data: { placeholder: "Click here" },
                       multiple: 'multiple',
                       class: 'form-control' %>
                   </div>

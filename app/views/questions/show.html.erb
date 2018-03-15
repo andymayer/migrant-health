@@ -10,7 +10,7 @@
         </div>
         <div class="col-sm-8 strip__left">
           <div class="post-wrap">
-            <div class="post post--question">
+            <div class="post post--question post--with_title">
               <div class="post__ui">
                 <%= link_to like_question_path(@question), method: :get, remote: true, class: "vote vote-up #{'selected' if (current_user && current_user.voted_up_on?(@question))}", id: "vote_up_question_#{@question.id}" do %>
                 <i class="fa fa-thumbs-o-up"></i>
@@ -24,8 +24,12 @@
                 <i class="fa fa-thumbs-o-down"></i>
                 <% end %>
               </div>
-
-              <div class="post__title"><%=  simple_format @question.content %></div>
+              <div class="post__title">
+                <%=@question.title %>
+              </div>
+              <div class="post__content">
+                <%=  simple_format @question.content %>
+              </div>
               <span class="comment-info">
                 <span class="comment-info__time">
                   <%= time_ago(@question)%> by <%= link_to @question.user.first_name, user_profile_path(@question.user) %>
