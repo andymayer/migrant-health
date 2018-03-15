@@ -13,7 +13,7 @@
 class Question < ApplicationRecord
   include PgSearch
 
-  AUTHORISATION_MESSAGE = "You need to be logged in to ask or vote for a question.".freeze
+  AUTHORISATION_MESSAGE = "You need to be registered and logged in to ask or vote for a question.".freeze
 
   acts_as_url :content, url_attribute: :slug
   acts_as_votable
