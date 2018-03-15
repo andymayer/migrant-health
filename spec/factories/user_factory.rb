@@ -26,6 +26,9 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  job_title              :string
+#  institution            :string
+#  location               :string
 #
 
 FactoryBot.define do

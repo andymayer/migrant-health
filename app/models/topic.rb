@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: tags
+#
+#  id             :integer          not null, primary key
+#  name           :string
+#  taggings_count :integer          default(0)
+#  description    :text
+#  slug           :text
+#  featured       :boolean          default(FALSE)
+#
+
 class Topic < ActsAsTaggableOn::Tag
 
   validate :check_slug_characters
