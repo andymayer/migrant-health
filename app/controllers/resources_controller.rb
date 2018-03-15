@@ -1,6 +1,9 @@
 class ResourcesController < ApplicationController
+  include VotingConcern
+
+  before_action :set_resource, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :set_votable, only: [:like, :unlike]
   before_action :set_resource_type, execept: :index
-  before_action :set_resource, only: [:show, :edit, :update, :destroy]
   before_action :set_tags
 
   after_action :verify_authorized, only: [:create, :new, :edit, :update, :destroy]
@@ -13,6 +16,7 @@ class ResourcesController < ApplicationController
   end
 
   def show
+    @favourited = current_user.voted_up_on?(@resource) if current_user
   end
 
   def new
@@ -53,11 +57,31 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def like
+    @reply = @resource.liked_message
+    @next_path = unlike_resource_path(@resource)
+    super
+  end
+
+  def unlike
+    @reply = "Removed from favourites"
+    @next_path = like_resource_path(@resource)
+    super
+  end
+
   private
+
+  def classname
+    @votable.class.name.split('::').first || ''
+  end
 
   def set_resource_type
     @resource_class = Resource
     @resource_type = 'Resources'
+  end
+
+  def set_votable
+    @votable = @resource
   end
 
   # Use callbacks to share common setup or constraints between actions.

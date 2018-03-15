@@ -2,9 +2,46 @@
   @extend .clearfix;
   margin-bottom:$base-unit*3;
 }
+
+.favourite-box {
+    margin-bottom:$base-unit*3;
+    padding: $base-unit*2  0 $base-unit*4 $base-unit*2;
+    .favourite-box__title {
+      margin:0 0 20px;
+    }
+  }
+
+.favourite-message {
+  padding-left: 41px;
+  float: left;
+  padding-top: 6px;
+
+}
+
+.favourite {
+  @extend .anim;
+  background:$gray-lighter;
+  float: left;
+  text-align: center;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  padding: 7px 0 0;
+  &.selected {
+    background: $purple-dark;
+    i {
+      color:$white;
+    }
+  }
+  i {
+    @extend .anim;
+    color:$gray-dark;
+  }
+
+}
+
 .contributed-by {
   padding:$base-unit*2;
-  background:rgba(10, 54, 100, 0.67);
   float:left;
   width:100%;
 }

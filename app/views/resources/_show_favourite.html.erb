@@ -1,0 +1,15 @@
+<%if current_user%>
+  <div class="favourite-box">
+      <% if @favourited %>
+        <%= link_to unlike_resource_path(@resource), method: :get, remote: true, class: "favourite vote-up #{'selected' if (current_user && current_user.voted_up_on?(@resource))}", id: "like_resource_#{@resource.id}" do %>
+          <i class="fa fa-star" id="star"></i>
+        <% end %>
+        <div class="favourite-message" id="message_like_resource_<%= @resource.id%>"><%=@resource.liked_message%></a></div>
+      <% else %>
+        <%= link_to like_resource_path(@resource), method: :get, remote: true, class: "favourite vote-up #{'selected' if (current_user && current_user.voted_up_on?(@resource))}", id: "like_resource_#{@resource.id}" do %>
+          <i class="fa fa-star-o" id="star"></i>
+        <% end %>
+        <div class="favourite-message" id="message_like_resource_<%= @resource.id%>"><%=@resource.not_liked_yet_message%></div>
+      <% end %>
+  </div>
+<%end%>

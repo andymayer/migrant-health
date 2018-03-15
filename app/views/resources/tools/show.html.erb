@@ -13,6 +13,7 @@
           <%= render 'layouts/relevant_topics', resource: @resource %>
         </div>
         <div class="col-sm-4">
+          <%= render 'resources/show_favourite', resource: @resource %>
           <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
           <%= render 'layouts/related_resources', resource: @resource %>
           <%= social_share(request, @resource) %>

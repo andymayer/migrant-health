@@ -9,6 +9,7 @@
           <%= render 'layouts/renderers/further_information_renderer', chunk: @resource.resources_chunk if @resource.resources_chunk %>
         </div>
         <div class="col-sm-4">
+          <%= render 'resources/show_favourite', resource: @resource %>
           <%= render 'layouts/embedded_video', video_url: @resource.video_url if @resource.video_url %>
           <%= render 'layouts/related_resources', resource: @resource  %>
           <%= social_share(request, @resource) %>

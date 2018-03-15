@@ -13,6 +13,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def favourites
+    if current_user
+      @resources = current_user.find_liked_items
+    else
+      redirect_to new_user_session_path, notice: "You need to be logged in to see favourites"
+    end
+  end
+
   def profile
     @user = current_user
   end

@@ -5,6 +5,17 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="col-sm-6">
+            <%if current_user %>
+              <ul class="listing listing--large">
+                <li>
+                  <%= link_to favourites_path do %>
+                  <%= render "layouts/icon_image", file_name: "star.svg", alt_text: "Country" %>
+                    <h3 class="listing__title">Your favourites </h3>
+                    <p class="listing__desc">Access your saved favourites</p>
+                  <% end %>
+                </li>
+              </ul>
+            <%end%>
             <ul class="listing listing--large">
               <li>
                 <%= link_to resources_fact_sheets_path do %>

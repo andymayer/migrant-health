@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   resources :resources, only: :index
 
+  get '/resources/:id/like', to: 'resources#like', as: :like_resource
+  get '/resources/:id/unlike', to: 'resources#unlike', as: :unlike_resource
+  get '/favourites', to: 'users#favourites', as: :favourites
+
   namespace :resources do
     resources :how_tos
     resources :fact_sheets
@@ -35,6 +39,8 @@ Rails.application.routes.draw do
       get 'unlike', to: "questions#unlike"
     end
   end
+
+
 
   resources :questions
 

@@ -24,6 +24,8 @@
 class Resource < ApplicationRecord
   include PgSearch
 
+  acts_as_votable
+
   DISPLAY_TYPE = 'Resource'.freeze
 
   acts_as_url :title, url_attribute: :slug
@@ -47,10 +49,30 @@ class Resource < ApplicationRecord
     DISPLAY_TYPE
   end
 
+  def favourite_message_for_user(user)
+    if !user
+      ""
+    elsif user.voted_up_on?(self)
+      liked_message
+    else
+      not_liked_yet_message
+    end
+  end
+
+  def liked_message
+    "Added to your favourites"
+  end
+
+  def not_liked_yet_message
+    "Add to your favourites"
+  end
+
   private
 
   def all_blank_and_new_record(attributes)
     attributes.all? { |key, value| ( key == "_destroy" || value.blank? ) } && new_record?
   end
+
+
 
 end

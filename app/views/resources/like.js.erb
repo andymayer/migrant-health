@@ -1,0 +1,5 @@
+$('#message_like_resource_<%= @resource.id %>').text('<%= escape_javascript @reply %>');
+$('#like_resource_<%= @resource.id %>').toggleClass('selected');
+$('#star').removeClass('fa-star-o');
+$('#star').addClass('fa-star');
+$('#like_resource_<%= @resource.id %>').attr('href', '<%= escape_javascript @next_path %>');
