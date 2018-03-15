@@ -1,6 +1,33 @@
-<h1>Editing Answer</h1>
+<%= content_for :title, 'Edit my answer' %>
 
-<%= render 'form', answer: @answer %>
-
-<%= link_to 'Show', @answer %> |
-<%= link_to 'Back', answers_path %>
+<section class="section" aria-label="Content">
+  <div class="strip strip--brand-color strip--questions">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render 'layouts/breadcrumb' %>
+        </div>
+        <div class="col-md-12">
+          <div class="post-wrap">
+            <div class="post post--question">
+              <%= form_with(model: @answer, local: true) do |f| %>
+                <%= render 'layouts/form_error_messages', resource: @answer %>
+                <fieldset>
+                  <legend>Edit your answer</legend>
+                    <p class="help-block">Use this form to update your answer and add clarifications if necessary to help people vote on it.</p>
+                  <div class="form-group">
+                   <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Answer" %>
+                  </div>
+                </fieldset>
+                <div class="actions">
+                  <%= f.submit 'Update', class: 'btn btn-default' %>
+                  <%= link_to 'Cancel', questions_path, class: 'btn btn-default' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

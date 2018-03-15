@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
 
   # GET /answers
   def index
-    @answers = Answer.all
+    @answers = current_user.answers.order('updated_at desc')
   end
 
   # GET /answers/1
@@ -21,6 +21,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/1/edit
   def edit
+    authorize @answer
   end
 
   # POST /answers
@@ -37,7 +38,7 @@ class AnswersController < ApplicationController
   # PATCH/PUT /answers/1
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: 'Answer was successfully updated.'
+      redirect_to @answer.question, notice: 'Answer was successfully updated.'
     else
       render :edit
     end
@@ -46,7 +47,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1
   def destroy
     @answer.destroy
-    redirect_to answers_url, notice: 'Answer was successfully deleted.'
+    redirect_to @answer.question, notice: 'Answer was successfully deleted.'
   end
 
   private

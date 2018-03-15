@@ -17,4 +17,17 @@ class AnswerPolicy < QuestionPolicy
   def unlike?
     user.present? && @answer.user != user
   end
+
+  def update?
+    (user.present? && @answer.user == user) || user.try(:admin?)
+  end
+
+  def edit?
+    (user.present? && @answer.user == user) || user.try(:admin?)
+  end
+
+  def destroy?
+    user.try(:admin?)
+  end
+
 end

@@ -62,6 +62,11 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def is_a_number(text)
+    /\A[-+]?\d+\z/ === text
+  end
+
+
   private
 
   # YUCK
