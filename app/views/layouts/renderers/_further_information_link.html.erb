@@ -2,6 +2,6 @@
   <%= link_to external_resource.url do %>
     <%= render 'layouts/icon_image', file_name: external_resource.icon_file_name, alt_text: external_resource.resource_type %>
     <h3><%= external_resource.title %></h3>
-    <p class="metadata"><%= external_resource.resource_type %> - <%= external_resource.metadata %></p>
+    <p class="metadata"><%= external_resource.metadata %></p>
   <% end %>
 </li>
