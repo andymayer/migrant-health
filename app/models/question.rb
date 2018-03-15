@@ -8,6 +8,7 @@
 #  slug       :text             not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  title      :text
 #
 
 class Question < ApplicationRecord
