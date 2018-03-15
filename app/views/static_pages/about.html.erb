@@ -1,4 +1,4 @@
-<%= content_for :title,'About' %>
+<%= content_for :title, 'About' %>
 
 <section class="section" aria-label="Content">
   <div class="strip strip--brand-color strip--home">
@@ -7,18 +7,30 @@
         <div class="col-sm-8 strip__left">
           <div class="jumbotron">
             <h1 class="title--strip">About</h1>
-            <p class="intro">
-              Factsheets, how-tos, tools, inspiring examples of good practice and an opportunity to ask questions and share answers in our growing community
-            </p>
+            <p class="intro">Migrant.health has been developed by Doctors of the World UK (DotW UK), University of Sheffield and Yoomee, with funding from the Health Foundation.</p>
           </div>
-        </div>
-        <div class="col-sm-4 strip__about-this-site">
-          <h3 class="title">About this site and how to use it</h3>
-          <%= render 'layouts/embedded_video', video_url: 'https://www.youtube.com/embed/cRskjqpgSNs?rel=0' %>
         </div>
       </div>
     </div>
   </div>
-  <%= render 'layouts/topics' %>
-  <%= render 'layouts/questions_strip' %>
+  <div class="strip">
+    <div class="container">
+      <div class="row">
+        <div class="content col-sm-8">
+
+          <!-- Start content -->
+
+          <p>
+          We hope it will be a useful resource for healthcare professionals working to support new migrant patients, as well as developing a community to ask and respond to colleagues.</p>
+
+          <p>The content was developed from DOTW UK’s online training, as well as drawing heavily on resources from expert organisations, in particular Public Health England’s Migrant Health Guide, and the World Health Organisation.</p>
+
+          <p>This is a beta site, which means it's still under development. For that reason we would welcome general feedback, as well as specific feedback on bugs or potential improvements via this link.</p>
+
+          <!-- End content -->
+
+        </div>
+     </div>
+   </div>
+ </div>
 </section>
