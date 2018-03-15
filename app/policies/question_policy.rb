@@ -19,11 +19,11 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def update?
-   user.present?
+    user.present? && @question.user == user
   end
 
   def edit?
-    user.present?
+    user.present? && @question.user == user
   end
 
   def destroy?

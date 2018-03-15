@@ -25,13 +25,17 @@
                 <% end %>
               </div>
 
-              <h1 class="post__title"><%= @question.content %></h1>
+              <div class="post__title"><%=  simple_format @question.content %></div>
               <span class="comment-info">
-                <%= render 'user_profile', user: @question.user %>
-                <span class="comment-info__time"><%= time_ago_in_words(@question.created_at) %> ago</span>
+                <span class="comment-info__time">
+                  <%= time_ago(@question)%> by <%= link_to @question.user.first_name, user_profile_path(@question.user) %>
+                </span>
               </span>
 
               <div class="pull-right">
+                <% if policy(@question).update? %>
+                  <%= link_to 'Edit', edit_question_path(@question), class: "btn btn-default" %>
+                <% end %>
                 <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-question" aria-expanded="false" aria-controls="collapseExample-question">
                 Add comment
                 </button>
