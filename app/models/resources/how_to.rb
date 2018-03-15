@@ -48,6 +48,10 @@ module Resources
       'icon-how-to.svg'
     end
 
+    def icon_alt_text
+      DISPLAY_TYPE
+    end
+
     def self.tagline
       'Practical guides on issues facing primary care staff'.freeze
     end

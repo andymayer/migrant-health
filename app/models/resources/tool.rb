@@ -40,6 +40,10 @@ module Resources
       'icon-tool.svg'
     end
 
+    def icon_alt_text
+      DISPLAY_TYPE
+    end
+
     def self.tagline
       'For you to use and adapt'.freeze
     end

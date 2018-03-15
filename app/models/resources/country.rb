@@ -38,5 +38,9 @@ module Resources
       'From Public Health England\'s Migrant Health Guide'.freeze
     end
 
+    def icon_alt_text
+      DISPLAY_TYPE
+    end
+
   end
 end

@@ -3,9 +3,21 @@
     <div class="row">
       <div class="col-sm-8 strip__left">
         <%= render 'layouts/breadcrumb' %>
-        <div class="jumbotron">
-          <h1 class="title--strip"><%= display_resource_type(resource_type) %></h1>
-          <p class="intro"><%=display_resource_tagline(@resource_class)%></p>
+          <% if @resource_class !=  Resource %>
+            <div class="jumbotron intro-with-icon">
+              <div class="page-icon">
+                <%= render 'layouts/icon_image', file_name: @resource_class.first.icon_file_name, alt_text: @resource_class.first.icon_alt_text %>
+                <span class="page-icon__label"><%= @resource_class.first.icon_alt_text.titleize %></span>
+              </div>
+            <h1 class="title--strip"><%= display_resource_type(resource_type) %></h1>
+            <p class="intro"><%=display_resource_tagline(@resource_class)%></p>
+          </div>
+          <% else %>
+            <div class="jumbotron">
+              <h1 class="title--strip"><%= display_resource_type(resource_type) %></h1>
+              <p class="intro"><%=display_resource_tagline(@resource_class)%></p>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

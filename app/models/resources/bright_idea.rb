@@ -42,6 +42,10 @@ module Resources
       'icon-practice-example.svg'
     end
 
+    def icon_alt_text
+      DISPLAY_TYPE
+    end
+
     def self.tagline
       'Highlighting innovative and good practice'.freeze
     end

@@ -3,62 +3,66 @@
   <div class="strip">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <ul class="listing listing--large">
-            <li>
-              <%= link_to resources_fact_sheets_path do %>
-                <%= render "layouts/icon_image", file_name: "icon-fact-sheet.svg", alt_text: "Factsheets" %>
-                <h3 class="listing__title">Factsheets</h3>
-                <p class="listing__desc"><%=Resources::FactSheet.tagline%></p>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="listing listing--large">
-            <li>
-              <%= link_to resources_how_tos_path do %>
-                <%= render "layouts/icon_image", file_name: "icon-how-to.svg", alt_text: "How tos" %>
-                <h3 class="listing__title">How-tos</h3>
-                <p class="listing__desc"><%=Resources::HowTo.tagline%></p>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="listing listing--large">
-            <li>
-              <%= link_to resources_bright_ideas_path do %>
-                <%= render "layouts/icon_image", file_name: "icon-practice-example.svg", alt_text: "Practice example" %>
-                <h3 class="listing__title">Bright ideas</h3>
-                <p class="listing__desc"><%=Resources::BrightIdea.tagline%></p>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="listing listing--large">
-            <li>
-              <%=link_to resources_tools_path do%>
-                <%= render "layouts/icon_image", file_name: "icon-tool.svg", alt_text: "Tool" %>
-                <h3 class="listing__title">Tools and templates</h3>
-                <p class="listing__desc"><%=Resources::Tool.tagline%></p>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="listing listing--large">
-            <li>
-              <%= link_to resources_countries_path do %>
-              <%= render "layouts/icon_image", file_name: "icon-country.svg", alt_text: "Country" %>
-                <h3 class="listing__title">Country A – Z </h3>
-                <p class="listing__desc"><%=Resources::Country.tagline%></p>
-              <% end %>
-            </li>
-          </ul>
-          <ul class="listing listing--large">
-            <li>
-              <%= link_to "https://www.doctorsoftheworld.org.uk/Pages/News/Category/news-and-blogs" do %>
-              <%= render "layouts/icon_image", file_name: "logo-dotw.png", alt_text: "Doctors of the World logo" %>
-                <h3 class="listing__title">Doctors of the World</h3>
-                <p class="listing__desc">Explore other information on the Doctors of the World website</p>
-              <% end %>
-            </li>
-          </ul>
+        <div class="col-sm-12">
+          <div class="col-sm-6">
+            <ul class="listing listing--large">
+              <li>
+                <%= link_to resources_fact_sheets_path do %>
+                  <%= render "layouts/icon_image", file_name: "icon-fact-sheet.svg", alt_text: "Factsheets" %>
+                  <h3 class="listing__title">Factsheets</h3>
+                  <p class="listing__desc"><%=Resources::FactSheet.tagline%></p>
+                <% end %>
+              </li>
+            </ul>
+            <ul class="listing listing--large">
+              <li>
+                <%= link_to resources_how_tos_path do %>
+                  <%= render "layouts/icon_image", file_name: "icon-how-to.svg", alt_text: "How tos" %>
+                  <h3 class="listing__title">How-tos</h3>
+                  <p class="listing__desc"><%=Resources::HowTo.tagline%></p>
+                <% end %>
+              </li>
+            </ul>
+            <ul class="listing listing--large">
+              <li>
+                <%= link_to resources_bright_ideas_path do %>
+                  <%= render "layouts/icon_image", file_name: "icon-practice-example.svg", alt_text: "Practice example" %>
+                  <h3 class="listing__title">Bright ideas</h3>
+                  <p class="listing__desc"><%=Resources::BrightIdea.tagline%></p>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
 
+            <ul class="listing listing--large">
+              <li>
+                <%=link_to resources_tools_path do%>
+                  <%= render "layouts/icon_image", file_name: "icon-tool.svg", alt_text: "Tool" %>
+                  <h3 class="listing__title">Tools and templates</h3>
+                  <p class="listing__desc"><%=Resources::Tool.tagline%></p>
+                <% end %>
+              </li>
+            </ul>
+            <ul class="listing listing--large">
+              <li>
+                <%= link_to resources_countries_path do %>
+                <%= render "layouts/icon_image", file_name: "icon-country.svg", alt_text: "Country" %>
+                  <h3 class="listing__title">Country A – Z </h3>
+                  <p class="listing__desc"><%=Resources::Country.tagline%></p>
+                <% end %>
+              </li>
+            </ul>
+            <ul class="listing listing--large">
+              <li>
+                <%= link_to "https://www.doctorsoftheworld.org.uk/Pages/News/Category/news-and-blogs" do %>
+                <%= render "layouts/icon_image", file_name: "logo-dotw.png", alt_text: "Doctors of the World logo" %>
+                  <h3 class="listing__title">Doctors of the World</h3>
+                  <p class="listing__desc">Explore other information on the Doctors of the World website</p>
+                <% end %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
