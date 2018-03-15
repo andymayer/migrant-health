@@ -13,7 +13,8 @@
               <%= form_with(model: @question, local: true) do |f| %>
                 <%= render 'layouts/form_error_messages', resource: @question %>
                 <fieldset>
-                  <legend>Ask your question</legend>
+                  <legend>Edit your question</legend>
+                    <p class="help-block">Use this form to update your question and add clarifications and notes if necessary to help people answer it.</p>
                   <div class="form-group">
                    <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Question?" %>
                   </div>
