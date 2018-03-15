@@ -26,6 +26,14 @@ body {
     margin-bottom:20px;
   }
 }
+.feedback {
+  margin-top: 15px;
+       a {
+           font-weight: ligther;
+           color: white;
+           font-size: smaller;
+       }
+}
 .project-partners {
   background: $white;
   padding:$base-unit*3;
