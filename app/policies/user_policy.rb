@@ -27,6 +27,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    user.try(:admin?)
   end
+
 end
