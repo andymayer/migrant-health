@@ -19,15 +19,15 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def update?
-    user.present? && @question.user == user
+    (user.present? && @question.user == user) || user.try(:admin?)
   end
 
   def edit?
-    user.present? && @question.user == user
+    (user.present? && @question.user == user) || user.try(:admin?)
   end
 
   def destroy?
-    user.present?
+    user.try(:admin?)
   end
 
   def like?
