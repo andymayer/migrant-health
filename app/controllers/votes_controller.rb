@@ -24,7 +24,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
 
     if @vote.save
-      redirect_to @vote, notice: 'Vote was successfully created.'
+      redirect_to @vote, notice: 'Vote was successfully added.'
     else
       render :new
     end
@@ -42,7 +42,7 @@ class VotesController < ApplicationController
   # DELETE /votes/1
   def destroy
     @vote.destroy
-    redirect_to votes_url, notice: 'Vote was successfully destroyed.'
+    redirect_to votes_url, notice: 'Vote was successfully deleted.'
   end
 
   private

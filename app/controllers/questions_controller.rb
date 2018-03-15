@@ -40,7 +40,7 @@ class QuestionsController < ApplicationController
     @question.user = current_user
 
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to @question, notice: 'Question was successfully posted.'
     else
       render :new
     end
@@ -60,7 +60,7 @@ class QuestionsController < ApplicationController
   def destroy
     authorize @question
     @question.destroy
-    redirect_to questions_url, notice: 'Question was successfully destroyed.'
+    redirect_to questions_url, notice: 'Question was successfully deleted.'
   end
 
   private

@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   include VotingConcern
 
   before_action :set_answer,  only: [:show, :edit, :update, :destroy, :like, :unlike]
-  before_action :set_votable, only: [:like, :unlike]   
+  before_action :set_votable, only: [:like, :unlike]
   before_action :authorise,   only: [:like, :unlike]
 
   # GET /answers
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.user = current_user
     if @answer.save
-      redirect_to @answer.question, notice: 'Answer was successfully created.'
+      redirect_to @answer.question, notice: 'Answer was successfully posted.'
     else
       render :new
     end
@@ -46,7 +46,7 @@ class AnswersController < ApplicationController
   # DELETE /answers/1
   def destroy
     @answer.destroy
-    redirect_to answers_url, notice: 'Answer was successfully destroyed.'
+    redirect_to answers_url, notice: 'Answer was successfully deleted.'
   end
 
   private
