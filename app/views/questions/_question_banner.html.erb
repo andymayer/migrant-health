@@ -3,10 +3,16 @@
     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
   </button>
   <div class="col-md-4">
-    <p class="intro">
-      Migrant.health is a question and answer site for health professionals. Join now to be part of the discussion.
-    </p>
-    <%= link_to 'Sign up', new_user_session_path, class: 'btn btn-primary'  %>
+    <% if current_user%>
+      <p class="intro">
+        Migrant.health is a question and answer site for health professionals.
+      </p>
+    <% else %>
+      <p class="intro">
+        Migrant.health is a question and answer site for health professionals. Join now to be part of the discussion.
+      </p>
+      <%= link_to 'Sign up', new_user_session_path, class: 'btn btn-primary'  %>
+    <% end %>
   </div>
   <div class="col-md-6 col-md-offset-1 how-it-works-icons">
     <h3 class="how-it-works-title">Here's how it works</h3>

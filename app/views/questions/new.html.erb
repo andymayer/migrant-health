@@ -6,8 +6,9 @@
       <div class="row">
         <div class="col-md-12">
           <%= render 'layouts/breadcrumb' %>
+          <%= render 'question_banner' %>
         </div>
-        <div class="col-md-12 strip__left">
+        <div class="col-md-12">
           <div class="post-wrap">
             <div class="post post--question">
               <%= form_with(model: @question, local: true) do |f| %>
