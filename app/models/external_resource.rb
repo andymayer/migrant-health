@@ -25,10 +25,10 @@ class ExternalResource < ApplicationRecord
   # private
 
   def set_resource_type_and_metadata
-    extension = File.extname(url)
+    extension = File.extname(url.strip)
     self.resource_type = extension.empty? ? 'html' : 'document'
     begin
-      uri = URI.parse(url)
+      uri = URI.parse(url.strip)
       self.metadata =  uri.host
     rescue
     end
