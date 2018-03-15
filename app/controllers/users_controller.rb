@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def favourites
     if current_user
-      @resources = current_user.find_liked_items
+      @resources = current_user.find_liked_items.select {|i| i.class.ancestors.include? Resource}
     else
       redirect_to new_user_session_path, notice: "You need to be logged in to see favourites"
     end
