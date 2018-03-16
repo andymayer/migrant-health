@@ -60,11 +60,11 @@ class Resource < ApplicationRecord
   end
 
   def liked_message
-    "Added to your favourites"
+    "Added to favourites"
   end
 
   def not_liked_yet_message
-    "Add to your favourites"
+    "Add to favourites"
   end
 
   private
