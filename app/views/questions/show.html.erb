@@ -62,9 +62,9 @@
     <div class="container">
       <div class="row">
          <div class="col-sm-8">
-          <% if @question.answers.exists? %>
-            <h2><%= @question.answers.count %> Answers</h2>
-            <% @question.answers.each_with_index do |answer, index| %>
+          <% if @answers.present? %>
+            <h2><%= @answers.count %> Answers</h2>
+            <% @answers.each_with_index do |answer, index| %>
               <%= render 'answer', answer: answer, comment: @comment, index: index %>
             <% end %>
           <% else %>

@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
       @topics = ActsAsTaggableOn::Tag.order("RANDOM()").limit(4)
     end
     @answer = Answer.new(question: @question)
+    @answers = @question.answers.sort_by{|a| -a.weighted_score}
     @comment = Comment.new()
   end
 
