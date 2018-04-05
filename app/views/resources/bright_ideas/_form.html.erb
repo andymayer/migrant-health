@@ -7,6 +7,7 @@
     <li role="presentation"><a href="#what-did-we-do" aria-controls="what-did-we-do" role="tab" data-toggle="tab">What Did We Do?</a></li>
     <li role="presentation"><a href="#did-it-work" aria-controls="did-it-work" role="tab" data-toggle="tab">Did It Work?</a></li>
     <li role="presentation"><a href="#recommendations" aria-controls="recommendations" role="tab" data-toggle="tab">Recommendations</a></li>
+    <li role="presentation"><a href="#attachments" aria-controls="attachments" role="tab" data-toggle="tab">Attachments</a></li>
   </ul>
 </div>
 
@@ -32,6 +33,10 @@
 
       <%= render 'layouts/forms/new_edit_paragraph', paragraph_chunk: :recommendations_chunk, tab_id: 'recommendations',
           legend_content: 'Recommendations', f: f %>
+
+      <%= render 'layouts/forms/new_edit_further_information', further_information_chunk: :attachments_chunk, tab_id: 'attachments',
+          legend_content: 'Attachment', title_placeholder_content: 'Attachment', f: f, resource: resource %>
+
     </div>
     <div class="actions">
       <%= f.submit nil, class: 'btn btn-default' %>

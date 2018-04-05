@@ -31,12 +31,15 @@ module Resources
     belongs_to :what_did_we_do_chunk,         optional: true, class_name: 'NumberedParagraphChunk', foreign_key: 'content_chunk_3_id'
     belongs_to :did_it_work_chunk,            optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_4_id'
     belongs_to :recommendations_chunk,        optional: true, class_name: 'ParagraphChunk', foreign_key: 'content_chunk_5_id'
+    belongs_to :attachments_chunk,            optional: true, class_name: 'FurtherInformationChunk', foreign_key: 'further_information_chunk_id'
 
     accepts_nested_attributes_for :what_was_the_problem_chunk,    reject_if: :all_blank_and_new_record
     accepts_nested_attributes_for :how_did_we_approach_it_chunk,  reject_if: :all_blank_and_new_record
     accepts_nested_attributes_for :what_did_we_do_chunk,          reject_if: :all_blank_and_new_record
     accepts_nested_attributes_for :did_it_work_chunk,             reject_if: :all_blank_and_new_record
     accepts_nested_attributes_for :recommendations_chunk,         reject_if: :all_blank_and_new_record
+    accepts_nested_attributes_for :attachments_chunk,         reject_if: :all_blank_and_new_record
+
 
     def icon_file_name
       'icon-practice-example.svg'
