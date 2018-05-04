@@ -3,6 +3,6 @@
     <%= render 'layouts/icon_image', file_name: 'icon-discussion.svg', alt_text: 'Question' %>
 
     <h3 class="listing__title"><%= sanitize question.title %></h3>
-    <p class="metadata"><%= question.weighted_score %> votes, <%= pluralize(question.answers.count, 'answer') %>, 54 views</p>
+    <p class="metadata"><%= question.weighted_score %> votes, <%= pluralize(question.answers.count, 'answer') %></p>
   <% end %>
 </li>
