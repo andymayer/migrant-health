@@ -2,9 +2,13 @@
   <%= render 'layouts/form_error_messages', resource: answer %>
   <%= f.hidden_field :question_id, value: answer.question.id %>
   <fieldset>
-    <legend>Add your answer here</legend>
+    <%- if @answers.present? %>
+      <legend>Don't agree? Add your answer here</legend>
+    <% else %>
+      <legend>Add your answer here</legend>
+    <% end %>
     <div class="form-group">
-     <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Start typing" %>
+     <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Start typing..." %>
     </div>
   </fieldset>
   <div class="actions">
