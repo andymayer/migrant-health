@@ -21,6 +21,7 @@ class QuestionsController < ApplicationController
     @answer = Answer.new(question: @question)
     @answers = @question.answers.sort_by{|a| -a.weighted_score}
     @comment = Comment.new()
+    flash[:error] = "You are not authorised to new this comment" if params[:not_logged_in]  
   end
 
   # GET /questions/new
@@ -89,6 +90,6 @@ class QuestionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def question_params
-    params.require(:question).permit(:title, :content, topic_list: [])
+    params.require(:question).permit(:title, :content, :not_logged_in, topic_list: [])
   end
 end

@@ -9,6 +9,7 @@ module FlashMessageHelper
               concat message
             end)
     end
+    flash[:error] = nil
     nil
   end
 
@@ -22,6 +23,12 @@ module FlashMessageHelper
     case message
     when "You are not authorised to new this question"
       return "You need to be <a href='/users/sign_in'>registered and logged in</a> to ask a question.".html_safe
+    when "You are not authorised to new this comment"
+      return "You need to be <a href='/users/sign_in'>registered and logged in</a> to post a comment.".html_safe
+    when "You are not authorised to like this question"
+      return "You need to be <a href='/users/sign_in'>registered and logged in</a> to vote on a question.".html_safe
+    when "You are not authorised to like this answer"
+      return "You need to be <a href='/users/sign_in'>registered and logged in</a> to vote on an answer.".html_safe
     else
       return message
     end
