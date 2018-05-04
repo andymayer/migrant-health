@@ -29,6 +29,11 @@ module FlashMessageHelper
       return "You need to be <a href='/users/sign_in'>registered and logged in</a> to vote on a question.".html_safe
     when "You are not authorised to like this answer"
       return "You need to be <a href='/users/sign_in'>registered and logged in</a> to vote on an answer.".html_safe
+    when "Answer was successfully posted."
+      return "Your answer was successfully added to the bottom of the page."
+    when "Comment was successfully posted."
+      return "Your comment was successfully added."
+
     else
       return message
     end
