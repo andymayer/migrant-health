@@ -52,4 +52,9 @@ class Question < ApplicationRecord
     AUTHORISATION_MESSAGE
   end
 
+  def self.top
+    all.sort_by{|a| -a.weighted_score}.first(10)
+  end
+
+
 end

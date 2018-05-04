@@ -27,7 +27,7 @@
             <div class="tab-content ">
               <div class="tab-pane active" id="1">
                 <ul class="listing listing--questions">
-                  <% Question.all.each do |question| %>
+                  <% Question.top.each do |question| %>
                     <%= render 'question', question: question %>
                   <% end %>
                 </ul>

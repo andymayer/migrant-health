@@ -4,7 +4,7 @@
       <div class="col-sm-4">
         <h2>Top questions</h2>
           <ul class="listing listing--questions listing--small">
-            <% Question.all.order(:updated_at).limit(3).each do |question| %>
+            <% Question.top.each do |question| %>
               <%= render 'questions/question', question: question %>
             <% end %>
           </ul>
