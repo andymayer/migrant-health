@@ -18,8 +18,10 @@
     <h3 class="how-it-works-title">Here's how it works</h3>
     <div class="row">
       <div class="col-sm-4 how-it-works">
-        <%= render 'layouts/icon_image', file_name: 'icon-question-1.svg', alt_text: 'Questions' %>
-        <p>Anybody who's registered on the site can ask a question</p>
+        <a href="/questions/new">
+          <%= render 'layouts/icon_image', file_name: 'icon-question-1.svg', alt_text: 'Questions' %>
+          <p>Anybody who's registered on the site can ask a question</p>
+        </a>
       </div>
       <div class="col-sm-4 how-it-works">
         <%= render 'layouts/icon_image', file_name: 'icon-question-2.svg', alt_text: 'Questions' %>
