@@ -19,9 +19,9 @@
           <div id="exTab2" class="">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#1" data-toggle="tab">Top questions</a></li>
-              <li><a href="#2" data-toggle="tab">Active</a></li>
-              <li><a href="#3" data-toggle="tab">Week</a></li>
-              <li><a href="#4" data-toggle="tab">Month</a></li>
+              <li><a href="#2" data-toggle="tab">Active questions</a></li>
+              <li><a href="#3" data-toggle="tab">Most recent</a></li>
+              <li><a href="#4" data-toggle="tab">Open questions</a></li>
             </ul>
 
             <div class="tab-content ">
@@ -33,13 +33,25 @@
                 </ul>
               </div>
               <div class="tab-pane" id="2">
-                <div class="well">Active questions can go here</div>
+                <ul class="listing listing--questions">
+                  <% Question.active.each do |question| %>
+                    <%= render 'question', question: question %>
+                  <% end %>
+                </ul>
               </div>
               <div class="tab-pane" id="3">
-                <div class="well">Active questions this week</div>
+                <ul class="listing listing--questions">
+                  <% Question.recent.each do |question| %>
+                    <%= render 'question', question: question %>
+                  <% end %>
+                </ul>
               </div>
-              <div class="tab-pane" id="3">
-                <div class="well">Active questions this month</div>
+              <div class="tab-pane" id="4">
+                <ul class="listing listing--questions">
+                  <% Question.open.each do |question| %>
+                    <%= render 'question', question: question %>
+                  <% end %>
+                </ul>
               </div>
             </div>
           </div>

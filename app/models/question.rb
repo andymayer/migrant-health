@@ -56,5 +56,17 @@ class Question < ApplicationRecord
     all.sort_by{|a| -a.weighted_score}.first(10)
   end
 
+  def self.active
+    Question.left_joins(:answers).group(:id).order('COUNT(answers.id) DESC').limit(10)
+  end
+
+  def self.recent
+    Question.order("created_at DESC").first(10)
+  end
+
+  def self.open
+    Question.includes(:answers).where(answers: { id: nil }).order("questions.created_at ASC").shuffle.first(10)
+  end
+
 
 end

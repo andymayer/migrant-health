@@ -13,7 +13,7 @@
       <div class="col-sm-4">
         <h2>New questions</h2>
           <ul class="listing listing--questions listing--small">
-            <% Question.all.order(created_at: :desc).limit(3).each do |question| %>
+            <% Question.recent.each do |question| %>
               <%= render 'questions/question', question: question %>
             <% end %>
           </ul>
@@ -23,7 +23,7 @@
         <h2>Unanswered questions</h2>
           <% if Question.includes(:answers).where(answers: { id: nil }).exists? %>
             <ul class="listing listing--questions listing--small">
-              <% Question.includes(:answers).where(answers: { id: nil }).each do |question| %>
+              <% Question.open.each do |question| %>
                 <%= render 'questions/question', question: question %>
               <% end %>
             </ul>
