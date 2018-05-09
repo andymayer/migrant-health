@@ -7,7 +7,9 @@
         <div class="col-sm-8 strip__left">
           <div class="jumbotron">
             <h1 class="title--strip">User Profile</h1>
-            <p class="intro"><%=  @user.display_name %></p>
+            <p class="intro"><%=  @user.display_name %>
+            <br><%= @user.location %></p>
+
           </div>
         </div>
       </div>
@@ -62,5 +64,3 @@
 
 
 </section>
-
-
