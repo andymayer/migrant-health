@@ -3,9 +3,12 @@
   <%= render 'layouts/form_error_messages', resource: resource %>
   <div class="form-group">
     <%= f.label :email %>
-    <p class="help-block">Please use your work email address.</p>
+    <p class="help-block">Please use your work email address. Please note you will need one of the following in order to sign up: .nhs.net .gov.uk etc</p>
     <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email address' %>
   </div>
+  <p class="help-block">
+    If you ask a question, post a comment or answer on this site, your title, first, last name and the region in which you work will be displayed so the community gets a general idea of who you are. They will not be able to contact you from this information.
+  </p>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, autofocus: true, class: 'form-control', placeholder: 'Title' %>
@@ -24,6 +27,7 @@
   </div>
   <div class="form-group">
     <%= f.label :institution %>
+    <p class="help-block">This information will not be published on the site, but will provide the organisations behind the website with an indication of what sorts of settings those using the site work in.</p>
     <%= f.select :institution, options_for_select(User.institutions), {prompt: 'Please select...'}, {class: 'form-control'} %>
   </div>
   <div class="form-group">

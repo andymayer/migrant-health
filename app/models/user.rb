@@ -64,14 +64,14 @@ class User < ApplicationRecord
   def self.job_titles
     [   "GP",
         "GP registrar",
+        "GP Receptionist",
+        "Practice Manager",
         "Consultant (hospital)",
         "Trainee Doctor",
         "Practice Nurse",
         "Community Nurse",
         "Hospital Nurse",
         "Health Care Assistant",
-        "GP Receptionist",
-        "Practice Manager",
         "Health Visitor",
         "Student",
         "Other"]
@@ -79,12 +79,12 @@ class User < ApplicationRecord
 
   def self.institutions
     [ "NHS - GP practice",
-      "NHS - hospital",
-      "University",
-      "Local government",
-      "Public Health England",
-      "CCG",
       "NHS - community services",
+      "NHS - hospital",
+      "CCG",
+      "Public Health England",
+      "Local government",
+      "University",
       "Other"]
   end
 
