@@ -1,31 +1,31 @@
 <div class="strip strip--topics">
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <p class="topic-help">
           Browse by one of the top topics below, or <a href="/topics">view all topics</a>.
         </p>
         <div class="row">
-          <% Topic.featured.each do |topic| %>
-            <div class="tag-summary">
-              <h3 class="tag-summary__title">
-                <%= link_to topic.name, topic_path(topic), class: 'tag-summary__link' %>
-              </h3>
-              <p class="tag-summary_desc">
-                <%= topic.description %>
-              </p>
-            </div>
-          <% end %>
+
+          <ul class="listing listing--large">
+            <% Topic.featured.each do |topic| %>
+              <div class="tag-summary">
+
+                <li>
+                  <%= link_to topic_path(topic) do %>
+                  <%= render 'layouts/icon_image', file_name: 'icon-topic.svg', alt_text: 'Topic' %>
+                    <h3 class="listing__title"><%= topic.name %></h3>
+                  <% end %>
+                </li>
+
+                </div>
+
+            <% end %>
+          </ul>
+
+
         </div><!-- /row -->
       </div><!-- /col-md-9 -->
-      <div class="col-md-3">
-        <div class="row">
-        <%= link_to 'View all topics', topics_path %>
-      </div>
-      <div class="row">
-        <%= link_to 'View all countries', resources_countries_path %>
-      </div>
-      </div>
     </div>
   </div>
 </div>

@@ -39,7 +39,7 @@
   @extend .col-sm-6;
   @extend .col-md-4;
   @include media-query (md) {
-    min-height:160px;
+    min-height:105px;
   }
 }
 .tag-summary__title {
@@ -49,4 +49,10 @@
 .tag-summary_desc {
   font-size:16px;
   color:$gray-dark;
+}
+
+.topic-help {
+  font-weight: bolder;
+  padding-bottom: 20px;
+  font-size: 21px;
 }
