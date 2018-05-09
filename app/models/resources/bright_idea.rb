@@ -50,7 +50,7 @@ module Resources
     end
 
     def self.tagline
-      'Highlighting innovative and good practice'.freeze
+      'Highlighting local innovative and good practice'.freeze
     end
 
   end
