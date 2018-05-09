@@ -3,7 +3,7 @@
     <h3 class="related-box__title">Related resources</h3>
     <ul class="listing related-nav">
       <!-- cast as Resource to get tags working -->
-      <% resource.becomes(Resource).find_related_topics.each do |related| %>
+      <% resource.becomes(Resource).find_related_topics.first(5).each do |related| %>
         <li>
           <%= link_to polymorphic_path(related), class: "list-icon list-icon--how-to" do %>
             <%= render 'layouts/icon_image', file_name: related.icon_file_name, alt_text: related.icon_alt_text %>
