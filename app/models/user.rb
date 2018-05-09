@@ -89,16 +89,19 @@ class User < ApplicationRecord
   end
 
   def self.locations
-    [ "NW England",
-      "NE England",
+    [ "England - East Midlands",
+      "England - East of England",
+      "England - London",
+      "England - North East",
+      "England - North West",
+      "England - South East",
+      "England - South West",
+      "England - West Midlands",
+      "England - Yorkshire and the Humber",
       "Scotland",
       "Wales",
-      "Yorkshire and Humber",
-      "London",
-      "SE England",
-      "SW England",
-      "Midlands",
-      "Other"]
+      "Northern Ireland",
+      "Outside the UK"]
   end
 
   private
