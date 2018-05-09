@@ -45,7 +45,7 @@ module Resources
     end
 
     def self.tagline
-      'For you to use and adapt'.freeze
+      'Nationwide organisations, templates and signposting'.freeze
     end
   end
 end
