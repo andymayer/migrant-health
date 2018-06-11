@@ -4,7 +4,7 @@
       <div class="col-sm-4">
         <h2>Top questions</h2>
           <ul class="listing listing--questions listing--small">
-            <% Question.top.each do |question| %>
+            <% Question.top.first(5).each do |question| %>
               <%= render 'questions/question', question: question %>
             <% end %>
           </ul>
@@ -13,7 +13,7 @@
       <div class="col-sm-4">
         <h2>New questions</h2>
           <ul class="listing listing--questions listing--small">
-            <% Question.recent.each do |question| %>
+            <% Question.recent.first(5).each do |question| %>
               <%= render 'questions/question', question: question %>
             <% end %>
           </ul>
@@ -23,7 +23,7 @@
         <h2>Unanswered questions</h2>
           <% if Question.includes(:answers).where(answers: { id: nil }).exists? %>
             <ul class="listing listing--questions listing--small">
-              <% Question.open.each do |question| %>
+              <% Question.open.first(5).each do |question| %>
                 <%= render 'questions/question', question: question %>
               <% end %>
             </ul>
