@@ -1,27 +1,30 @@
-<div id="question-banner" class="question-banner panel clearfix">
+<% if current_user%>
+  <%- call_to_action = "/questions/new" %>
+<% else %>
+  <%- call_to_action = "/users/sign_in" %>
+<% end %>
+
+<a href="<%=call_to_action%>" id="question-banner" class="question-banner panel clearfix">
   <button type="button" class="close" data-target="#question-banner" data-dismiss="alert">
     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
   </button>
   <div class="col-md-4">
     <% if current_user%>
       <p class="intro">
-        Migrant.health is a question and answer site for health professionals.
+        Migrant.health is a question and answer site for health professionals. Click to post your question.
       </p>
     <% else %>
       <p class="intro">
-        Migrant.health is a question and answer site for health professionals. Join now to be part of the discussion.
+        Migrant.health is a question and answer site for health professionals. Register now to be part of the discussion.
       </p>
-      <%= link_to 'Sign up', new_user_session_path, class: 'btn btn-primary'  %>
     <% end %>
   </div>
   <div class="col-md-6 col-md-offset-1 how-it-works-icons">
     <h3 class="how-it-works-title">Here's how it works</h3>
     <div class="row">
       <div class="col-sm-4 how-it-works">
-        <a href="/questions/new">
-          <%= render 'layouts/icon_image', file_name: 'icon-question-1.svg', alt_text: 'Questions' %>
-          <p>Anybody who's registered on the site can ask a question</p>
-        </a>
+        <%= render 'layouts/icon_image', file_name: 'icon-question-1.svg', alt_text: 'Questions' %>
+        <p>Anybody who's registered on the site can ask a question</p>
       </div>
       <div class="col-sm-4 how-it-works">
         <%= render 'layouts/icon_image', file_name: 'icon-question-2.svg', alt_text: 'Questions' %>
@@ -33,4 +36,4 @@
       </div>
     </div>
   </div>
-</div>
+</a>
