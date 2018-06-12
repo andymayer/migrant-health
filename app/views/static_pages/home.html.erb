@@ -12,8 +12,13 @@
            <%= render 'layouts/search_widget', search_path: search_path %>
         </div>
         <div class="col-sm-4 strip__about-this-site">
-          <h3 class="title">About this site and how to use it</h3>
-          <%= render 'layouts/embedded_video', video_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/cRskjqpgSNs" frameborder="0" allowfullscreen></iframe>' %>
+          <h3 class="title">Watch the video</h3>
+          <a class="venobox vbox-item video-wrapper" data-vbtype="video" data-autoplay="true" href="https://youtu.be/-I2asa5J27o">
+
+            <%= image_tag 'video-placeholder.png', alt: 'Watch the video', class: 'video-wrapper' %>
+
+          </a>
+
         </div>
       </div>
     </div>

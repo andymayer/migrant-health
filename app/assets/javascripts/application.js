@@ -18,3 +18,5 @@
 //= require select2
 //= require autocomplete
 //= require social-share-button
+//= require venobox.min
+//= require set_up_venobox
