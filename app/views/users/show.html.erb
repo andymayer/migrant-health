@@ -8,8 +8,13 @@
           <div class="jumbotron">
             <h1 class="title--strip">User Profile</h1>
             <p class="intro"><%=  @user.display_name %>
-            <br><%= @user.location %></p>
-
+            <%if @user.location%>
+              <br><%= @user.location %>
+            <%end%>
+            <%if @user.job_title%>
+              <br><%= @user.job_title %>
+            <%end%>
+            </p>
           </div>
         </div>
       </div>
