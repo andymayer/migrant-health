@@ -12,6 +12,12 @@ class StaticPagesController < ApplicationController
   def privacy_policy
   end
 
+  def house_rules
+  end
+
+  def terms_of_use
+  end
+
   def accessibility
   end
 

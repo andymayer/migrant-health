@@ -58,6 +58,9 @@ Rails.application.routes.draw do
   get '/privacy-policy/', to: 'static_pages#privacy_policy',  as: :privacy_policy
   get '/contact-us/',     to: 'static_pages#contact_us',      as: :contact_us
   get '/feedback/',      to: 'static_pages#feedback',        as: :feedback
+  get '/house-rules/',      to: 'static_pages#house_rules',  as: :house_rules
+  get '/terms-of-use/',      to: 'static_pages#terms_of_use',  as: :terms_of_use
+
 
   # Catch all for 404
   get "*any", via: :all, to: "errors#not_found"
