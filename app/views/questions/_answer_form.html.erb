@@ -1,3 +1,4 @@
+<a name="answer"></a>
 <%= form_with(model: answer, local: true) do |f| %>
   <%= render 'layouts/form_error_messages', resource: answer %>
   <%= f.hidden_field :question_id, value: answer.question.id %>
@@ -11,7 +12,7 @@
     <%-if current_user %>
 
       <div class="form-group">
-       <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Start typing..." %>
+       <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Start typing your answer..." %>
       </div>
 
     <% else %>
@@ -25,7 +26,7 @@
   </fieldset>
   <div class="actions">
     <%-if current_user %>
-      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= f.submit 'Submit your answer', class: 'btn btn-primary' %>
     <% else %>
     <%=link_to "Login / register", "/users/sign_in", class: 'btn btn-primary' %>
     <% end %>

@@ -36,12 +36,14 @@
                 </span>
               </span>
 
-              <div class="pull-right">
+              <div class="pull-left">
                 <%-if current_user%>
+                  <a href="#answer" class="btn btn-primary">Add answer</a>
                   <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample-question" aria-expanded="false" aria-controls="collapseExample-question">
                   Add comment
                   </button>
                 <%else%>
+                  <%=link_to "Add answer", question_path(@question, not_logged_in: true), class: 'btn btn-primary' %>
                   <%=link_to "Add comment", question_path(@question, not_logged_in: true), class: 'btn btn-default' %>
                 <%end%>
                 <% if policy(@question).update? %>
@@ -50,7 +52,7 @@
                 <% end %>
               </div>
             </div>
-            <div class="collapse" id="collapseExample-question">
+            <div class="collapse question" id="collapseExample-question">
               <%= render 'comment_form', thing: @question, question_id: @question.id, comment: @comment %>
             </div>
             <%= render 'comments', thing: @question %>

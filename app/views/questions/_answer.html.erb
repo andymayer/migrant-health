@@ -37,7 +37,7 @@
       <% end %>
     </div>
   </div>
-  <div class="collapse" id="collapseExample-<%= index %>">
+  <div class="collapse answer" id="collapseExample-<%= index %>">
     <%- if current_user%>
       <%= render 'comment_form', thing: answer, answer_id: answer.id, comment: comment %>
     <% end %>

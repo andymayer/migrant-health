@@ -35,6 +35,8 @@
   z-index: 55;
   box-shadow:-2px -2px 7px rgba(0, 0, 0, 0.1), -1px -1px 1px rgba(0, 0, 0, 0.1), 2px 2px 2px rgba(0, 0, 0, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.1);
   min-height:190px;
+  display: block;
+  overflow: auto;
 }
 
 .post--with_title {
@@ -169,4 +171,37 @@
 
 .ask-question__title {
   color:inherit;
+}
+
+.question .comment_hint {
+  margin-top: 5px;
+  color: white;
+  font-size:$font-size-small;
+}
+
+.question .comment_hint a {
+  color: white;
+  font-weight: bold;
+  font-size:$font-size-small;
+}
+
+.answer .comment_hint {
+  margin-top: 5px;
+  color: $black;
+  font-size:$font-size-small;
+}
+
+.answer .comment_hint a {
+  color: $black;
+  font-weight: bold;
+  font-size:$font-size-small;
+}
+
+.btn {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.actions {
+  margin-bottom: 30px;
 }

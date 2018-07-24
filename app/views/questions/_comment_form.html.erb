@@ -5,7 +5,8 @@
     <%= f.hidden_field :answer_id, value: answer_id if defined? answer_id %>
     <fieldset>
       <div class="form-group">
-       <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Your comment" %>
+        <p class="comment_hint">Only add a comment here if you want to clarify what is being said. If you have your own answer type it in the <a href="#answer">answer box</a> at the bottom of the page so that people can vote on it.</p>
+       <%= f.text_area :content, class: 'form-control', size: "60x4", placeholder: "Type a comment here" %>
       </div>
     </fieldset>
     <div class="actions">
