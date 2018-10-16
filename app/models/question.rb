@@ -16,7 +16,7 @@ class Question < ApplicationRecord
 
   AUTHORISATION_MESSAGE = "You need to be registered and logged in to ask or vote for a question.".freeze
 
-  acts_as_url :content, url_attribute: :slug
+  acts_as_url :title, url_attribute: :slug
   acts_as_votable
 
   acts_as_taggable
